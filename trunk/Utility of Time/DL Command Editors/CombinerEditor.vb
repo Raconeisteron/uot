@@ -34,8 +34,8 @@ Public Class CombinerEditor
     End Sub
 
     Private Function RGBA8ColorToColorObject(ByVal Color As Color4UByte) As Color
-        Return System.Drawing.Color.FromArgb(Color.a, Color.g, _
-                                             Color.r, Color.b)
+        Return System.Drawing.Color.FromArgb(Color.a, Color.r, _
+                                             Color.g, Color.b)
     End Function
     Private Sub UpdateEnvColor(ByVal Cmd As DLCommand)
         If Cmd.CMDHigh > 0 Then

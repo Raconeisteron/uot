@@ -6,9 +6,7 @@ Module GlobalVars
     Public winw As Integer = 0
     Public ogltop As Integer = 0
     Public oglleft As Integer
-    Public CurrentBank As Integer = 0
-    Public winresw As String = ""
-    Public winresh As String = ""
+
     Public MaxAnisotropy() As Single = {0.0F}
     Public DefROM As String = ""
     Public args() As String = {""}
@@ -52,24 +50,25 @@ Module GlobalVars
     Public ActorGroups As New ArrayList
     Public ActorGroupOffset
 #End Region
-
-#Region ""
+#Region "key data handlers"
     Public PickedEntities As New PickedItems
+    Public CurrentBank As Integer = 0
     Public ZFileBuffer As Byte()
     Public ZSceneBuffer As Byte()
-    Public CommonBank1 As Byte()
-    Public CommonBank2 As Byte()
+    Public ZCommonBankKeep As Byte()
+    Public ZCommonBankFieldKeep As Byte()
+    Public ZCommonBankDungeonKeep As Byte()
     Public GLExtensions As OpenGLExtensions
     Public ParseDL As New F3DEX2_Parser
     Public CompileDL As New N64DlistAssembler
     Public ParseOBJ As New OBJParser
-    Public RSPInterpreter As New MIPS
-    Public CMDLow As UInt32
-    Public CMDHigh As UInt32
+    Public LinkedCommands As New DLEdit
 #End Region
+#Region "Texture Converter Class Instances"
     Public RGBA As New TextureUpscaler.RGBA
     Public CI As New TextureUpscaler.CI
     Public IA As New TextureUpscaler.IA
     Public I As New TextureUpscaler.I
+#End Region
 End Module
 

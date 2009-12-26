@@ -11,10 +11,8 @@ Public Class F3DEX2_Parser
     End Enum
     Public ParseMode As Integer = -1
 #Region "SHADERS & TEXTURE RELATED"
-
     Private PalBank As Integer = 0
     Private PalOff As Integer = 0
-
     Private Palette16() As Byte
     Private NewTexture As Boolean = False
     Private N64GeometryMode As UInt32
@@ -53,7 +51,7 @@ Public Class F3DEX2_Parser
 #End Region
 
 #Region "F3DEX2 TO OPENGL DISPLAY LIST"
-    Public Sub ParseCommand(ByVal DL As N64DisplayList, ByVal Index As Integer, ByVal Extras As Object)
+    Public Sub ParseCommand(ByVal DL As N64DisplayList, ByVal Index As Integer)
         With DL.Commands(Index)
             If ParseMode = Parse.EVERYTHING Then
                 Select Case .CMDParams(0)
@@ -136,11 +134,11 @@ modifyvertex:
 
                     Case F3DZEX.TRI1
 onetriangle:
-                        TRI1(.CMDParams, Extras)
+                        TRI1(.CMDParams)
 
                     Case F3DZEX.TRI2
 twotriangles:
-                        TRI2(.CMDParams, Extras)
+                        TRI2(.CMDParams)
 
                     Case F3DZEX.ENDDL
 enddisplaylist:
@@ -361,7 +359,7 @@ enddisplaylist:
             Case 3 'rendermode
                 If ZMODE_DEC Then
                     Gl.glEnable(Gl.GL_POLYGON_OFFSET_FILL)
-                    Gl.glPolygonOffset(-3, -3)
+                    Gl.glPolygonOffset(-6, -6)
                 Else
                     Gl.glDisable(Gl.GL_POLYGON_OFFSET_FILL)
                 End If
@@ -454,11 +452,15 @@ enddisplaylist:
 
 
         If ParseMode = Parse.EVERYTHING Then
-            If GLExtensions.GLFragProg Then
+            If EnableCombiner Then
+                Gl.glEnable(Gl.GL_FRAGMENT_PROGRAM_ARB)
                 Gl.glProgramEnvParameter4fvARB(Gl.GL_FRAGMENT_PROGRAM_ARB, 0, EnvironmentColor)
                 Gl.glProgramEnvParameter4fvARB(Gl.GL_FRAGMENT_PROGRAM_ARB, 1, PrimColor)
                 Gl.glProgramEnvParameter4fvARB(Gl.GL_FRAGMENT_PROGRAM_ARB, 3, BlendColor)
                 Gl.glProgramEnvParameter4fARB(Gl.GL_FRAGMENT_PROGRAM_ARB, 2, PrimColorLOD, PrimColorLOD, PrimColorLOD, PrimColorLOD)
+            Else
+                Gl.glDisable(Gl.GL_FRAGMENT_PROGRAM_ARB)
+                MultiTexture = False
             End If
 
             Gl.glEnable(Gl.GL_TEXTURE_2D)
@@ -500,14 +502,14 @@ enddisplaylist:
             End If
         End If
     End Sub
-    Private Sub TRI1(ByVal CMDParams() As Byte, ByVal ForceColor As Object)
+    Private Sub TRI1(ByVal CMDParams() As Byte)
         Try
             Polygons(0) = CMDParams(1) >> 1
             Polygons(1) = CMDParams(2) >> 1
             Polygons(2) = CMDParams(3) >> 1
+
             If ParseMode = Parse.EVERYTHING Then
                 Gl.glBegin(Gl.GL_TRIANGLES)
-
                 For i As Integer = 0 To 2
                     If MultiTexCoord Then
                         Gl.glMultiTexCoord2f(Gl.GL_TEXTURE0_ARB, VertexCache.u(Polygons(i)) * Textures(0).TextureWRatio, VertexCache.v(Polygons(i)) * Textures(0).TextureHRatio)
@@ -524,24 +526,19 @@ enddisplaylist:
                     Gl.glNormal3b(CByte(VertexCache.r(Polygons(i))), CByte(VertexCache.g(Polygons(i))), CByte(VertexCache.b(Polygons(i))))
                     Gl.glVertex3f(VertexCache.x(Polygons(i)), VertexCache.y(Polygons(i)), VertexCache.z(Polygons(i)))
                 Next
-
                 Gl.glEnd()
-
             Else
-                Gl.glColor3ub(ForceColor.r, ForceColor.g, ForceColor.b)
                 Gl.glBegin(Gl.GL_TRIANGLES)
-
                 For i As Integer = 0 To 2
                     Gl.glVertex3f(VertexCache.x(Polygons(i)), VertexCache.y(Polygons(i)), VertexCache.z(Polygons(i)))
                 Next
-
                 Gl.glEnd()
             End If
         Catch ex As Exception
             MsgBox("Error TRI1 - out of bounds!" & Environment.NewLine & Environment.NewLine & ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
     End Sub
-    Private Sub TRI2(ByVal CMDParams() As Byte, ByVal ForceColor As Object)
+    Private Sub TRI2(ByVal CMDParams() As Byte)
         Try
             Polygons(0) = CMDParams(1) >> 1
             Polygons(1) = CMDParams(2) >> 1
@@ -567,10 +564,8 @@ enddisplaylist:
                     End If
                     Gl.glVertex3f(VertexCache.x(Polygons(i)), VertexCache.y(Polygons(i)), VertexCache.z(Polygons(i)))
                 Next
-
                 Gl.glEnd()
             Else
-                Gl.glColor3ub(ForceColor.r, ForceColor.g, ForceColor.b)
                 Gl.glBegin(Gl.GL_TRIANGLES)
                 For i As Integer = 0 To 5
                     Gl.glVertex3f(VertexCache.x(Polygons(i)), VertexCache.y(Polygons(i)), VertexCache.z(Polygons(i)))
@@ -714,9 +709,6 @@ enddisplaylist:
             Clamp_Height = Textures(id).Height
         End If
 
-        If Clamp_Width > 256 Then Textures(id).CMS = 0
-        If Clamp_Height > 256 Then Textures(id).CMT = 0
-
         If Mask_Width > Textures(id).Width Then
             Textures(id).MaskS = PowOf(Textures(id).Width)
             Mask_Width = 1 << Textures(id).MaskS
@@ -847,11 +839,7 @@ enddisplaylist:
             Case RDP.G_TX_CLAMP, 3
                 Gl.glTexParameteri(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_WRAP_S, Gl.GL_CLAMP_TO_EDGE)
             Case RDP.G_TX_MIRROR
-                If GLExtensions.GLMirrorTexture Then
-                    Gl.glTexParameteri(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_WRAP_S, Gl.GL_MIRRORED_REPEAT)
-                Else
-                    Gl.glTexParameteri(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_WRAP_S, Gl.GL_REPEAT)
-                End If
+                Gl.glTexParameteri(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_WRAP_S, Gl.GL_MIRRORED_REPEAT)
             Case RDP.G_TX_WRAP
                 Gl.glTexParameteri(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_WRAP_S, Gl.GL_REPEAT)
             Case Else
@@ -861,11 +849,7 @@ enddisplaylist:
             Case RDP.G_TX_CLAMP, 3
                 Gl.glTexParameteri(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_WRAP_T, Gl.GL_CLAMP_TO_EDGE)
             Case RDP.G_TX_MIRROR
-                If GLExtensions.GLMirrorTexture Then
-                    Gl.glTexParameteri(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_WRAP_T, Gl.GL_MIRRORED_REPEAT)
-                Else
-                    Gl.glTexParameteri(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_WRAP_T, Gl.GL_REPEAT)
-                End If
+                Gl.glTexParameteri(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_WRAP_T, Gl.GL_MIRRORED_REPEAT)
             Case RDP.G_TX_WRAP
                 Gl.glTexParameteri(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_WRAP_T, Gl.GL_REPEAT)
             Case Else
@@ -887,23 +871,17 @@ enddisplaylist:
 
     Private Sub SETCOMBINE(ByVal w0 As UInt32, ByVal w1 As UInt32)
         If GLExtensions.GLFragProg Then
-            Gl.glEnable(Gl.GL_FRAGMENT_PROGRAM_ARB)
-
-            EnableCombiner = True
-
             Dim ShaderCachePos As Integer = -1
-
+            EnableCombiner = True
             For i As Integer = 0 To FragShaderCache.Length - 1
                 If (w0 = FragShaderCache(i).MUXS0) And (w1 = FragShaderCache(i).MUXS1) Then
                     Gl.glBindProgramARB(Gl.GL_FRAGMENT_PROGRAM_ARB, FragShaderCache(i).FragShader)
                     Exit Sub
                 End If
             Next
-
             DecodeMUX(w0, w1, FragShaderCache, FragShaderCache.Length)
         Else
             EnableCombiner = False
-            Gl.glDisable(Gl.GL_FRAGMENT_PROGRAM_ARB)
         End If
     End Sub
     Private Sub ForceBlending(ByVal c1 As UInteger, ByVal c2 As UInteger)
@@ -950,10 +928,6 @@ enddisplaylist:
         End If
         PrecompiledCombiner = True
     End Sub
-    Private Sub ForceAlphaRef(ByVal alpha As UInteger)
-        Dim ref As Single = alpha / 255.0F
-        Gl.glAlphaFunc(Gl.GL_GEQUAL, ref)
-    End Sub
     Public Function UnpackMUX(ByVal MUXS0 As UInteger, ByVal MUXS1 As UInteger, ByRef CC_Colors As UnpackedCombiner)
         CC_Colors = New UnpackedCombiner
         With CC_Colors
@@ -988,13 +962,10 @@ enddisplaylist:
     End Function
     Public Sub DecodeMUX(ByVal MUXS0 As UInteger, ByVal MUXS1 As UInteger, ByRef Cache() As ShaderCache, ByVal CacheEntry As Integer)
         UnpackMUX(MUXS0, MUXS1, CombArg)
-
         ReDim Preserve Cache(CacheEntry)
         Cache(CacheEntry).MUXS0 = MUXS0
         Cache(CacheEntry).MUXS1 = MUXS1
-        If GLExtensions.GLFragProg Then
-            CreateShader(2, Cache, CacheEntry)
-        End If
+        CreateShader(2, Cache, CacheEntry)
     End Sub
     Private Sub CreateShaderGLSL(ByVal Cycles As Integer, ByVal Cache() As ShaderCache, ByVal CacheEntry As Integer)
 
@@ -1234,9 +1205,9 @@ enddisplaylist:
                         ShaderLines += "MOV ACRegister_1.a, {0.0,0.0,0.0,0.0};" & Environment.NewLine
                 End Select
             End With
-            ShaderLines += "ADD ACRegister_0.a, ACRegister_0.a, ACRegister_1.a;" & Environment.NewLine & Environment.NewLine
-            ShaderLines += "MOV ACReg.a, ACRegister_0.a;" & Environment.NewLine
-            ShaderLines += "MOV CCReg.rgb, CCRegister_0;" & Environment.NewLine
+            ShaderLines += "ADD ACRegister_0, ACRegister_0, ACRegister_1;" & Environment.NewLine & Environment.NewLine
+            ShaderLines += "MOV ACReg, ACRegister_0;" & Environment.NewLine
+            ShaderLines += "MOV CCReg, CCRegister_0;" & Environment.NewLine
         Next
         ShaderLines += "MOV CCReg.a, ACReg.a;" & Environment.NewLine
         ShaderLines += "MOV FinalColor, CCReg;" & Environment.NewLine
@@ -1253,6 +1224,9 @@ enddisplaylist:
 
 #Region "STATE CHANGES"
     Public Sub KillTexCache()
+        For i As Integer = 0 To TextureCache.Length - 1
+            Gl.glDeleteTextures(1, TextureCache(i).Texture.ID)
+        Next
         ReDim TextureCache(-1)
     End Sub
     Public Sub Initialize()

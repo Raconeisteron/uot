@@ -1,26 +1,20 @@
 ﻿Public Module Structs
 
 #Region "Unspecific"
+    Public Structure Color3UByte
+        Dim r As Byte
+        Dim g As Byte
+        Dim b As Byte
+    End Structure
     Public Structure Color4UByte
         Dim r As Byte
         Dim g As Byte
         Dim b As Byte
         Dim a As Byte
     End Structure
-    Structure N64Vertex
-        Dim x() As Short
-        Dim y() As Short
-        Dim z() As Short
-        Dim u() As Short
-        Dim v() As Short
-        Dim r() As Byte
-        Dim g() As Byte
-        Dim b() As Byte
-        Dim a() As Byte
-    End Structure
+
     Structure OpenGLExtensions
         Dim GLMultiTexture As Boolean
-        Dim GLMirrorTexture As Boolean
         Dim GLFragProg As Boolean
         Dim GLAnisotropic As Boolean
         Dim GLSL As Boolean
@@ -163,7 +157,17 @@
     End Structure
 #End Region
 #Region "Geometry"
-
+    Structure N64Vertex
+        Dim x() As Short
+        Dim y() As Short
+        Dim z() As Short
+        Dim u() As Short
+        Dim v() As Short
+        Dim r() As Byte
+        Dim g() As Byte
+        Dim b() As Byte
+        Dim a() As Byte
+    End Structure
 #End Region
 #Region "Zelda File tables"
     Public Structure ActorTbl
@@ -243,9 +247,7 @@
     Structure N64DisplayList
         Dim Skip As Boolean
         Dim Highlight As Boolean
-        Dim PickR As Byte
-        Dim PickG As Byte
-        Dim PickB As Byte
+        Dim PickCol As Color3UByte
         Dim StartPos As ZSegment
         Dim EndPos As ZSegment
         Dim CommandCount As Integer

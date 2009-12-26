@@ -292,4 +292,5 @@ Partial Class MainWin
     Friend WithEvents Copy As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents Paste As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents Reset As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents GroupBox8 As System.Windows.Forms.GroupBox
 End Class

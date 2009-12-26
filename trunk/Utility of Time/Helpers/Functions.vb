@@ -6,8 +6,7 @@ Module Functions
     Private Declare Function ShellExecute Lib "shell32.dll" Alias "ShellExecuteA" _
     (ByVal hWnd As Long, ByVal lpOperation As String, ByVal lpFile As String, ByVal _
     lpParameters As String, ByVal lpDirectory As String, ByVal nShowCmd As Long) As Long
-    Private a As Integer = 0
-    Private b As Integer = 0
+
     Public Sub SetOGLDefaultParams()
         Gl.glDisable(Gl.GL_TEXTURE_2D)
         Gl.glDisable(Gl.GL_FRAGMENT_PROGRAM_ARB)
@@ -78,9 +77,6 @@ Module Functions
         End While
         Return i
     End Function
-    Public Function IsHex(ByVal HexVal As String) As Boolean
-        Return Integer.TryParse(HexVal, Globalization.NumberStyles.HexNumber)
-    End Function
     Public Function HexOnly(ByVal str As String) As Boolean
         If "0123456789ABCDEF".IndexOf(str) = -1 Then
             Return True
@@ -128,12 +124,11 @@ Module Functions
         For Each node In treeNode1.Nodes
             node.Checked = nodeChecked
             If node.Nodes.Count > 0 Then
-                ' If the current node has child nodes, call the CheckAllChildsNodes method recursively.
                 CheckAllChildNodes(node, nodeChecked)
             End If
-        Next node
+        Next
     End Function
-    'macros for processing gbi commands
+    'macros for processing n64 dl commands
     Public Function ShiftR(ByVal v As UInt32, ByVal s As UInt32, ByVal w As UInt32) As UInt32
         Return (v >> s) And ((1 << w) - 1)
     End Function
@@ -186,45 +181,36 @@ Module Functions
             Return False
         End If
     End Function
-    Public Function CalcFaceNormal(ByVal v1() As Short, ByVal v2() As Short, ByVal v3() As Short) As Short
-      
-        'Dim Vector1 As Short = v2 - v1
-        'Dim Vector2 As Short = v3 - v1
-
-    End Function
     Public Function GLPrint2D(ByVal Text As String, ByVal XPos As Integer, ByVal YPos As Integer, ByVal Shadow As Boolean)
         Gl.glMatrixMode(Gl.GL_PROJECTION)
         Gl.glPushMatrix()
         Gl.glLoadIdentity()
         Gl.glOrtho(0, winw, 0, winh, 0, 1)
+
         Gl.glMatrixMode(Gl.GL_MODELVIEW)
         Gl.glPushMatrix()
         Gl.glLoadIdentity()
+
         If Shadow Then
             'shadow (black - 0r, 0g, 0b)
             Gl.glColor3f(0, 0, 0)
             Gl.glRasterPos2f(XPos + 1, winh - YPos - 1)
-            For a = 0 To Text.Length - 1
-                Glut.glutBitmapCharacter(Glut.GLUT_BITMAP_HELVETICA_18, Asc(Text(a)))
-            Next
-            'main text (white - 1r, 1g, 1b)
-            Gl.glColor3f(1, 1, 1)
-            Gl.glRasterPos2f(XPos, winh - YPos)
-            For a = 0 To Text.Length - 1
-                Glut.glutBitmapCharacter(Glut.GLUT_BITMAP_HELVETICA_18, Asc(Text(a)))
-            Next
-        Else
-            'main text (white - 1r, 1g, 1b)
-            Gl.glColor3f(1, 1, 1)
-            Gl.glRasterPos2f(XPos, winh - YPos)
-            For a = 0 To Text.Length - 1
+            For a As Integer = 0 To Text.Length - 1
                 Glut.glutBitmapCharacter(Glut.GLUT_BITMAP_HELVETICA_18, Asc(Text(a)))
             Next
         End If
+
+        'main text (white - 1r, 1g, 1b)
+        Gl.glColor3f(1, 1, 1)
+        Gl.glRasterPos2f(XPos, winh - YPos)
+        For a As Integer = 0 To Text.Length - 1
+            Glut.glutBitmapCharacter(Glut.GLUT_BITMAP_HELVETICA_18, Asc(Text(a)))
+        Next
+
         Gl.glMatrixMode(Gl.GL_PROJECTION)
         Gl.glPopMatrix()
+
         Gl.glMatrixMode(Gl.GL_MODELVIEW)
         Gl.glPopMatrix()
     End Function
-
 End Module

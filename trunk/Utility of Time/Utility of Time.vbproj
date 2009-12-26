@@ -129,7 +129,7 @@
     <NoWarn>41998,41999,42004,42016,42017,42018,42019,42020,42021,42022,42025,42026,42029,42031,42032,42036,42105,42106,42107</NoWarn>
     <DebugType>full</DebugType>
     <PlatformTarget>x86</PlatformTarget>
-    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <DebugSymbols>true</DebugSymbols>
@@ -189,10 +189,10 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Main window\ApplicationEvents.vb" />
-    <Compile Include="Level Editing\ActorPresets.Designer.vb">
+    <Compile Include="Preset Dialogs\ActorPresets.Designer.vb">
       <DependentUpon>ActorPresets.vb</DependentUpon>
     </Compile>
-    <Compile Include="Level Editing\ActorPresets.vb">
+    <Compile Include="Preset Dialogs\ActorPresets.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Data Storage\GlobalVars.vb" />
@@ -380,7 +380,7 @@
     <None Include="Resources\txt1.gif" />
     <None Include="Resources\txt.gif" />
     <None Include="Resources\screenshot_button.gif" />
-    <EmbeddedResource Include="Level Editing\ActorPresets.resx">
+    <EmbeddedResource Include="Preset Dialogs\ActorPresets.resx">
       <DependentUpon>ActorPresets.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>

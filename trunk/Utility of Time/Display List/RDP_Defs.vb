@@ -136,15 +136,14 @@
                                             &HFFFFF9F8, &HFFFFF9F8, &H1F10FDFF, _
                                             &HFF0FF3FF, &HFFFFFFF8, &H1F0CFFFF, _
                                             &H350CF37F, &HFFFFF9F8, &H1FFCFDF8}
-    Public LinkedCommands As New DLEdit
+
     Public Function FindLinkedCommand(ByVal DL As N64DisplayList, ByVal Command As Byte, ByVal StartIndex As Integer) As DLCommand
         For i As Integer = StartIndex To DL.Commands.Length - 1
             If DL.Commands(i).CMDParams(0) = Command Then
                 Return DL.Commands(i)
                 Exit Function
             ElseIf i > StartIndex And DL.Commands(i).CMDParams(0) = DL.Commands(StartIndex).CMDParams(0) Then
-                Dim blankCmd As New DLCommand
-                Return blankCmd
+                Return Nothing
                 Exit Function
             End If
         Next

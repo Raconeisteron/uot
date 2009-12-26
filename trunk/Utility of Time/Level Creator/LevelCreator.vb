@@ -262,92 +262,6 @@ Public Class LevelCreator
             WriteInt32(tBuffer, 0, tPos1)
         Next
 
-        'For i As Integer = 0 To GraphicsOBJ.Vertices.Length - 1
-        '    With GraphicsOBJ.Vertices(i)
-        '        WriteInt16(tBuffer, tPos1, .x)
-        '        WriteInt16(tBuffer, tPos1, .y)
-        '        WriteInt16(tBuffer, tPos1, .z)
-        '        WriteInt16(tBuffer, tPos1, 0)
-        '        WriteInt16(tBuffer, tPos1, GraphicsOBJ.TexCoords(i).s)
-        '        WriteInt16(tBuffer, tPos1, GraphicsOBJ.TexCoords(i).t)
-        '        ReDim Preserve tBuffer(tPos1 + 4)
-        '        tBuffer(tPos1) = &HFF
-        '        tBuffer(tPos1 + 1) = &HFF
-        '        tBuffer(tPos1 + 2) = &HFF
-        '        tBuffer(tPos1 + 3) = &HFF
-        '        tPos1 += 4
-        '    End With
-        'Next
-
-        ReDim Preserve tBuffer(tBuffer.Length - 2)
-
-        File.WriteAllBytes("C:/Test.zmap", tBuffer)
-
-        Return tBuffer
-    End Function
-    Private Function CompileSceneHeader() As Byte() 'NEEDS MODULARITY
-        Dim tBuffer(-1) As Byte
-        Dim tPos As Integer = 0
-
-        With Pointer
-            .GroupPtr = &H38
-            .ActorPtr = .GroupPtr + (Counts.GrCount * 2)
-            .GraphicsPtr = .ActorPtr + (Counts.RmActorCount * 16)
-            .VertStart = .GraphicsPtr + 32
-        End With
-
-        WriteInt32(tBuffer, &H16000000, tPos)
-        WriteInt32(tBuffer, 0 Or Environment.EchoLevel, tPos)
-
-        WriteInt32(tBuffer, &H12000000, tPos)
-        WriteInt32(tBuffer, 0, tPos)
-
-        WriteInt32(tBuffer, &H10000000, tPos)
-        WriteInt32(tBuffer, 0, tPos)
-
-        WriteInt32(tBuffer, &HA000000, tPos)
-        WriteInt32(tBuffer, &H3000000 Or Pointer.GraphicsPtr, tPos)
-
-        WriteInt16(tBuffer, tPos, &HB00 Or Counts.GrCount)
-
-        WriteInt32(tBuffer, &H3000000 Or Pointer.GroupPtr, tPos)
-
-        WriteInt16(tBuffer, tPos, &H100 Or Counts.RmActorCount)
-
-        WriteInt32(tBuffer, &H3000000 Or Pointer.ActorPtr, tPos)
-
-        WriteInt32(tBuffer, &H14000000, tPos)
-        WriteInt32(tBuffer, 0, tPos)
-
-        Dim tPos1 As Integer = Pointer.GroupPtr
-
-        For i As Integer = 0 To Counts.GrCount - 1
-            WriteInt16(tBuffer, tPos1, Groups(i).val)
-        Next
-
-        For i As Integer = 0 To Counts.RmActorCount - 1
-            WriteInt16(tBuffer, tPos1, RoomActors(i).x)
-            WriteInt16(tBuffer, tPos1, RoomActors(i).y)
-            WriteInt16(tBuffer, tPos1, RoomActors(i).z)
-            WriteInt16(tBuffer, tPos1, RoomActors(i).xr)
-            WriteInt16(tBuffer, tPos1, RoomActors(i).yr)
-            WriteInt16(tBuffer, tPos1, RoomActors(i).zr)
-            WriteInt16(tBuffer, tPos1, RoomActors(i).no)
-            WriteInt16(tBuffer, tPos1, RoomActors(i).var)
-        Next
-
-        WriteInt16(tBuffer, tPos1, 1)
-        WriteInt16(tBuffer, tPos1, 0)
-
-        WriteInt32(tBuffer, &H3000000 Or tPos1 + 8, tPos1)
-        WriteInt32(tBuffer, &H3000000 Or tPos1 + 8, tPos1)
-        WriteInt32(tBuffer, &H3000000 Or (tPos1 + 16) + (GraphicsOBJ.Vertices.Length * 16), tPos1)
-        WriteInt32(tBuffer, &H1000000, tPos1)
-
-        For i As Integer = 0 To 2
-            WriteInt32(tBuffer, 0, tPos1)
-        Next
-
         For i As Integer = 0 To GraphicsOBJ.Vertices.Length - 1
             With GraphicsOBJ.Vertices(i)
                 WriteInt16(tBuffer, tPos1, .x)
@@ -370,6 +284,9 @@ Public Class LevelCreator
         File.WriteAllBytes("C:/Test.zmap", tBuffer)
 
         Return tBuffer
+    End Function
+    Private Function CompileSceneHeader() As Byte() 'NEEDS MODULARITY
+       
     End Function
     Private Sub LoadTemplate(ByVal fn As String)
         Dim TemplateParser As XmlReader = New XmlTextReader(fn)
@@ -486,10 +403,6 @@ Public Class LevelCreator
             .Close()
         End With
     End Sub
-    Private Sub WriteNewCommand(ByVal Command As Integer, ByRef Data() As Byte)
-        ReDim Preserve Data(Data.Length + 8)
-
-    End Sub
 
     Private Sub OpenTemplate_FileOk(ByVal sender As System.Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles OpenTemplate.FileOk
         LoadTemplate(OpenTemplate.FileName)
@@ -555,23 +468,7 @@ Public Class LevelCreator
         If LinkActorCount.Value > 0 Then AddLinkActor(LinkActors, LinkActorCount.Value)
 
         'SceneBuff.RawHeader = compilesceneheader()
-
-        MapRawDataDisplay.Text = ""
-
-        Dim track As Integer = 0
-        For i As Integer = 0 To MapBuff.RawHeader.Length - 1
-            MapRawDataDisplay.Text += MapBuff.RawHeader(i).ToString("X2")
-        Next
-
-        'track = 0
-        'For i As Integer = 0 To SceneBuff.RawHeader.Length - 1
-        '    TextBox4.Text += SceneBuff.RawHeader(i).ToString("X2")
-        '    track += 1
-        '    If track = 6 Then
-        '        TextBox4.Text += " "
-        '        track = 0
-        '    End If
-        'Next
+       
     End Sub
 
     Private Sub SaveToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SaveToolStripMenuItem.Click

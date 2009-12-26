@@ -330,6 +330,7 @@ Public Class MainWin
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog
         Me.RipDL = New System.Windows.Forms.SaveFileDialog
         Me.SaveROMAs = New System.Windows.Forms.SaveFileDialog
+        Me.GroupBox8 = New System.Windows.Forms.GroupBox
         Me.UoTStatus.SuspendLayout()
         CType(Me.TrackBar4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.CollisionTab.SuspendLayout()
@@ -357,6 +358,7 @@ Public Class MainWin
         Me.ROMDataTabs.SuspendLayout()
         Me.UoTMainMenu.SuspendLayout()
         Me.VertContextMenu.SuspendLayout()
+        Me.GroupBox8.SuspendLayout()
         Me.SuspendLayout()
         '
         'LoadROM
@@ -1054,13 +1056,12 @@ Public Class MainWin
         'MiscTab
         '
         Me.MiscTab.Controls.Add(Me.GroupBox9)
-        Me.MiscTab.Controls.Add(Me.Label46)
-        Me.MiscTab.Controls.Add(Me.MapsCombobox)
         Me.MiscTab.Controls.Add(Me.Label45)
         Me.MiscTab.Controls.Add(Me.AnimStart)
         Me.MiscTab.Controls.Add(Me.Label30)
         Me.MiscTab.Controls.Add(Me.LimbStart)
         Me.MiscTab.Controls.Add(Me.GroupBox10)
+        Me.MiscTab.Controls.Add(Me.GroupBox8)
         Me.MiscTab.Location = New System.Drawing.Point(4, 46)
         Me.MiscTab.Name = "MiscTab"
         Me.MiscTab.Size = New System.Drawing.Size(224, 570)
@@ -1074,16 +1075,16 @@ Public Class MainWin
         Me.GroupBox9.Controls.Add(Me.Label28)
         Me.GroupBox9.Controls.Add(Me.Button16)
         Me.GroupBox9.Controls.Add(Me.Button15)
-        Me.GroupBox9.Location = New System.Drawing.Point(3, 120)
+        Me.GroupBox9.Location = New System.Drawing.Point(28, 120)
         Me.GroupBox9.Name = "GroupBox9"
-        Me.GroupBox9.Size = New System.Drawing.Size(218, 100)
+        Me.GroupBox9.Size = New System.Drawing.Size(173, 100)
         Me.GroupBox9.TabIndex = 97
         Me.GroupBox9.TabStop = False
         Me.GroupBox9.Text = "Collision Matcher"
         '
         'ProgressBar1
         '
-        Me.ProgressBar1.Location = New System.Drawing.Point(23, 78)
+        Me.ProgressBar1.Location = New System.Drawing.Point(12, 77)
         Me.ProgressBar1.Name = "ProgressBar1"
         Me.ProgressBar1.Size = New System.Drawing.Size(150, 10)
         Me.ProgressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous
@@ -1094,7 +1095,7 @@ Public Class MainWin
         Me.Label28.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label28.AutoSize = True
         Me.Label28.BackColor = System.Drawing.SystemColors.Control
-        Me.Label28.Location = New System.Drawing.Point(164, 0)
+        Me.Label28.Location = New System.Drawing.Point(119, 0)
         Me.Label28.Name = "Label28"
         Me.Label28.Size = New System.Drawing.Size(50, 16)
         Me.Label28.TabIndex = 89
@@ -1103,7 +1104,7 @@ Public Class MainWin
         '
         'Button16
         '
-        Me.Button16.Location = New System.Drawing.Point(23, 24)
+        Me.Button16.Location = New System.Drawing.Point(12, 23)
         Me.Button16.Name = "Button16"
         Me.Button16.Size = New System.Drawing.Size(150, 23)
         Me.Button16.TabIndex = 91
@@ -1112,7 +1113,7 @@ Public Class MainWin
         '
         'Button15
         '
-        Me.Button15.Location = New System.Drawing.Point(23, 47)
+        Me.Button15.Location = New System.Drawing.Point(12, 46)
         Me.Button15.Name = "Button15"
         Me.Button15.Size = New System.Drawing.Size(150, 23)
         Me.Button15.TabIndex = 90
@@ -1121,22 +1122,20 @@ Public Class MainWin
         '
         'Label46
         '
-        Me.Label46.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label46.AutoSize = True
-        Me.Label46.Location = New System.Drawing.Point(10, 229)
+        Me.Label46.Location = New System.Drawing.Point(9, 24)
         Me.Label46.Name = "Label46"
-        Me.Label46.Size = New System.Drawing.Size(33, 16)
+        Me.Label46.Size = New System.Drawing.Size(93, 16)
         Me.Label46.TabIndex = 96
-        Me.Label46.Text = "Maps"
+        Me.Label46.Text = "Referenced maps"
         '
         'MapsCombobox
         '
-        Me.MapsCombobox.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.MapsCombobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.MapsCombobox.FormattingEnabled = True
-        Me.MapsCombobox.Location = New System.Drawing.Point(13, 248)
+        Me.MapsCombobox.Location = New System.Drawing.Point(12, 43)
         Me.MapsCombobox.Name = "MapsCombobox"
-        Me.MapsCombobox.Size = New System.Drawing.Size(100, 24)
+        Me.MapsCombobox.Size = New System.Drawing.Size(150, 24)
         Me.MapsCombobox.TabIndex = 95
         '
         'Label45
@@ -1185,9 +1184,9 @@ Public Class MainWin
         Me.GroupBox10.Controls.Add(Me.CheckBox15)
         Me.GroupBox10.Controls.Add(Me.CheckBox14)
         Me.GroupBox10.Controls.Add(Me.CheckBox13)
-        Me.GroupBox10.Location = New System.Drawing.Point(3, 9)
+        Me.GroupBox10.Location = New System.Drawing.Point(28, 9)
         Me.GroupBox10.Name = "GroupBox10"
-        Me.GroupBox10.Size = New System.Drawing.Size(218, 105)
+        Me.GroupBox10.Size = New System.Drawing.Size(173, 105)
         Me.GroupBox10.TabIndex = 90
         Me.GroupBox10.TabStop = False
         Me.GroupBox10.Text = "Hide"
@@ -1195,7 +1194,7 @@ Public Class MainWin
         'CheckBox5
         '
         Me.CheckBox5.AutoSize = True
-        Me.CheckBox5.Location = New System.Drawing.Point(53, 57)
+        Me.CheckBox5.Location = New System.Drawing.Point(12, 59)
         Me.CheckBox5.Name = "CheckBox5"
         Me.CheckBox5.Size = New System.Drawing.Size(111, 20)
         Me.CheckBox5.TabIndex = 3
@@ -1205,7 +1204,7 @@ Public Class MainWin
         'CheckBox15
         '
         Me.CheckBox15.AutoSize = True
-        Me.CheckBox15.Location = New System.Drawing.Point(53, 75)
+        Me.CheckBox15.Location = New System.Drawing.Point(12, 77)
         Me.CheckBox15.Name = "CheckBox15"
         Me.CheckBox15.Size = New System.Drawing.Size(82, 20)
         Me.CheckBox15.TabIndex = 2
@@ -1215,7 +1214,7 @@ Public Class MainWin
         'CheckBox14
         '
         Me.CheckBox14.AutoSize = True
-        Me.CheckBox14.Location = New System.Drawing.Point(53, 38)
+        Me.CheckBox14.Location = New System.Drawing.Point(12, 40)
         Me.CheckBox14.Name = "CheckBox14"
         Me.CheckBox14.Size = New System.Drawing.Size(119, 20)
         Me.CheckBox14.TabIndex = 1
@@ -1225,7 +1224,7 @@ Public Class MainWin
         'CheckBox13
         '
         Me.CheckBox13.AutoSize = True
-        Me.CheckBox13.Location = New System.Drawing.Point(53, 20)
+        Me.CheckBox13.Location = New System.Drawing.Point(12, 22)
         Me.CheckBox13.Name = "CheckBox13"
         Me.CheckBox13.Size = New System.Drawing.Size(116, 20)
         Me.CheckBox13.TabIndex = 0
@@ -1747,11 +1746,11 @@ Public Class MainWin
         '
         'Button12
         '
-        Me.Button12.Location = New System.Drawing.Point(111, 132)
+        Me.Button12.Location = New System.Drawing.Point(85, 130)
         Me.Button12.Name = "Button12"
-        Me.Button12.Size = New System.Drawing.Size(89, 23)
+        Me.Button12.Size = New System.Drawing.Size(66, 23)
         Me.Button12.TabIndex = 2
-        Me.Button12.Text = "All DLists"
+        Me.Button12.Text = "All "
         Me.Button12.UseVisualStyleBackColor = True
         '
         'Label4
@@ -1765,11 +1764,11 @@ Public Class MainWin
         '
         'Button10
         '
-        Me.Button10.Location = New System.Drawing.Point(8, 132)
+        Me.Button10.Location = New System.Drawing.Point(9, 130)
         Me.Button10.Name = "Button10"
-        Me.Button10.Size = New System.Drawing.Size(97, 23)
+        Me.Button10.Size = New System.Drawing.Size(68, 23)
         Me.Button10.TabIndex = 0
-        Me.Button10.Text = "Selected DList"
+        Me.Button10.Text = "Selected"
         Me.Button10.UseVisualStyleBackColor = True
         '
         'GroupBox7
@@ -2512,7 +2511,7 @@ Public Class MainWin
         'OptionsToolStripMenuItem1
         '
         Me.OptionsToolStripMenuItem1.Name = "OptionsToolStripMenuItem1"
-        Me.OptionsToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.OptionsToolStripMenuItem1.Size = New System.Drawing.Size(104, 22)
         Me.OptionsToolStripMenuItem1.Text = "&Setup"
         '
         'HelpToolStripMenuItem1
@@ -2561,13 +2560,13 @@ Public Class MainWin
         '
         Me.UndoToolStripMenuItem1.Name = "UndoToolStripMenuItem1"
         Me.UndoToolStripMenuItem1.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Z), System.Windows.Forms.Keys)
-        Me.UndoToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.UndoToolStripMenuItem1.Size = New System.Drawing.Size(140, 22)
         Me.UndoToolStripMenuItem1.Text = "&Undo"
         '
         'RedoToolStripMenuItem
         '
         Me.RedoToolStripMenuItem.Name = "RedoToolStripMenuItem"
-        Me.RedoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.RedoToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
         Me.RedoToolStripMenuItem.Text = "&Redo"
         Me.RedoToolStripMenuItem.Visible = False
         '
@@ -2781,6 +2780,17 @@ Public Class MainWin
         '
         Me.SaveROMAs.Filter = "N64 ROMs|*.z64;*.n64;*.v64;*.rom"
         '
+        'GroupBox8
+        '
+        Me.GroupBox8.Controls.Add(Me.MapsCombobox)
+        Me.GroupBox8.Controls.Add(Me.Label46)
+        Me.GroupBox8.Location = New System.Drawing.Point(28, 227)
+        Me.GroupBox8.Name = "GroupBox8"
+        Me.GroupBox8.Size = New System.Drawing.Size(173, 85)
+        Me.GroupBox8.TabIndex = 98
+        Me.GroupBox8.TabStop = False
+        Me.GroupBox8.Text = "Individual level"
+        '
         'MainWin
         '
         Me.AllowDrop = True
@@ -2845,6 +2855,8 @@ Public Class MainWin
         Me.UoTMainMenu.ResumeLayout(False)
         Me.UoTMainMenu.PerformLayout()
         Me.VertContextMenu.ResumeLayout(False)
+        Me.GroupBox8.ResumeLayout(False)
+        Me.GroupBox8.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -2990,7 +3002,7 @@ Public Class MainWin
     Private EditRotType As Integer = 0
     Private MPick As Boolean = False
     Private ReadPixel(2) As Byte
-    Private ChangeVert() As Boolean = {False, False, False, False, False, False}
+    Private ChangePosition() As Boolean = {False, False, False, False, False, False}
     Private ToolSensitivity As Integer = 0
     Private ButtonPress As Integer = 0
     Private AxisGuideDList As UInt32 = 0
@@ -3162,8 +3174,6 @@ Public Class MainWin
                                     i1 = SelectedSceneActors(i)
                                     SceneActors(i1).x += Cos(CamYRotd) * Dx
                                     SceneActors(i1).z += Sin(CamYRotd) * Dx
-                                    CamXPos += Cos(CamYRotd) * Dx
-                                    CamZPos += Sin(CamYRotd) * Dx
                                 Next
                             Else
                                 For i As Integer = 0 To SelectedRoomActors.Count - 1
@@ -3188,7 +3198,6 @@ Public Class MainWin
                             End If
                             CamXPos += -Cos(CamYRotd) * Dx
                             CamZPos += -Sin(CamYRotd) * Dx
-                            UpdateVertM()
                         End If
                     End If
                 End If
@@ -3232,7 +3241,6 @@ Public Class MainWin
                             End If
                             CamXPos -= -Cos(CamYRotd) * Dx1
                             CamZPos -= -Sin(CamYRotd) * Dx1
-                            UpdateVertM()
                         End If
                     End If
                 End If
@@ -3269,7 +3277,6 @@ Public Class MainWin
                                 Next
                             End If
                             CamYPos -= Dy
-                            UpdateVertM()
                         End If
                     End If
                 End If
@@ -3306,7 +3313,6 @@ Public Class MainWin
                                 Next
                             End If
                             CamYPos += Dy1
-                            UpdateVertM()
                         End If
                     End If
                 End If
@@ -3400,14 +3406,16 @@ Public Class MainWin
             End If
 
             If LoadedDataType = FileTypes.MAP Then DrawActorBoxes(False)
-            If RenderGraphics Then DrawF3DEX2(N64DList, False)
+            If RenderGraphics Then DrawDLArray(N64DList, False)
             If RenderCollision Then DrawCollision(CollisionPolies, CollisionVerts, False)
             Gl.glPopMatrix()
             UoTRender.SwapBuffers()
 
             If MouseChanged Then
                 MouseOver = True
-                PickItem(ToolModes.CurrentTool, Nothing)
+                If ToolModes.CurrentTool < ToolID.DLIST Then
+                    PickItem(ToolModes.CurrentTool, Nothing)
+                End If
             End If
 
         Catch err As Exception
@@ -3482,68 +3490,42 @@ Public Class MainWin
                 Gl.glPopMatrix()
             Next
         End If
-        'If Not HideActors(3) Then
-        '    For i As Integer = 0 To linkx.Count - 1
-        '        Gl.glPushMatrix()
-        '        Gl.glTranslatef(linkx(i), linky(i) + 15, linkz(i))
-        '        Gl.glRotated(linkxr(i) \ 180, 1.0F, 0.0F, 0.0F)
-        '        Gl.glRotated(linkyr(i) \ 180, 0.0F, 1.0F, 0.0F)
-        '        Gl.glRotated(linkzr(i) \ 180, 0.0F, 0.0F, 1.0F)
-        '        If selmode Then
-        '            Gl.glColor3ub(lr(i), lg(i), lb(i))
-        '            Glut.glutSolidCube(ActorScaleP)
-        '        Else
-        '            Gl.glScalef(ActorScale, ActorScale, ActorScale)
-        '            Gl.glCallList(ActorBoxDList)
-        '        End If
-        '        If Not SelectedLinks.Contains(i) Then
-        '            Gl.glColor3f(0, 0, 0)
-        '            Gl.glLineWidth(2)
-        '        Else
-        '            If Not HideActors(2) Then
-        '                Gl.glCallList(AxisGuideDList)
-        '            End If
-        '            Gl.glColor3f(0.0F, 0.6F, 0.2F)
-        '            Gl.glLineWidth(3)
-        '        End If
-        '        Gl.glPolygonMode(Gl.GL_FRONT_AND_BACK, Gl.GL_LINE)
-        '        Glut.glutSolidCube(ActorScaleW)
-        '        Gl.glPolygonMode(Gl.GL_FRONT_AND_BACK, Gl.GL_FILL)
-        '        Gl.glLineWidth(1)
-        '        Gl.glPopMatrix()
-        '    Next
-        'End If
         If wireframe Then
             Gl.glPolygonMode(Gl.GL_FRONT_AND_BACK, Gl.GL_LINE)
         End If
     End Sub
 
-    Private Sub DrawF3DEX2(ByVal DLists() As N64DisplayList, ByVal SelectionMode As Boolean)
+    Private Sub DrawDLArray(ByVal DLists() As N64DisplayList, ByVal SelectionMode As Boolean)
         If SelectionMode Then
             ParseDL.ParseMode = ParseDL.Parse.GEOMETRY
         Else
             ParseDL.ParseMode = ParseDL.Parse.EVERYTHING
         End If
-        If HasLimbs Then
-            drawstructure(0, 0, 0, 0)
-        Else
-            For i As Integer = 0 To DLists.Length - 1
-                If Not DLists(i).Skip Then
-                    DrawDLists(DLists(i), SelectionMode)
-                    If DLists(i).Highlight And Not SelectionMode Then
+        For i As Integer = 0 To DLists.Length - 1
+            If Not DLists(i).Skip Then
+                If Not SelectionMode Then
+                    DrawDList(DLists(i))
+                    If DLists(i).Highlight Then
                         ParseDL.ParseMode = ParseDL.Parse.GEOMETRY
                         Gl.glBindProgramARB(Gl.GL_FRAGMENT_PROGRAM_ARB, HighlightProg)
                         Gl.glEnable(Gl.GL_FRAGMENT_PROGRAM_ARB)
                         Gl.glEnable(Gl.GL_BLEND)
-                        Gl.glDisable(Gl.GL_ALPHA_TEST)
-                        Gl.glAlphaFunc(Gl.GL_GREATER, 0.0F)
                         Gl.glBlendFunc(Gl.GL_SRC_ALPHA, Gl.GL_ONE_MINUS_SRC_ALPHA)
-                        DrawDLists(DLists(i), False)
+                        DrawDList(DLists(i))
                         ParseDL.ParseMode = ParseDL.Parse.EVERYTHING
                     End If
+                Else
+                    Gl.glColor3ub(DLists(i).PickCol.r, DLists(i).PickCol.g, DLists(i).PickCol.b)
+                    DrawDList(DLists(i))
+                    ReadPixel = MousePixelRead(NewMouseX, NewMouseY)
+                    If ReadPixel(0) = N64DList(i).PickCol.r And ReadPixel(1) = N64DList(i).PickCol.g And ReadPixel(2) = N64DList(i).PickCol.b Then
+                        DListSelection.SelectedIndex = i + 1
+                        EditingTabs.SelectedTab = EditingTabs.TabPages("DLTab")
+                        Exit Sub
+                    End If
                 End If
-            Next
-        End If
+            End If
+        Next
     End Sub
     Private Sub DrawJoint(ByVal x As Short, ByVal y As Short, ByVal z As Short, ByVal xR As Short, ByVal yR As Short, ByVal zR As Short, ByVal DList As UInteger)
         Gl.glTranslatef(x, y, z)
@@ -3595,7 +3577,7 @@ Public Class MainWin
             Gl.glEnable(Gl.GL_POLYGON_OFFSET_LINE)
             Gl.glPolygonMode(Gl.GL_FRONT_AND_BACK, Gl.GL_LINE)
 
-            Gl.glPolygonOffset(-7.0, -7.0)
+            Gl.glPolygonOffset(-12.0, -12.0)
 
             Gl.glBegin(Gl.GL_TRIANGLES)
             Gl.glColor3f(0, 0, 0)
@@ -3710,77 +3692,7 @@ Public Class MainWin
         End If
         SetOGLDefaultParams()
     End Sub
-    Sub UpdateVertM()
-        'TextBox21.Enabled = True
-        'TextBox22.Enabled = True
-        'If RenderGraphics And selvert.Count = 1 Then
-        '    TextBox1.Text = CInt(Vertices(selmesh(0)).x(selvert(0)))
-        '    If Mid(TextBox1.Text, 1, 1) = "-" Then
-        '        Button12.Text = "+"
-        '    Else
-        '        Button12.Text = "-"
-        '    End If
-        '    TextBox2.Text = CInt(Vertices(selmesh(0)).y(selvert(0)))
-        '    If Mid(TextBox2.Text, 1, 1) = "-" Then
-        '        Button14.Text = "+"
-        '    Else
-        '        Button14.Text = "-"
-        '    End If
-        '    TextBox3.Text = CInt(Vertices(selmesh(0)).z(selvert(0)))
-        '    If Mid(TextBox3.Text, 1, 1) = "-" Then
-        '        Button13.Text = "+"
-        '    Else
-        '        Button13.Text = "-"
-        '    End If
-        '    TextBox22.Text = CInt(Vertices(selmesh(0)).u(selvert(0)))
-        '    If Mid(TextBox22.Text, 1, 1) = "-" Then
-        '        Button29.Text = "+"
-        '    Else
-        '        Button29.Text = "-"
-        '    End If
-        '    TextBox21.Text = CInt(Vertices(selmesh(0)).v(selvert(0)))
-        '    If Mid(TextBox21.Text, 1, 1) = "-" Then
-        '        Button28.Text = "+"
-        '    Else
-        '        Button28.Text = "-"
-        '    End If
-        '    Dim vcolor As String = "#" & FillZeroes(2, (Hex(CInt(Vertices(selmesh(0)).r(selvert(0))))) & FillZeroes(2, (Hex(CInt(Vertices(selmesh(0)).g(selvert(0))))) & FillZeroes(2, (Hex(CInt(Vertices(selmesh(0)).b(selvert(0)))))
-        '    Button10.BackColor = ColorTranslator.FromHtml(vcolor)
-        'Else
-        '    TextBox1.Text = ""
-        '    TextBox2.Text = ""
-        '    TextBox3.Text = ""
-        '    TextBox22.Text = ""
-        '    TextBox21.Text = ""
-        'End If
-        'If RenderCollision And SelectedCollisionVert.Count = 1 Then
-        '    TextBox1.Text = CInt(CollisionVerts.x(SelectedCollisionVert(0)))
-        '    If Mid(TextBox1.Text, 1, 1) = "-" Then
-        '        Button12.Text = "+"
-        '    Else
-        '        Button12.Text = "-"
-        '    End If
-        '    TextBox2.Text = CInt(CollisionVerts.y(SelectedCollisionVert(0)))
-        '    If Mid(TextBox2.Text, 1, 1) = "-" Then
-        '        Button14.Text = "+"
-        '    Else
-        '        Button14.Text = "-"
-        '    End If
-        '    TextBox3.Text = CInt(CollisionVerts.z(SelectedCollisionVert(0)))
-        '    If Mid(TextBox3.Text, 1, 1) = "-" Then
-        '        Button13.Text = "+"
-        '    Else
-        '        Button13.Text = "-"
-        '    End If
-        '    TextBox22.Enabled = False
-        '    TextBox21.Enabled = False
-        'End If
-        'changevert(0) = False
-        'changevert(1) = False
-        'changevert(2) = False
-        'changevert(3) = False
-        'changevert(4) = False
-    End Sub
+
     Sub FixCollision()
         cfix.Start()
         cfix.WaitForExit()
@@ -3974,18 +3886,16 @@ Public Class MainWin
     End Sub
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Try
-
             Glut.glutInit()
             Wgl.ReloadFunctions()
             Gl.ReloadFunctions()
             UoTRender.CreateGraphics()
 
-            Dim extstr As String = Gl.glGetString(Gl.GL_EXTENSIONS)
-            GLExtensions.GLMultiTexture = extstr.Contains("GL_ARB_multitexture")
-            GLExtensions.GLFragProg = extstr.Contains("GL_ARB_fragment_program")
-            GLExtensions.GLMirrorTexture = extstr.Contains("GL_ARB_imaging")
-            GLExtensions.GLAnisotropic = extstr.Contains("GL_EXT_texture_filter_anisotropic")
-            GLExtensions.GLSL = extstr.Contains("GL_ARB_fragment_shader")
+            Dim extstr As String = Gl.glGetString(Gl.GL_EXTENSIONS).ToLower
+            GLExtensions.GLMultiTexture = extstr.Contains("gl_arb_multitexture")
+            GLExtensions.GLFragProg = extstr.Contains("gl_arb_fragment_program")
+            GLExtensions.GLAnisotropic = extstr.Contains("gl_ext_texture_filter_anisotropic")
+            GLExtensions.GLSL = extstr.Contains("gl_arb_fragment_shader")
 
             Dim blank_tex() As Byte = {&HFF, &HFF, &HFF, &HFF}
             Gl.glBindTexture(Gl.GL_TEXTURE_2D, 2)
@@ -4108,6 +4018,7 @@ Public Class MainWin
         CamZRot = 0.0
         CamXPos = 0.0
         CamYPos = 0.0
+        CamZPos = 0.0
     End Sub
     Private Sub SwitchGame(ByVal game As Integer)
 
@@ -4307,7 +4218,7 @@ Public Class MainWin
                                 End With
                                 i1 += 16
 
-                                SceneActorCombobox.Items.Add((i).ToString & " - " & FindActorName(1, i))
+                                SceneActorCombobox.Items.Add((i).ToString & " - " & IdentifyActor(1, i))
                             Next
                             scenePos = mscenePos + 8
                         Case 4
@@ -4402,12 +4313,13 @@ Public Class MainWin
                                 triCount += 1
                                 ColTriangleBox.Items.Add(triCount)
                             End While
-                            ReDim CollisionTriColor(triCount)
 
+                            ReDim CollisionTriColor(triCount)
                             Dim cx As Short = 0
                             Dim cy As Short = 0
                             Dim cz As Short = 0
                             Dim edgecnt As Integer = -1
+
                             While VertexOffset < colPtr
 
                                 CollisionVerts.x.Add(CShort(ReadInt16(ZSceneBuffer, VertexOffset)))
@@ -4439,7 +4351,7 @@ Public Class MainWin
                 End While
             End If
         Catch err As Exception
-            MsgBox("Error in collision reading: " & Environment.NewLine & Environment.NewLine & "Details: " & err.Message)
+            MsgBox("Error parsing scene header: " & Environment.NewLine & Environment.NewLine & "Details: " & err.Message)
             Exit Sub
         End Try
     End Sub
@@ -4481,6 +4393,8 @@ nonefound:
     End Sub
     Private Function FindAllDLs(ByVal Buffer() As Byte, ByRef tDL() As N64DisplayList)
         Dim DLCnt As Integer = 0
+        DListSelection.Items.Clear()
+        DListSelection.Items.Add("Render all")
         For i As Integer = 0 To Buffer.Length - 8 Step 8
             If Buffer(i) = &HE7 And Buffer(i + 1) = 0 And Buffer(i + 2) = 0 _
             And Buffer(i + 3) = 0 And Buffer(i + 4) = 0 And Buffer(i + 5) = 0 _
@@ -4495,7 +4409,6 @@ nonefound:
             Dim DLCnt As Integer = 0
             Dim FileTreeIndex As Integer = 0
             ReDim N64DList(-1)
-            DListSelection.Items.Clear()
             Select Case LoadedDataType
                 Case FileTypes.MAP
                     FindAllDLs(ZFileBuffer, N64DList)
@@ -4562,6 +4475,10 @@ nonefound:
             .StartPos.Offset = Offset
             .StartPos.Bank = CurrentBank
             .Skip = False
+            .PickCol = New Color3UByte
+            .PickCol.r = rand.Next(0, 255)
+            .PickCol.g = rand.Next(0, 255)
+            .PickCol.b = rand.Next(0, 255)
             Do
                 ReDim Preserve .Commands(.CommandCount)
                 ReDim Preserve .CommandsCopy(.CommandCount)
@@ -4576,11 +4493,7 @@ nonefound:
 
                 .Commands(.CommandCount).CMDLow = ReadUInt24(Data, EPLoc + 1)
 
-                .PickR = rand.Next(0, 255)
-                .PickG = rand.Next(0, 255)
-                .PickB = rand.Next(0, 255)
-
-                If Data(EPLoc) = F3DZEX.ENDDL Or EPLoc > Data.Length Then
+                If Data(EPLoc) = F3DZEX.ENDDL Or EPLoc >= Data.Length Then
                     EPLoc += 8
                     Exit Do
                 End If
@@ -4642,8 +4555,8 @@ nonefound:
             Next
         End If
     End Sub
-    Private Function FindActorName(ByVal ActorType As UInteger, ByVal Actor As UInteger) As String
-        Dim ActorIdent As String = "?"
+    Private Function IdentifyActor(ByVal ActorType As UInteger, ByVal Actor As UInteger) As String
+        'Dim ActorIdent As String = "?"
         'For i3 As Integer = 0 To ActorDataBase.Count - 1
         '    ActorDescription = ActorDataBase(i3).ToString
         '    If Mid(ActorDescription, 6, 4) = "0001" Or Mid(ActorDescription, 6, 4) = "0000" Then
@@ -4661,26 +4574,23 @@ nonefound:
         '        Next
         '    End If
         'Next
-        Return ActorIdent
+        Return "?"
     End Function
     Private Sub ProcessMapHeader()
         Try
-            Dim hdpos As Integer = objectset
-            Dim envvar(3) As Byte
-            Dim returntooff As Integer = 0
-            Dim actornumtest As Integer = 0
-            Dim finalgrouptest As String = ""
-            Dim identity As String = ""
-            Dim groff As Integer = 0
-            Dim curgr As Integer = 0
-            Dim actorstart As Integer = 0
-            Dim objsetcnt As Integer = 0
-            Dim objsetstart As Integer = 0
-            Dim curobjset As Integer = 0
+            Dim HDPos As Integer = objectset
+            Dim Identity As String = ""
+            Dim GROff As Integer = 0
+            Dim CurGr As Integer = 0
+            Dim ActorStart As Integer = 0
+            Dim ObjSetCnt As Integer = 0
+            Dim ObjSetStart As Integer = 0
+            Dim CurObjSet As Integer = 0
+
             ReDim RoomActors(-1)
             ReDim UsedGroupIndex(-1)
-            ComboBox6.SelectedIndex = 0
 
+            ComboBox6.SelectedIndex = 0
             rmActorCount = 0
             groupcnt = 0
             ActorVarText.Text = ""
@@ -4700,20 +4610,20 @@ nonefound:
             RoomActorCombobox.SelectedIndex = 0
             RoomActorCombobox.Enabled = False
 
-            While ZFileBuffer(hdpos) <> &H14
-                Select Case ZFileBuffer(hdpos)
+            While ZFileBuffer(HDPos) <> &H14
+                Select Case ZFileBuffer(HDPos)
                     Case 1
-                        rmActorCount = ZFileBuffer(hdpos + 1)
-                        ActorPointer(0) = hdpos
+                        rmActorCount = ZFileBuffer(HDPos + 1)
+                        ActorPointer(0) = HDPos
                         ActorPointer(1) = rmActorCount
                         If rmActorCount > 0 Then
                             RoomActorCombobox.Enabled = True
                             ActorVarText.Enabled = True
                             ActorNumberText.Enabled = True
 
-                            actorstart = (ZFileBuffer(hdpos + 5) * &H10000) + (ZFileBuffer(hdpos + 6) * &H100) + (ZFileBuffer(hdpos + 7))
-                            ActorPointer(1) = actorstart
-                            i1 = actorstart
+                            ActorStart = (ZFileBuffer(HDPos + 5) * &H10000) + (ZFileBuffer(HDPos + 6) * &H100) + (ZFileBuffer(HDPos + 7))
+                            ActorPointer(1) = ActorStart
+                            i1 = ActorStart
                             ReDim RoomActors(rmActorCount - 1)
                             ReDim UsedGroupIndex(rmActorCount - 1)
                             For i As Integer = 0 To rmActorCount - 1
@@ -4738,19 +4648,20 @@ nonefound:
 
                                 End With
                                 i1 += 16
-                                RoomActorCombobox.Items.Add(FindActorName(0, i))
+                                RoomActorCombobox.Items.Add(IdentifyActor(0, i))
                             Next
                         End If
                     Case &HB
                         ActorGroupCombobox.Enabled = True
-                        groupcnt = ZFileBuffer(hdpos + 1)
-                        ActorGroupOffset = (ZFileBuffer(hdpos + 5) * &H10000) + (ZFileBuffer(hdpos + 6) * &H100) + (ZFileBuffer(hdpos + 7))
-                        curgr = ActorGroupOffset
+                        ActorGroupText.Enabled = True
+                        groupcnt = ZFileBuffer(HDPos + 1)
+                        ActorGroupOffset = (ZFileBuffer(HDPos + 5) * &H10000) + (ZFileBuffer(HDPos + 6) * &H100) + (ZFileBuffer(HDPos + 7))
+                        CurGr = ActorGroupOffset
                         Dim gr As UInteger = 0
                         Dim desc As String = "?"
                         Dim objind As Integer = 0
                         For i As Integer = 0 To groupcnt - 1
-                            gr = ReadInt16(ZFileBuffer, curgr)
+                            gr = ReadInt16(ZFileBuffer, CurGr)
                             ActorGroups.Add(gr)
                             objind = Objects.IndexOf(gr.ToString("X4"))
                             desc = "?"
@@ -4758,7 +4669,7 @@ nonefound:
                                 desc = ObjectsDesc(objind)
                             End If
                             ActorGroupCombobox.Items.Add((i + 1).ToString & " - " & desc)
-                            curgr += 2
+                            CurGr += 2
                         Next
                     Case &H12
                         'environment stuff
@@ -4767,15 +4678,15 @@ nonefound:
                             FileTree.SelectedNode.Nodes.Add("Object Sets")
                             FileTree.SelectedNode.Nodes(0).Nodes.Add("1. 0x0")
                         End If
-                        objsetstart = ReadUInt24(ZFileBuffer, hdpos + 5)
-                        objsetcnt = ZFileBuffer(hdpos + 15)
-                        curobjset = objsetstart
+                        ObjSetStart = ReadUInt24(ZFileBuffer, HDPos + 5)
+                        ObjSetCnt = ZFileBuffer(HDPos + 15)
+                        CurObjSet = ObjSetStart
                         Dim ObjSetOffset As UInteger = 0
                         Dim ObjSetSeg As UInteger = 3
                         Dim ObjSetIncr As UInteger = 0
-                        For i As Integer = 0 To objsetcnt - 1
-                            ObjSetOffset = ReadUInt24(ZFileBuffer, curobjset + 1)
-                            ObjSetSeg = ZFileBuffer(curobjset)
+                        For i As Integer = 0 To ObjSetCnt - 1
+                            ObjSetOffset = ReadUInt24(ZFileBuffer, CurObjSet + 1)
+                            ObjSetSeg = ZFileBuffer(CurObjSet)
 
                             If ObjSetSeg <> &H3 And ObjSetOffset > 0 Then
                                 Exit For
@@ -4785,10 +4696,10 @@ nonefound:
                                 FileTree.SelectedNode.Nodes(0).Nodes.Add((ObjSetIncr + 2).ToString & ". 0x" & Hex(ObjSetOffset))
                                 ObjSetIncr += 1
                             End If
-                            curobjset += 4
+                            CurObjSet += 4
                         Next
                 End Select
-                hdpos += 8
+                HDPos += 8
             End While
         Catch err As Exception
             rmActorCount = 0
@@ -5069,7 +4980,7 @@ nonefound:
         Select Case CurrentTool
             Case ToolID.ACTOR
                 DrawActorBoxes(True)
-                ReadPixel = MousePixelRead(NewMouseX, NewMouseY, 1, 1)
+                ReadPixel = MousePixelRead(NewMouseX, NewMouseY)
                 For g As Integer = 0 To RoomActors.Length - 1
                     If ReadPixel(0) = RoomActors(g).pickR And ReadPixel(1) = RoomActors(g).pickG And ReadPixel(2) = RoomActors(g).pickB Then
                         If Not MouseOver Then
@@ -5136,14 +5047,14 @@ nonefound:
                 PrintTool = False
             Case ToolID.VERTEX
                 Gl.glEnable(Gl.GL_POLYGON_OFFSET_POINT)
-                Gl.glPolygonOffset(-4, -4)
+                Gl.glPolygonOffset(-6, -6)
                 If RenderGraphics Then
-                    DrawF3DEX2(N64DList, True)
+                    DrawDLArray(N64DList, True)
                 End If
                 If RenderCollision Then
                     DrawCollision(CollisionPolies, CollisionVerts, True)
                 End If
-                ReadPixel = MousePixelRead(NewMouseX, NewMouseY, 2, 2)
+                ReadPixel = MousePixelRead(NewMouseX, NewMouseY)
                 If Not MouseOver Then
                     VertexSelect()
                 End If
@@ -5153,31 +5064,17 @@ nonefound:
                     EdgeSelect()
                 End If
             Case ToolID.DLIST
-                If RenderGraphics Then
-                    Gl.glEnable(Gl.GL_POLYGON_OFFSET_FILL)
-                    Gl.glPolygonOffset(-8, -8)
-                    DrawF3DEX2(N64DList, True)
-                    ReadPixel = MousePixelRead(NewMouseX, NewMouseY, 1, 1)
-                    Gl.glDisable(Gl.GL_POLYGON_OFFSET_FILL)
-                    For I As Integer = 0 To N64DList.Length - 1
-                        If ReadPixel(0) = N64DList(I).PickR And ReadPixel(1) = N64DList(I).PickG And ReadPixel(2) = N64DList(I).PickB Then
-                            If Not MouseOver Then
-                                DListSelection.SelectedIndex = I
-                                EditingTabs.SelectedTab = EditingTabs.TabPages("DLTab")
-                            Else
-                                PrintTool = True
-                                PrintToolStr = "DList " & DListSelection.Items(I).ToString
-                            End If
-                            Exit Select
-                        End If
-                    Next
 
+                Gl.glEnable(Gl.GL_POLYGON_OFFSET_FILL)
+                Gl.glPolygonOffset(-7, -7)
+                If RenderGraphics Then
+                    DrawDLArray(N64DList, True)
                 End If
-                PrintTool = False
+                Gl.glDisable(Gl.GL_POLYGON_OFFSET_FILL)
             Case ToolID.COLTRI
                 If RenderCollision Then
                     DrawCollision(CollisionPolies, CollisionVerts, True)
-                    ReadPixel = MousePixelRead(NewMouseX, NewMouseY, 1, 1)
+                    ReadPixel = MousePixelRead(NewMouseX, NewMouseY)
                     For i1 = 0 To CollisionPolies.Length - 1
                         If ReadPixel(0) = CollisionPolies(i1).pickR And ReadPixel(1) = CollisionPolies(i1).pickG And ReadPixel(2) = CollisionPolies(i1).pickB Then
                             If Not MouseOver Then
@@ -5191,9 +5088,6 @@ nonefound:
                                 colTri = True
                                 ColTriangleBox.SelectedIndex = i1 + 1
                                 colTri = False
-                                ReadPixel(0) = 0
-                                ReadPixel(1) = 0
-                                ReadPixel(2) = 0
                                 EditingTabs.SelectedTab = EditingTabs.TabPages("CollisionTab")
                             Else
                                 PrintTool = True
@@ -5207,10 +5101,10 @@ nonefound:
         End Select
         Gl.glPopMatrix()
     End Sub
-    Private Function MousePixelRead(ByVal x As Integer, ByVal y As Integer, ByVal width As Integer, ByVal height As Integer) As Byte()
+    Private Function MousePixelRead(ByVal x As Integer, ByVal y As Integer) As Byte()
         ReDim MousePixelRead(2)
         Gl.glGetIntegerv(Gl.GL_VIEWPORT, viewport)
-        Gl.glReadPixels(x, viewport(3) - y, width, height, Gl.GL_RGB, Gl.GL_UNSIGNED_BYTE, MousePixelRead)
+        Gl.glReadPixels(x, viewport(3) - y, 1, 1, Gl.GL_RGB, Gl.GL_UNSIGNED_BYTE, MousePixelRead)
     End Function
     Private Sub EdgeSelect()
         For i As Integer = 0 To CollisionVerts.EdgeR.Count - 1
@@ -5219,134 +5113,7 @@ nonefound:
             End If
         Next
     End Sub
-    Private Sub DLSelect()
-
-    End Sub
-    Private Sub TriangleSelect()
-    
-    End Sub
     Private Sub VertexSelect()
-        'If RenderGraphics Then
-        '            For g As Integer = 0 To Vertices.Length - 1
-        '                For h As Integer = 0 To Vertices(g).x.Count - 1
-        '                    If ReadPixel(0) = Vertices(g).tr2(h) And ReadPixel(1) = Vertices(g).tg2(h) And ReadPixel(2) = Vertices(g).tb2(h) Then
-        '                        SelectedCollisionVert.Clear()
-        '                        mouse = 2
-        '                        If key_ctrl Then
-        '                            If showcdialog Then
-        '                                If selvert.Contains(h) And selmesh.Contains(g) Then
-        '                                    selvert.Remove(h)
-        '                                    selmesh.Remove(g)
-        '                                    ReadPixel(0) = 0
-        '                                    ReadPixel(1) = 0
-        '                                    ReadPixel(2) = 0
-        '                                    Exit Sub
-        '                                End If
-        '                            End If
-        '                            If selvert.Contains(h) And selmesh.Contains(g) Then
-        '                                GoTo def
-        '                            End If
-        '                            If PerMeshToolStripMenuItem.Checked Then
-        '                                for i as integer = 0 To Vertices(g).x.Count - 1
-        '                                    selmesh.Add(g)
-        '                                    selvert.Add(i)
-        '                                Next
-        '                            ElseIf AllSharedToolStripMenuItem.Checked Then
-        '                                For i1 = 0 To Vertices.Length - 1
-        '                                    For i2 = 0 To Vertices(i1).x.Count - 1
-        '                                        If Vertices(i1).ox(i2) = Vertices(g).ox(h) And Vertices(i1).oy(i2) = Vertices(g).oy(h) And Vertices(i1).oz(i2) = Vertices(g).oz(h) Then
-        '                                            selmesh.Add(i1)
-        '                                            selvert.Add(i2)
-        '                                        End If
-        '                                    Next
-        '                                Next
-        '                            Else
-        '                                selmesh.Add(g)
-        '                                selvert.Add(h)
-        '                            End If
-        'def:                        ReadPixel(0) = 0
-        '                            ReadPixel(1) = 0
-        '                            ReadPixel(2) = 0
-        '                            UpdateVertM()
-        '                        Else
-        '                            If selmesh.Count > 1 Then
-        '                                If showcdialog Then
-        '                                    If selvert.Contains(h) And selmesh.Contains(g) Then
-        '                                        ColorChange()
-        '                                        ReadPixel(0) = 0
-        '                                        ReadPixel(1) = 0
-        '                                        ReadPixel(2) = 0
-        '                                        UpdateVertM()
-        '                                        Exit Sub
-        '                                    End If
-        '                                End If
-        '                                selvert.Clear()
-        '                                selmesh.Clear()
-        '                                If PerMeshToolStripMenuItem.Checked Then
-        '                                    for i as integer = 0 To Vertices(g).x.Count - 1
-        '                                        selmesh.Add(g)
-        '                                        selvert.Add(i)
-        '                                    Next
-        '                                ElseIf AllSharedToolStripMenuItem.Checked Then
-        '                                    For i1 = 0 To Vertices.Length - 1
-        '                                        For i2 = 0 To Vertices(i1).x.Count - 1
-        '                                            If Vertices(i1).ox(i2) = Vertices(g).ox(h) And Vertices(i1).oy(i2) = Vertices(g).oy(h) And Vertices(i1).oz(i2) = Vertices(g).oz(h) Then
-        '                                                selmesh.Add(i1)
-        '                                                selvert.Add(i2)
-        '                                            End If
-        '                                        Next
-        '                                    Next
-        '                                Else
-        '                                    selmesh.Add(g)
-        '                                    selvert.Add(h)
-        '                                End If
-        '                                ReadPixel(0) = 0
-        '                                ReadPixel(1) = 0
-        '                                ReadPixel(2) = 0
-        '                                UpdateVertM()
-        '                                Exit Sub
-        '                            Else
-        '                                If weld Then
-        '                                    If weldpos(0) Then Vertices(meshw).x(vertw) = Vertices(g).x(h)
-        '                                    If weldpos(1) Then Vertices(meshw).y(vertw) = Vertices(g).y(h)
-        '                                    If weldpos(2) Then Vertices(meshw).z(vertw) = Vertices(g).z(h)
-        '                                    If weldautooff Then DisableWeld()
-        '                                Else
-        '                                    selvert.Clear()
-        '                                    selmesh.Clear()
-        '                                    If PerMeshToolStripMenuItem.Checked Then
-        '                                        for i as integer = 0 To Vertices(g).x.Count - 1
-        '                                            selmesh.Add(g)
-        '                                            selvert.Add(i)
-        '                                        Next
-        '                                    ElseIf AllSharedToolStripMenuItem.Checked Then
-        '                                        For i1 = 0 To Vertices.Length - 1
-        '                                            For i2 = 0 To Vertices(i1).x.Count - 1
-        '                                                If Vertices(i1).ox(i2) = Vertices(g).ox(h) And Vertices(i1).oy(i2) = Vertices(g).oy(h) And Vertices(i1).oz(i2) = Vertices(g).oz(h) Then
-        '                                                    selmesh.Add(i1)
-        '                                                    selvert.Add(i2)
-        '                                                End If
-        '                                            Next
-        '                                        Next
-        '                                    Else
-        '                                        selmesh.Add(g)
-        '                                        selvert.Add(h)
-        '                                    End If
-        '                                    If showcdialog Then
-        '                                        ColorChange()
-        '                                    End If
-        '                                End If
-        '                                ReadPixel(0) = 0
-        '                                ReadPixel(1) = 0
-        '                                ReadPixel(2) = 0
-        '                                UpdateVertM()
-        '                                Exit Sub
-        '                            End If
-        '                        End If
-        '                    End If
-        '                Next
-        '            Next
-        '        End If
         If RenderCollision Then
             For g As Integer = 0 To CollisionVerts.VertR.Count - 1
                 If ReadPixel(0) = CollisionVerts.VertR(g) And ReadPixel(1) = CollisionVerts.VertG(g) And ReadPixel(2) = CollisionVerts.VertB(g) Then
@@ -5354,10 +5121,6 @@ nonefound:
                         If MouseLeft Then
                             If SelectedCollisionVert.Contains(g) Then
                                 SelectedCollisionVert.Remove(g)
-                                ReadPixel(0) = 0
-                                ReadPixel(1) = 0
-                                ReadPixel(2) = 0
-                                GoTo deselected
                             End If
                         End If
                         If Not SelectedCollisionVert.Contains(g) Then
@@ -5375,11 +5138,7 @@ nonefound:
                             SelectedCollisionVert.Add(g)
                         End If
                     End If
-Deselected:         ToolModes.SelectedItemType = ToolID.VERTEX
-ContextOpened:      ReadPixel(0) = 0
-                    ReadPixel(1) = 0
-                    ReadPixel(2) = 0
-                    UpdateVertM()
+                    ToolModes.SelectedItemType = ToolID.VERTEX
                     Exit Sub
                 End If
             Next
@@ -5430,20 +5189,20 @@ ContextOpened:      ReadPixel(0) = 0
             End If
         Else
             If SceneActorCombobox.SelectedIndex > 0 Then
-                TextBox7.Text = CInt(SceneActors(SceneActorCombobox.SelectedIndex - 1).x)
-                TextBox8.Text = CInt(SceneActors(SceneActorCombobox.SelectedIndex - 1).y)
-                TextBox9.Text = CInt(SceneActors(SceneActorCombobox.SelectedIndex - 1).z)
+                Dim c5 As Integer = SceneActorCombobox.SelectedIndex - 1
+                TextBox7.Text = CInt(SceneActors(c5).x)
+                TextBox8.Text = CInt(SceneActors(c5).y)
+                TextBox9.Text = CInt(SceneActors(c5).z)
                 TextBox10.Enabled = False
                 TextBox11.Enabled = False
                 TextBox12.Enabled = False
             End If
         End If
-        ChangeVert(0) = False
-        ChangeVert(1) = False
-        ChangeVert(2) = False
-        ChangeVert(3) = False
-        ChangeVert(4) = False
-        ChangeVert(5) = False
+        ChangePosition(0) = False
+        ChangePosition(1) = False
+        ChangePosition(2) = False
+        ChangePosition(3) = False
+        ChangePosition(4) = False
     End Sub
 
     Private Sub ToolStripButton12_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
@@ -5563,29 +5322,29 @@ ContextOpened:      ReadPixel(0) = 0
                     If ActorVarText.Text.Length = 4 Then
                         doorvar(i1) = Convert.ToUInt16(ActorVarText.Text, 16)
                     End If
-                    If IsNumeric(TextBox7.Text) And ChangeVert(0) Then SceneActors(i1).x = CShort(TextBox7.Text)
-                    If IsNumeric(TextBox8.Text) And ChangeVert(1) Then SceneActors(i1).y = CShort(TextBox8.Text)
-                    If IsNumeric(TextBox9.Text) And ChangeVert(2) Then SceneActors(i1).z = CShort(TextBox9.Text)
+                    If IsNumeric(TextBox7.Text) And ChangePosition(0) Then SceneActors(i1).x = CShort(TextBox7.Text)
+                    If IsNumeric(TextBox8.Text) And ChangePosition(1) Then SceneActors(i1).y = CShort(TextBox8.Text)
+                    If IsNumeric(TextBox9.Text) And ChangePosition(2) Then SceneActors(i1).z = CShort(TextBox9.Text)
                 Next
             Else
                 For i As Integer = 0 To SelectedRoomActors.Count - 1
                     i1 = SelectedRoomActors(i)
-                    If IsNumeric(TextBox7.Text) And ChangeVert(0) Then
+                    If IsNumeric(TextBox7.Text) And ChangePosition(0) Then
                         RoomActors(i1).x = CInt(TextBox7.Text)
                     End If
-                    If IsNumeric(TextBox8.Text) And ChangeVert(1) Then
+                    If IsNumeric(TextBox8.Text) And ChangePosition(1) Then
                         RoomActors(i1).y = CInt(TextBox8.Text)
                     End If
-                    If IsNumeric(TextBox9.Text) And ChangeVert(2) Then
+                    If IsNumeric(TextBox9.Text) And ChangePosition(2) Then
                         RoomActors(i1).z = CInt(TextBox9.Text)
                     End If
-                    If IsNumeric(TextBox10.Text) And ChangeVert(3) Then
+                    If IsNumeric(TextBox10.Text) And ChangePosition(3) Then
                         RoomActors(i1).xr = CInt(TextBox10.Text)
                     End If
-                    If IsNumeric(TextBox11.Text) And ChangeVert(4) Then
+                    If IsNumeric(TextBox11.Text) And ChangePosition(4) Then
                         RoomActors(i1).yr = CInt(TextBox11.Text)
                     End If
-                    If IsNumeric(TextBox12.Text) And ChangeVert(5) Then
+                    If IsNumeric(TextBox12.Text) And ChangePosition(5) Then
                         RoomActors(i1).zr = CInt(TextBox12.Text)
                     End If
                     If ActorNumberText.Text.Length = 4 Then
@@ -5611,7 +5370,7 @@ ContextOpened:      ReadPixel(0) = 0
             RoomActorCombobox.Items.Clear()
             RoomActorCombobox.Items.Add("Room Actor Selection")
             For i As Integer = 0 To RoomActors.Length - 1
-                RoomActorCombobox.Items.Add((i).ToString & " - " & FindActorName(0, i))
+                RoomActorCombobox.Items.Add((i).ToString & " - " & IdentifyActor(0, i))
             Next
             If SelectedRoomActors.Count = 1 Then
                 RoomActorCombobox.SelectedIndex = oldint
@@ -5621,7 +5380,7 @@ ContextOpened:      ReadPixel(0) = 0
             SceneActorCombobox.Items.Clear()
             SceneActorCombobox.Items.Add("None selected")
             For i As Integer = 0 To SceneActors.Length - 1
-                SceneActorCombobox.Items.Add((i + 1).ToString & " - " & FindActorName(1, i))
+                SceneActorCombobox.Items.Add((i + 1).ToString & " - " & IdentifyActor(1, i))
             Next
             If SelectedSceneActors.Count = 1 Then
                 SceneActorCombobox.SelectedIndex = oldint
@@ -5822,39 +5581,6 @@ ContextOpened:      ReadPixel(0) = 0
                 End Select
                 UpdateActorPos()
             Case ToolID.VERTEX
-                'If selmesh.Count > 0 Then
-                'For i2 = 0 To selmesh.Count - 1
-                '    'Dim xorig As Short = Vertices(selmesh(i2)).x(selvert(i2))
-                '    'Dim zorig As Short = Vertices(selmesh(i2)).z(selvert(i2))
-                '    Select Case ButtonPress
-                '        Case 0
-                '            Vertices(selmesh(i2)).x(selvert(i2)) -= CosYRot
-                '            Vertices(selmesh(i2)).z(selvert(i2)) -= SinYRot
-                '        Case 1
-                '            Vertices(selmesh(i2)).y(selvert(i2)) += ToolSensitivity
-                '        Case 2
-                '            Vertices(selmesh(i2)).y(selvert(i2)) -= ToolSensitivity
-                '        Case 3
-                '            Vertices(selmesh(i2)).x(selvert(i2)) += CosYRot
-                '            Vertices(selmesh(i2)).z(selvert(i2)) += SinYRot
-                '        Case 4
-                '            Vertices(selmesh(i2)).x(selvert(i2)) -= SinYRot
-                '            Vertices(selmesh(i2)).z(selvert(i2)) += CosYRot
-                '        Case 5
-                '            Vertices(selmesh(i2)).x(selvert(i2)) += SinYRot
-                '            Vertices(selmesh(i2)).z(selvert(i2)) -= CosYRot
-                '        Case 6
-                '            Vertices(selmesh(i2)).v(selvert(i2)) += 15
-                '        Case 7
-                '            Vertices(selmesh(i2)).v(selvert(i2)) -= 15
-                '        Case 8
-                '            Vertices(selmesh(i2)).u(selvert(i2)) -= 15
-                '        Case 9
-                '            Vertices(selmesh(i2)).u(selvert(i2)) += 15
-                '    End Select
-                'Next
-                'UpdateVertM()
-
                 If SelectedCollisionVert.Count > 0 Then
                     For i1 = 0 To SelectedCollisionVert.Count - 1
                         Select Case ButtonPress
@@ -5876,7 +5602,6 @@ ContextOpened:      ReadPixel(0) = 0
                                 CollisionVerts.z(SelectedCollisionVert(i1)) -= CosYRot
                         End Select
                     Next
-                    UpdateVertM()
                 End If
             Case ToolID.EDGE
 
@@ -5933,13 +5658,13 @@ ContextOpened:      ReadPixel(0) = 0
         SetupDialog.ShowDialog()
     End Sub
     Private Sub TextBox1_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        ChangeVert(0) = True
+        ChangePosition(0) = True
     End Sub
     Private Sub TextBox2_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        ChangeVert(1) = True
+        ChangePosition(1) = True
     End Sub
     Private Sub TextBox3_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        ChangeVert(2) = True
+        ChangePosition(2) = True
     End Sub
     Private Sub CollisionMeshToolStripMenuItem_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CollisionMeshToolStripMenuItem.Click
         If RenderCollision = False Then
@@ -6081,11 +5806,11 @@ ContextOpened:      ReadPixel(0) = 0
     End Sub
 
     Private Sub TextBox22_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        ChangeVert(3) = True
+        ChangePosition(3) = True
     End Sub
 
     Private Sub TextBox21_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        ChangeVert(4) = True
+        ChangePosition(4) = True
     End Sub
 
     Private Sub Button26_MouseDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs)
@@ -6261,27 +5986,27 @@ ContextOpened:      ReadPixel(0) = 0
     End Sub
 
     Private Sub TextBox7_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox7.TextChanged
-        ChangeVert(0) = True
+        ChangePosition(0) = True
     End Sub
 
     Private Sub TextBox8_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox8.TextChanged
-        ChangeVert(1) = True
+        ChangePosition(1) = True
     End Sub
 
     Private Sub TextBox9_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox9.TextChanged
-        ChangeVert(2) = True
+        ChangePosition(2) = True
     End Sub
 
     Private Sub TextBox10_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox10.TextChanged
-        ChangeVert(3) = True
+        ChangePosition(3) = True
     End Sub
 
     Private Sub TextBox11_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox11.TextChanged
-        ChangeVert(4) = True
+        ChangePosition(4) = True
     End Sub
 
     Private Sub TextBox12_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox12.TextChanged
-        ChangeVert(5) = True
+        ChangePosition(5) = True
     End Sub
 
     Private Sub TrackBar1_Scroll(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TrackBar1.Scroll
@@ -6305,81 +6030,13 @@ ContextOpened:      ReadPixel(0) = 0
             ViewingMeshToolStripMenuItem1.Checked = True
         End If
     End Sub
-    Private Function DrawDLists(ByVal F3DEX2List As N64DisplayList, ByVal PickMode As Boolean)
-        Dim drawExtras As Color4UByte
-        If PickMode Then
-            drawExtras = New Color4UByte
-            With drawExtras
-                .r = F3DEX2List.PickR
-                .g = F3DEX2List.PickG
-                .b = F3DEX2List.PickB
-                .a = &HFF
-            End With
-        Else
-            drawExtras = Nothing
-        End If
+    Private Function DrawDList(ByVal F3DEX2List As N64DisplayList)
         With F3DEX2List
             For i As Integer = 0 To .Commands.Length - 1
-                ParseDL.ParseCommand(F3DEX2List, _
-                                     i, _
-                                     drawExtras)
+                ParseDL.ParseCommand(F3DEX2List, i)
             Next
         End With
     End Function
-    'Private Function CreateOGLDList(ByVal F3DEX2List() As N64DisplayList, ByRef OGLList() As OGLDisplayList, ByVal Index As Integer) As Integer
-    '    OGLList(Index).MainDL = Gl.glGenLists(1)
-    '    Gl.glNewList(OGLList(Index).MainDL, Gl.GL_COMPILE)
-    '    DrawDLists(N64DList(Index), False)
-    '    Gl.glEndList()
-
-    '    OGLList(Index).HighlighterDL = Gl.glGenLists(1)
-    '    Gl.glNewList(OGLList(Index).HighlighterDL, Gl.GL_COMPILE)
-    '    Gl.glEnable(Gl.GL_CULL_FACE)
-    '    Gl.glCullFace(Gl.GL_BACK)
-    '    Gl.glBlendFunc(Gl.GL_SRC_ALPHA, Gl.GL_ONE_MINUS_SRC_ALPHA)
-    '    Gl.glAlphaFunc(Gl.GL_GREATER, 0.0F)
-    '    Gl.glPolygonOffset(-4, -4)
-    '    Gl.glEnable(Gl.GL_BLEND)
-    '    Gl.glEnable(Gl.GL_POLYGON_OFFSET_FILL)
-    '    Gl.glDisable(Gl.GL_FRAGMENT_PROGRAM_ARB)
-    '    Gl.glColor4f(1.0F, 0.0F, 0.0F, 0.2F)
-    '    With F3DEX2List(Index)
-    '        For i As Integer = 0 To .Commands.Length - 1
-    '            If i + 1 < .Commands.Length Then
-    '                ParseDL.ParseCommand(.Commands(i).CMDLow, .Commands(i).CMDHigh, .Commands(i).CMDParams, .Commands(i + 1).CMDParams, True)
-    '            Else
-    '                ParseDL.ParseCommand(.Commands(i).CMDLow, .Commands(i).CMDHigh, .Commands(i).CMDParams, Nothing, True)
-    '            End If
-    '        Next
-    '    End With
-    '    Gl.glDisable(Gl.GL_BLEND)
-    '    Gl.glDisable(Gl.GL_POLYGON_OFFSET_FILL)
-    '    Gl.glEndList()
-
-    '    OGLList(Index).PickR = CByte(rand.Next(0, 255))
-    '    OGLList(Index).PickG = CByte(rand.Next(0, 255))
-    '    OGLList(Index).PickB = CByte(rand.Next(0, 255))
-
-    '    OGLList(Index).PickableDL = Gl.glGenLists(1)
-    '    Gl.glNewList(OGLList(Index).PickableDL, Gl.GL_COMPILE)
-
-    '    Gl.glPolygonOffset(-10.0F, -10.0F)
-    '    Gl.glDisable(Gl.GL_BLEND)
-    '    Gl.glEnable(Gl.GL_POLYGON_OFFSET_FILL)
-    '    Gl.glDisable(Gl.GL_FRAGMENT_PROGRAM_ARB)
-    '    Gl.glColor3ub(OGLList(Index).PickR, OGLList(Index).PickG, OGLList(Index).PickB)
-    '    With F3DEX2List(Index)
-    '        For i As Integer = 0 To .Commands.Length - 1
-    '            If i + 1 < .Commands.Length Then
-    '                ParseDL.ParseCommand(.Commands(i).CMDLow, .Commands(i).CMDHigh, .Commands(i).CMDParams, .Commands(i + 1).CMDParams, True)
-    '            Else
-    '                ParseDL.ParseCommand(.Commands(i).CMDLow, .Commands(i).CMDHigh, .Commands(i).CMDParams, Nothing, True)
-    '            End If
-    '        Next
-    '    End With
-    '    Gl.glDisable(Gl.GL_POLYGON_OFFSET_FILL)
-    '    Gl.glEndList()
-    'End Function
     Private Sub SetVariables(ByVal ftype As Integer)
         Select Case ftype
             Case 0
@@ -6399,12 +6056,6 @@ ContextOpened:      ReadPixel(0) = 0
                 ProcessMapHeader()
                 ProcessSceneHeader()
                 GetEntryPoints()
-                'ReDim OGLDlist(N64DList.Length - 1)
-                'For i As Integer = 0 To OGLDlist.Length - 1
-                '    OGLDlist(i).Skip = False
-                '    OGLDlist(i).N64Offset = N64DList(i).StartPos.Offset
-                '    CreateOGLDList(N64DList, OGLDlist, i)
-                'Next
             Case 1
                 CurrentBank = 6
                 RenderGraphics = True
@@ -6414,14 +6065,8 @@ ContextOpened:      ReadPixel(0) = 0
                 EditingTabs.TabPages.Remove(ActorsTab)
                 EditingTabs.TabPages.Remove(LevelFlagsTab)
                 'ScanForHierarchies(ZFileBuffer, 6, Hierarchies)
-                GetEntryPoints()
                 If AnimStart.Text <> "" Then GetAnimations()
-                'ReDim OGLDlist(N64DList.Length - 1)
-                'For i As Integer = 0 To OGLDlist.Length - 1
-                '    OGLDlist(i).Skip = False
-                '    OGLDlist(i).N64Offset = N64DList(i).StartPos.Offset
-                '    CreateOGLDList(N64DList, OGLDlist, i)
-                'Next
+                GetEntryPoints()
         End Select
     End Sub
 
@@ -6577,11 +6222,11 @@ ContextOpened:      ReadPixel(0) = 0
                 crc.Start()
                 crc.WaitForExit()
             End If
-            MsgBox("ROM saved successfully!", MsgBoxStyle.Information, "ROM saved")
+            MsgBox("ROM saved!", MsgBoxStyle.Information, "Save")
         Else 'write to individually loaded files
             If ZFileBuffer IsNot Nothing Then File.WriteAllBytes(IndMapFileName, ZFileBuffer)
             If ZSceneBuffer IsNot Nothing Then File.WriteAllBytes(IndScFileName, ZSceneBuffer)
-            MsgBox("ZMAP/SCENE saved successfully!", MsgBoxStyle.Information, "Individual files saved")
+            MsgBox("Individual file(s) saved!", MsgBoxStyle.Information, "Save")
         End If
     End Sub
     Private Sub LockAxes(ByVal axis As Integer)
@@ -6838,7 +6483,6 @@ ContextOpened:      ReadPixel(0) = 0
 
     Private Sub LoadIndividual_FileOk(ByVal sender As System.Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles LoadIndividual.FileOk
         If LoadIndividual.FileName.Contains(".zscene") Then
-            SetVariables(0)
             IndScFileName = LoadIndividual.FileName
             ZSceneBuffer = File.ReadAllBytes(IndScFileName)
             MapsCombobox.Items.Clear()
@@ -6860,7 +6504,14 @@ ContextOpened:      ReadPixel(0) = 0
                 tScPos += 8
             End While
             Me.Text = "Utility of Time - " & LoadIndividual.FileName
+            If MapsCombobox.Items.Count > 0 Then
+                MapsCombobox.SelectedIndex = 0
+                EditingTabs.SelectedTab = EditingTabs.TabPages("MiscTab")
+            Else
+                MapsCombobox.Enabled = False
+            End If
         ElseIf LoadIndividual.FileName.Contains(".zobj") Then
+            EditingTabs.SelectedTab = EditingTabs.TabPages("DLTab")
             Me.Text = "Utility of Time - " & LoadIndividual.FileName
             IndMapFileName = LoadIndividual.FileName
             ZFileBuffer = File.ReadAllBytes(IndMapFileName)
@@ -7025,7 +6676,7 @@ ContextOpened:      ReadPixel(0) = 0
             .pickB = rand.Next(0, 255)
             .offset = Offset
         End With
-        RoomActorCombobox.Items.Add((rmActorCount).ToString & " - " & FindActorName(0, rmActorCount))
+        RoomActorCombobox.Items.Add((rmActorCount).ToString & " - " & IdentifyActor(0, rmActorCount))
         RoomActorCombobox.SelectedIndex = rmActorCount + 1
         ReDim Preserve ZFileBuffer(ZFileBuffer.Length - 1 + (rmActorCount * &H16))
         rmActorCount += 1
@@ -7237,33 +6888,39 @@ ContextOpened:      ReadPixel(0) = 0
     End Sub
 
     Private Sub DListSelection_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DListSelection.SelectedIndexChanged
-        If HighlightDL Then
-            EnableDLHighlight()
-        Else
-            DisableDLHighlight()
-        End If
-
         CommandsListbox.Items.Clear()
         CommandJumpBox.Items.Clear()
-        For i As Integer = 0 To N64DList(DListSelection.SelectedIndex).Commands.Length - 1
-            CommandsListbox.Items.Add(N64DList(DListSelection.SelectedIndex).Commands(i).Name)
-            If Not CommandJumpBox.Items.Contains(N64DList(DListSelection.SelectedIndex).Commands(i).Name) Then
-                CommandJumpBox.Items.Add(N64DList(DListSelection.SelectedIndex).Commands(i).Name)
+        If DListSelection.SelectedIndex > 0 Then
+            If HighlightDL Then
+                EnableDLHighlight()
+            Else
+                DisableDLHighlight()
             End If
-        Next
+            For i As Integer = 0 To N64DList(DListSelection.SelectedIndex - 1).Commands.Length - 1
+                CommandsListbox.Items.Add(N64DList(DListSelection.SelectedIndex - 1).Commands(i).Name)
+                If Not CommandJumpBox.Items.Contains(N64DList(DListSelection.SelectedIndex - 1).Commands(i).Name) Then
+                    CommandJumpBox.Items.Add(N64DList(DListSelection.SelectedIndex - 1).Commands(i).Name)
+                End If
+            Next
+        Else
+            For i As Integer = 0 To N64DList.Length - 1
+                N64DList(i).Highlight = False
+                N64DList(i).Skip = False
+            Next
+        End If
     End Sub
 
     Private Sub CommandsListbox_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CommandsListbox.SelectedIndexChanged
-        CommandCodeText.Text = N64DList(DListSelection.SelectedIndex).Commands(CommandsListbox.SelectedIndex).CMDParams(0).ToString("X2")
-        LowordText.Text = N64DList(DListSelection.SelectedIndex).Commands(CommandsListbox.SelectedIndex).CMDLow.ToString("X6")
-        HiwordText.Text = N64DList(DListSelection.SelectedIndex).Commands(CommandsListbox.SelectedIndex).CMDHigh.ToString("X8")
+        CommandCodeText.Text = N64DList(DListSelection.SelectedIndex - 1).Commands(CommandsListbox.SelectedIndex).CMDParams(0).ToString("X2")
+        LowordText.Text = N64DList(DListSelection.SelectedIndex - 1).Commands(CommandsListbox.SelectedIndex).CMDLow.ToString("X6")
+        HiwordText.Text = N64DList(DListSelection.SelectedIndex - 1).Commands(CommandsListbox.SelectedIndex).CMDHigh.ToString("X8")
     End Sub
 
     Private Sub CommandsListbox_DoubleClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CommandsListbox.DoubleClick
         If CommandsListbox.SelectedIndex >= 0 Then
             If CommandsListbox.SelectedItem = "G_SETCOMBINE" Then
-                LinkedCommands.EnvColor = FindLinkedCommand(N64DList(DListSelection.SelectedIndex), RDP.G_SETENVCOLOR, CommandsListbox.SelectedIndex)
-                LinkedCommands.PrimColor = FindLinkedCommand(N64DList(DListSelection.SelectedIndex), RDP.G_SETPRIMCOLOR, CommandsListbox.SelectedIndex)
+                LinkedCommands.EnvColor = FindLinkedCommand(N64DList(DListSelection.SelectedIndex - 1), RDP.G_SETENVCOLOR, CommandsListbox.SelectedIndex)
+                LinkedCommands.PrimColor = FindLinkedCommand(N64DList(DListSelection.SelectedIndex - 1), RDP.G_SETPRIMCOLOR, CommandsListbox.SelectedIndex)
                 CombinerEditor.Close()
                 CombinerEditor.Show()
                 CombinerEditor.Focus()
@@ -7276,7 +6933,7 @@ ContextOpened:      ReadPixel(0) = 0
             Dim hW As Integer = Integer.Parse(HiwordText.Text, Globalization.NumberStyles.HexNumber)
             Dim lW As Integer = Integer.Parse(LowordText.Text, Globalization.NumberStyles.HexNumber)
             Dim cmd As Integer = Integer.Parse(CommandCodeText.Text, Globalization.NumberStyles.HexNumber)
-            With N64DList(DListSelection.SelectedIndex).Commands(CommandsListbox.SelectedIndex)
+            With N64DList(DListSelection.SelectedIndex - 1).Commands(CommandsListbox.SelectedIndex)
                 .CMDHigh = hW
                 .CMDLow = lW
                 .CMDParams(0) = cmd
@@ -7292,7 +6949,7 @@ ContextOpened:      ReadPixel(0) = 0
     End Sub
     Private Sub EnableDLHighlight()
         For i As Integer = 0 To N64DList.Length - 1
-            If i = DListSelection.SelectedIndex Then
+            If i = DListSelection.SelectedIndex - 1 Then
                 N64DList(i).Highlight = True
             Else
                 N64DList(i).Highlight = False
@@ -7303,7 +6960,7 @@ ContextOpened:      ReadPixel(0) = 0
 
     Private Sub DisableDLHighlight()
         For i As Integer = 0 To N64DList.Length - 1
-            If i = DListSelection.SelectedIndex Then
+            If i = DListSelection.SelectedIndex - 1 Then
                 N64DList(i).Skip = False
             Else
                 N64DList(i).Skip = True
@@ -7357,7 +7014,7 @@ ContextOpened:      ReadPixel(0) = 0
         Next
     End Sub
     Private Sub Button10_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button10.Click
-        If CommandsListbox.SelectedIndex > 0 Then
+        If DListSelection.SelectedIndex > 0 Then
             RipAllDLs = False
             RipDL.ShowDialog()
         End If
@@ -7385,14 +7042,13 @@ ContextOpened:      ReadPixel(0) = 0
                 WriteDLToFile(N64DList(I), RawDLFile)
             Next
         Else
-            WriteDLToFile(N64DList(DListSelection.SelectedIndex), RawDLFile)
+            WriteDLToFile(N64DList(DListSelection.SelectedIndex - 1), RawDLFile)
         End If
         RawDLFile.Dispose()
     End Sub
 
     Private Sub Button13_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button13.Click
-        N64DList(DListSelection.SelectedIndex).Commands(CommandsListbox.SelectedIndex) = N64DList(DListSelection.SelectedIndex).CommandsCopy(CommandsListbox.SelectedIndex)
-        MsgBox(Hex(N64DList(DListSelection.SelectedIndex).CommandsCopy(CommandsListbox.SelectedIndex).CMDLow))
+        N64DList(DListSelection.SelectedIndex - 1).Commands(CommandsListbox.SelectedIndex) = N64DList(DListSelection.SelectedIndex - 1).CommandsCopy(CommandsListbox.SelectedIndex)
     End Sub
 
 
@@ -7408,11 +7064,4 @@ ContextOpened:      ReadPixel(0) = 0
     End Sub
 #End Region
 
-    Private Sub Copy_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Copy.Click
-
-    End Sub
-
-    Private Sub MainWin_Resize(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Resize
-
-    End Sub
 End Class

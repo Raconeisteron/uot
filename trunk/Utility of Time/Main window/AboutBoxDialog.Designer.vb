@@ -33,7 +33,7 @@ Partial Class AboutBoxDialog
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(12, 64)
+        Me.Button1.Location = New System.Drawing.Point(14, 74)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 6
@@ -44,7 +44,7 @@ Partial Class AboutBoxDialog
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(11, 9)
+        Me.Label3.Location = New System.Drawing.Point(11, 15)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(107, 15)
         Me.Label3.TabIndex = 8
@@ -53,7 +53,7 @@ Partial Class AboutBoxDialog
         'LinkLabel1
         '
         Me.LinkLabel1.AutoSize = True
-        Me.LinkLabel1.Location = New System.Drawing.Point(12, 34)
+        Me.LinkLabel1.Location = New System.Drawing.Point(12, 45)
         Me.LinkLabel1.Name = "LinkLabel1"
         Me.LinkLabel1.Size = New System.Drawing.Size(79, 13)
         Me.LinkLabel1.TabIndex = 10
@@ -66,7 +66,7 @@ Partial Class AboutBoxDialog
         Me.GroupBox1.Controls.Add(Me.LinkLabel2)
         Me.GroupBox1.Location = New System.Drawing.Point(141, 9)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(106, 82)
+        Me.GroupBox1.Size = New System.Drawing.Size(106, 88)
         Me.GroupBox1.TabIndex = 11
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Useful links"
@@ -74,7 +74,7 @@ Partial Class AboutBoxDialog
         'LinkLabel3
         '
         Me.LinkLabel3.AutoSize = True
-        Me.LinkLabel3.Location = New System.Drawing.Point(15, 55)
+        Me.LinkLabel3.Location = New System.Drawing.Point(12, 59)
         Me.LinkLabel3.Name = "LinkLabel3"
         Me.LinkLabel3.Size = New System.Drawing.Size(20, 13)
         Me.LinkLabel3.TabIndex = 1
@@ -84,7 +84,7 @@ Partial Class AboutBoxDialog
         'LinkLabel2
         '
         Me.LinkLabel2.AutoSize = True
-        Me.LinkLabel2.Location = New System.Drawing.Point(15, 25)
+        Me.LinkLabel2.Location = New System.Drawing.Point(12, 25)
         Me.LinkLabel2.Name = "LinkLabel2"
         Me.LinkLabel2.Size = New System.Drawing.Size(79, 13)
         Me.LinkLabel2.TabIndex = 0

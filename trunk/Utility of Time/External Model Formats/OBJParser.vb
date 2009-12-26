@@ -145,7 +145,7 @@ Public Class OBJParser
 
                 Return tempObj
             Else
-                MsgBox("Could not find obj file " & fn & "!")
+                MsgBox("Could not find Wavefrong OBJ file " & fn & "!")
             End If
         Catch ex As Exception
             MsgBox("Error encountered in OBJ Parser." & Environment.NewLine & Environment.NewLine & "Details: " & ex.Message, MsgBoxStyle.Critical, "Error while parsing obj model!")
