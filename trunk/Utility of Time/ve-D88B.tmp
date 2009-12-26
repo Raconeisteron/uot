@@ -1,0 +1,1215 @@
+Imports System.io
+Imports Tao.opengl
+Imports Tao.platform.windows
+Imports Tao.devil
+Imports System.math
+
+Public Class MainWin
+
+#Region " Necessary for OpenGL Initialization "
+
+    Public Sub New()
+        MyBase.New()
+
+        'This call is required by the Windows Form Designer.
+        InitializeComponent()
+
+        'Add any initialization after the InitializeComponent() call
+        SimpleOpenGlControl1.InitializeContexts()
+        Gl.glClearColor(0.0F, 0.0F, 0.0F, 0.0F)
+        'Gl.glMatrixMode(Gl.GL_PROJECTION)
+        'Gl.glLoadIdentity()
+        'Gl.glOrtho(0.0, 1.0, 0.0, 1.0, -1.0, 1.0)
+
+    End Sub
+    'Form overrides dispose to clean up the component list.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        If disposing AndAlso components IsNot Nothing Then
+            components.Dispose()
+        End If
+        MyBase.Dispose(disposing)
+        SimpleOpenGlControl1.DestroyContexts()
+    End Sub
+
+    'Required by the Windows Form Designer
+    Private components As System.ComponentModel.IContainer
+    Friend WithEvents SimpleOpenGlControl1 As Tao.Platform.Windows.SimpleOpenGlControl
+    Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
+    Friend WithEvents FileToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents LoadZOBJToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents QuitToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents LoadActorGFX As System.Windows.Forms.OpenFileDialog
+
+    'NOTE: The following procedure is required by the Windows Form Designer
+    'It can be modified using the Windows Form Designer.  
+    'Do not modify it using the code editor.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainWin))
+        Me.SimpleOpenGlControl1 = New Tao.Platform.Windows.SimpleOpenGlControl
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip
+        Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.OptionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.DebugToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.LoadActorGFX = New System.Windows.Forms.OpenFileDialog
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog
+        Me.LoadZOBJToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.QuitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.BackgroundColorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.BlackToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.BlueToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.WhiteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.SetupToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.ShowDebuggerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.ConToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.FiletypeDetectorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.MenuStrip1.SuspendLayout()
+        Me.SuspendLayout()
+        '
+        'SimpleOpenGlControl1
+        '
+        Me.SimpleOpenGlControl1.AccumBits = CType(0, Byte)
+        Me.SimpleOpenGlControl1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.SimpleOpenGlControl1.AutoCheckErrors = False
+        Me.SimpleOpenGlControl1.AutoFinish = True
+        Me.SimpleOpenGlControl1.AutoMakeCurrent = True
+        Me.SimpleOpenGlControl1.AutoSwapBuffers = True
+        Me.SimpleOpenGlControl1.BackColor = System.Drawing.Color.Black
+        Me.SimpleOpenGlControl1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.SimpleOpenGlControl1.ColorBits = CType(32, Byte)
+        Me.SimpleOpenGlControl1.DepthBits = CType(32, Byte)
+        Me.SimpleOpenGlControl1.Location = New System.Drawing.Point(-4, 27)
+        Me.SimpleOpenGlControl1.Name = "SimpleOpenGlControl1"
+        Me.SimpleOpenGlControl1.Size = New System.Drawing.Size(640, 429)
+        Me.SimpleOpenGlControl1.StencilBits = CType(16, Byte)
+        Me.SimpleOpenGlControl1.TabIndex = 0
+        '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.OptionsToolStripMenuItem, Me.DebugToolStripMenuItem, Me.HelpToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
+        Me.MenuStrip1.Size = New System.Drawing.Size(632, 24)
+        Me.MenuStrip1.Stretch = False
+        Me.MenuStrip1.TabIndex = 1
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'FileToolStripMenuItem
+        '
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LoadZOBJToolStripMenuItem, Me.QuitToolStripMenuItem})
+        Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
+        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(35, 20)
+        Me.FileToolStripMenuItem.Text = "File"
+        '
+        'OptionsToolStripMenuItem
+        '
+        Me.OptionsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BackgroundColorToolStripMenuItem, Me.SetupToolStripMenuItem})
+        Me.OptionsToolStripMenuItem.Name = "OptionsToolStripMenuItem"
+        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(56, 20)
+        Me.OptionsToolStripMenuItem.Text = "Options"
+        '
+        'DebugToolStripMenuItem
+        '
+        Me.DebugToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ShowDebuggerToolStripMenuItem})
+        Me.DebugToolStripMenuItem.Name = "DebugToolStripMenuItem"
+        Me.DebugToolStripMenuItem.Size = New System.Drawing.Size(50, 20)
+        Me.DebugToolStripMenuItem.Text = "Debug"
+        '
+        'HelpToolStripMenuItem
+        '
+        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ConToolStripMenuItem, Me.AboutToolStripMenuItem, Me.FiletypeDetectorToolStripMenuItem})
+        Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(40, 20)
+        Me.HelpToolStripMenuItem.Text = "Help"
+        '
+        'LoadActorGFX
+        '
+        Me.LoadActorGFX.Filter = "Actors (*.zobj)|*.zobj;*.zvertex|Levels (*.zmap)|*.zmap;*.room|Misc. Data (*.zdat" & _
+            "a)|*.zdata"
+        Me.LoadActorGFX.Title = "Load F3DEX2 Compliant Data"
+        '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.Filter = "Zelda Scene Files|*.zscene;*.scene"
+        Me.OpenFileDialog1.Title = "Map Needs Scene File"
+        '
+        'LoadZOBJToolStripMenuItem
+        '
+        Me.LoadZOBJToolStripMenuItem.Image = Global.WindowsApplication1.My.Resources.Resources.ChestOpen
+        Me.LoadZOBJToolStripMenuItem.Name = "LoadZOBJToolStripMenuItem"
+        Me.LoadZOBJToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
+        Me.LoadZOBJToolStripMenuItem.Text = "Load Actor"
+        '
+        'QuitToolStripMenuItem
+        '
+        Me.QuitToolStripMenuItem.Image = Global.WindowsApplication1.My.Resources.Resources.ChestClosed
+        Me.QuitToolStripMenuItem.Name = "QuitToolStripMenuItem"
+        Me.QuitToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
+        Me.QuitToolStripMenuItem.Text = "Quit"
+        '
+        'BackgroundColorToolStripMenuItem
+        '
+        Me.BackgroundColorToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BlackToolStripMenuItem, Me.BlueToolStripMenuItem, Me.WhiteToolStripMenuItem})
+        Me.BackgroundColorToolStripMenuItem.Image = Global.WindowsApplication1.My.Resources.Resources.IceRod1
+        Me.BackgroundColorToolStripMenuItem.Name = "BackgroundColorToolStripMenuItem"
+        Me.BackgroundColorToolStripMenuItem.Size = New System.Drawing.Size(167, 22)
+        Me.BackgroundColorToolStripMenuItem.Text = "Background color"
+        '
+        'BlackToolStripMenuItem
+        '
+        Me.BlackToolStripMenuItem.Image = Global.WindowsApplication1.My.Resources.Resources.black
+        Me.BlackToolStripMenuItem.Name = "BlackToolStripMenuItem"
+        Me.BlackToolStripMenuItem.Size = New System.Drawing.Size(113, 22)
+        Me.BlackToolStripMenuItem.Text = "Black"
+        '
+        'BlueToolStripMenuItem
+        '
+        Me.BlueToolStripMenuItem.Image = Global.WindowsApplication1.My.Resources.Resources.blue
+        Me.BlueToolStripMenuItem.Name = "BlueToolStripMenuItem"
+        Me.BlueToolStripMenuItem.Size = New System.Drawing.Size(113, 22)
+        Me.BlueToolStripMenuItem.Text = "Blue"
+        '
+        'WhiteToolStripMenuItem
+        '
+        Me.WhiteToolStripMenuItem.Image = Global.WindowsApplication1.My.Resources.Resources.white
+        Me.WhiteToolStripMenuItem.Name = "WhiteToolStripMenuItem"
+        Me.WhiteToolStripMenuItem.Size = New System.Drawing.Size(113, 22)
+        Me.WhiteToolStripMenuItem.Text = "White"
+        '
+        'SetupToolStripMenuItem
+        '
+        Me.SetupToolStripMenuItem.Image = Global.WindowsApplication1.My.Resources.Resources.BookOfMudora1
+        Me.SetupToolStripMenuItem.Name = "SetupToolStripMenuItem"
+        Me.SetupToolStripMenuItem.Size = New System.Drawing.Size(167, 22)
+        Me.SetupToolStripMenuItem.Text = "Setup"
+        '
+        'ShowDebuggerToolStripMenuItem
+        '
+        Me.ShowDebuggerToolStripMenuItem.Image = Global.WindowsApplication1.My.Resources.Resources.Octoballoon2
+        Me.ShowDebuggerToolStripMenuItem.Name = "ShowDebuggerToolStripMenuItem"
+        Me.ShowDebuggerToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.ShowDebuggerToolStripMenuItem.Text = "Show Debugger"
+        '
+        'ConToolStripMenuItem
+        '
+        Me.ConToolStripMenuItem.Image = Global.WindowsApplication1.My.Resources.Resources.LinkRead
+        Me.ConToolStripMenuItem.Name = "ConToolStripMenuItem"
+        Me.ConToolStripMenuItem.Size = New System.Drawing.Size(168, 22)
+        Me.ConToolStripMenuItem.Text = "Controls Info"
+        '
+        'AboutToolStripMenuItem
+        '
+        Me.AboutToolStripMenuItem.Image = Global.WindowsApplication1.My.Resources.Resources.icon1
+        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(168, 22)
+        Me.AboutToolStripMenuItem.Text = "About"
+        '
+        'FiletypeDetectorToolStripMenuItem
+        '
+        Me.FiletypeDetectorToolStripMenuItem.Image = Global.WindowsApplication1.My.Resources.Resources.Hylian1
+        Me.FiletypeDetectorToolStripMenuItem.Name = "FiletypeDetectorToolStripMenuItem"
+        Me.FiletypeDetectorToolStripMenuItem.Size = New System.Drawing.Size(168, 22)
+        Me.FiletypeDetectorToolStripMenuItem.Text = "Filetype Detector"
+        '
+        'Form1
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(632, 453)
+        Me.Controls.Add(Me.SimpleOpenGlControl1)
+        Me.Controls.Add(Me.MenuStrip1)
+        Me.DoubleBuffered = True
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MainMenuStrip = Me.MenuStrip1
+        Me.Name = "Form1"
+        Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show
+        Me.Text = "N64 Zelda Actor Viewer - Beta 4"
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
+
+    End Sub
+
+#End Region
+#Region "ZAVVars"
+    Dim key_w, key_a, key_s, key_d, key_i, key_j, key_k, key_l, key_q, key_e As Boolean
+    Dim T0 As Integer = 0
+    Dim t As Integer
+    Dim seconds As Decimal
+    Dim loaded As Boolean
+    Dim points As Boolean = False
+    Dim fps As UInteger
+    Dim frames As Integer
+    Dim backr As Decimal
+    Dim backg As Decimal
+    Dim backb As Decimal
+    Dim dumpto As String = ""
+    Dim founderr As Boolean
+    Dim texbytes As Integer = 0
+    Dim imagearray(0) As Byte
+    Dim texwidth As Integer
+    Dim texheight As Integer
+    Dim textureid As Integer = 0
+    Dim dialog2load As Boolean
+    Dim xrot As Double = 0.0
+    Dim yrot As Double = 0.0
+    Dim zrot As Double = 0.0
+    Dim xrott As Double = 0.0
+    Dim yrott As Double = 0.0
+    Dim zrott As Double = 0.0
+    Dim ActorDisplayList As UInt32
+    Dim iniwrite As New iniwriter(Application.StartupPath & "/zav.ini")
+    Dim zDist As Decimal
+    Dim wireframe As Boolean = False
+    Dim vert_x As New ArrayList
+    Dim vert_y As New ArrayList
+    Dim vert_z As New ArrayList
+    Dim vert_u As New ArrayList
+    Dim vert_v As New ArrayList
+    Dim vert_r As New ArrayList
+    Dim vert_g As New ArrayList
+    Dim vert_b As New ArrayList
+    Dim vert_a As New ArrayList
+#End Region
+    Sub DrawActor()
+        Gl.glClearColor(backr, backg, backb, 1)
+        Gl.glClear(Gl.GL_COLOR_BUFFER_BIT Or Gl.GL_DEPTH_BUFFER_BIT)
+        Gl.glLoadIdentity()
+        If key_w = True Then yrott -= 6.0F
+        If key_d = True Then xrott -= 6.0F
+        If key_s = True Then yrott += 6.0F
+        If key_a = True Then xrott += 6.0F
+        If key_q = True Then zDist -= 10.0F
+        If key_e = True Then zDist += 10.0F
+        If key_i = True Then xrot += 1.0F
+        If key_j = True Then yrot += 1.0F
+        If key_k = True Then xrot -= 1.0F
+        If key_l = True Then yrot -= 1.0F
+        Gl.glTranslatef(xrott, yrott, zDist)
+        Gl.glRotatef(xrot, 1.0F, 0.0F, 0.0F)
+        Gl.glRotatef(yrot, 0.0F, 1.0F, 0.0F)
+        Gl.glRotatef(zrot, 0.0F, 0.0F, 1.0F)
+        If ActorDisplayList <> Nothing Then
+            Gl.glCallList(ActorDisplayList)
+        End If
+        debugger.Label13.Text = xrot
+        debugger.Label14.Text = yrot
+        debugger.Label15.Text = Round(zDist, 4)
+    End Sub
+    Private Sub SimpleOpenGlControl1_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles SimpleOpenGlControl1.KeyDown
+        Select Case e.KeyCode
+            Case Keys.W
+                key_w = True
+            Case Keys.D
+                key_d = True
+            Case Keys.S
+                key_s = True
+            Case Keys.A
+                key_a = True
+            Case Keys.Q
+                key_q = True
+            Case Keys.E
+                key_e = True
+            Case Keys.F1
+                If wireframe = False Then
+                    wireframe = True
+                    Gl.glPolygonMode(Gl.GL_FRONT_AND_BACK, Gl.GL_LINE)
+                ElseIf wireframe = True Then
+                    wireframe = False
+                    Gl.glPolygonMode(Gl.GL_FRONT_AND_BACK, Gl.GL_FILL)
+                End If
+            Case Keys.F2
+                If points = False Then
+                    points = True
+                    Gl.glPolygonMode(Gl.GL_FRONT_AND_BACK, Gl.GL_POINT)
+                ElseIf points = True Then
+                    points = False
+                    If wireframe = True Then
+                        Gl.glPolygonMode(Gl.GL_FRONT_AND_BACK, Gl.GL_LINE)
+                    ElseIf wireframe = False Then
+                        Gl.glPolygonMode(Gl.GL_FRONT_AND_BACK, Gl.GL_FILL)
+                    End If
+                End If
+            Case Keys.I
+                key_i = True
+            Case Keys.J
+                key_j = True
+            Case Keys.K
+                key_k = True
+            Case Keys.L
+                key_l = True
+            Case Keys.R
+                ResetView()
+        End Select
+    End Sub
+    Sub MainLoop()
+        Gl.glShadeModel(Gl.GL_SMOOTH)
+        Gl.glClearDepth(1.0F)
+        Gl.glEnable(Gl.GL_DEPTH_TEST)
+        Gl.glDepthFunc(Gl.GL_LEQUAL)
+        Gl.glHint(Gl.GL_PERSPECTIVE_CORRECTION_HINT, Gl.GL_NICEST)
+        Gl.glEnable(Gl.GL_BLEND)
+        Gl.glBlendFunc(Gl.GL_SRC_ALPHA, Gl.GL_ONE_MINUS_SRC_ALPHA)
+        ResizeScene()
+        Do
+            Application.DoEvents()
+            frames += 1
+            t = Kernel.GetTickCount
+            If t - T0 >= 1000 Then
+                seconds = (t - T0) / 1000.0
+                fps = frames / seconds
+                If loaded = True Then
+                    Me.Text = "N64 Zelda Actor Viewer - " & GetFileName(LoadActorGFX.FileName) & " [" & fps & " FPS]"
+                End If
+                T0 = t
+                frames = 0
+            End If
+            DrawActor()
+            SimpleOpenGlControl1.Invalidate()
+        Loop
+    End Sub
+    Sub SetToZero()
+        debugger.ListBox4.SetSelected(0, True)
+        debugger.ListBox7.SetSelected(0, True)
+        debugger.ListBox8.SetSelected(0, True)
+    End Sub
+    Sub BuildList()
+        Loading.Label2.Text = "Building Display List..."
+        Loading.Refresh()
+        Dim polycount As Integer = 0
+        Dim i As Integer = 0
+        Dim finalcnt As Integer = 0
+        Dim ulength As Integer = texwidth * 32
+        Dim vlength As Integer = texheight * 32
+        Call SetToZero()
+        Call SetScale()
+        ActorDisplayList = Gl.glGenLists(1)
+        Gl.glNewList(ActorDisplayList, Gl.GL_COMPILE)
+        Gl.glBegin(Gl.GL_TRIANGLES)
+        For i = 0 To vert_x.Count - 1
+            If textures = True Then
+                Gl.glTexCoord2f(vert_u.Item(i) / ulength, vert_v.Item(i) / vlength)
+            End If
+            If vertexcolors = True Then
+                Gl.glColor4ub(vert_r.Item(i), vert_g.Item(i), vert_b.Item(i), vert_a.Item(i))
+            End If
+            Gl.glVertex3i(vert_x.Item(i), vert_y.Item(i), vert_z.Item(i))
+            polycount += 1
+        Next
+        Gl.glEnd()
+        Gl.glEndList()
+        Call ClearArrayLists()
+        Call SetToZero()
+        finalcnt = polycount / 3
+        debugger.TextBox2.Text += Environment.NewLine & Environment.NewLine & Round(finalcnt) & " Triangles in scene."
+        GC.Collect()
+    End Sub
+    Private Sub Form1_Resize(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Resize
+        ResizeScene()
+    End Sub
+    Private Sub QuitToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles QuitToolStripMenuItem.Click
+        Me.Close()
+    End Sub
+    Private Sub LoadZOBJToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LoadZOBJToolStripMenuItem.Click
+        Dim actorgfx As String
+        LoadActorGFX.FileName = ""
+        actorgfx = LoadActorGFX.ShowDialog()
+        If actorgfx = System.Windows.Forms.DialogResult.Cancel Then
+            LoadActorGFX.Dispose()
+        End If
+    End Sub
+    Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Dim config As String = ""
+        If File.Exists(Application.StartupPath & "/zav.ini") = True Then
+            Dim winw As String = iniwrite.GetString("settings", "WinResW", Nothing)
+            Dim winh As String = iniwrite.GetString("settings", "WinResH", Nothing)
+            If winw And winh <> "" Then
+                Me.Size = New Size(winw, winh)
+            End If
+            config = iniwrite.GetString("settings", "configured", Nothing)
+            Dim bgcolorread As String = iniwrite.GetString("Settings", "BGColor", Nothing)
+            dumpto = iniwrite.GetString("settings", "dumpdir", Nothing)
+            Dim dumpenable As String = iniwrite.GetString("settings", "dumptextures", Nothing)
+            Dim vertcoloruse As String = iniwrite.GetString("settings", "vertexcolors", Nothing)
+            Dim textureuse As String = iniwrite.GetString("settings", "textures", Nothing)
+            If vertcoloruse = "no" Then
+                vertexcolors = False
+            ElseIf vertcoloruse = "yes" Then
+                vertexcolors = True
+            Else
+                vertexcolors = True
+            End If
+            If textureuse = "yes" Then
+                textures = True
+            ElseIf textureuse = "no" Then
+                textures = False
+            Else
+                textures = True
+            End If
+            If dumpto <> "" Then
+                If dumpenable = "true" Then
+                    dump = True
+                Else
+                    dump = False
+                End If
+            End If
+            If bgcolorread = "White" Then
+                BlackToolStripMenuItem.Checked = False
+                BlueToolStripMenuItem.Checked = False
+                WhiteToolStripMenuItem.Checked = True
+                backr = 1
+                backg = 1
+                backb = 1
+            ElseIf bgcolorread = "Black" Then
+                BlackToolStripMenuItem.Checked = True
+                BlueToolStripMenuItem.Checked = False
+                WhiteToolStripMenuItem.Checked = False
+                backr = 0
+                backg = 0
+                backb = 0
+            ElseIf bgcolorread = "Blue" Then
+                BlackToolStripMenuItem.Checked = False
+                BlueToolStripMenuItem.Checked = True
+                WhiteToolStripMenuItem.Checked = False
+                backr = 0.1
+                backg = 0.3
+                backb = 0.4
+            End If
+        Else
+            BlackToolStripMenuItem.Checked = True
+            BlueToolStripMenuItem.Checked = False
+            WhiteToolStripMenuItem.Checked = False
+            backr = 0
+            backg = 0
+            backb = 0
+            config = "no"
+        End If
+        debugger.Show()
+        debugger.Hide()
+        Me.Show()
+        Me.Focus()
+        If config <> "yes" Then
+            Setup.Show()
+            Setup.Text = "Zelda64 Actor Viewer First Time Setup"
+            Setup.Focus()
+        End If
+        MainLoop()
+    End Sub
+    Private Sub Form1_FormClosed(ByVal sender As System.Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles MyBase.FormClosed
+        End
+    End Sub
+    Sub ResetView() ' Reset to default view
+        xrot = 0.0
+        yrot = 0.0
+        zrot = 0.0
+        xrott = 0.0
+        yrott = 0.0
+        zrott = 0.0
+        If LoadActorGFX.FileName.Contains("gi_") Then
+            zDist = -300
+        Else
+            zDist = -1400
+        End If
+    End Sub
+    Sub GetPolyOrder() ' Gets polygons
+        If founderr = True Then
+            founderr = False
+            Exit Sub
+        End If
+        Dim found1 As Boolean
+        Dim endloop As Boolean
+        Dim lcnt As Integer = 0
+        Dim polytest As Byte
+        Dim vertno(2) As Byte
+        Dim vertno1(6) As Byte
+        Dim vertgrp As Integer = 0
+        debugger.ListBox7.Items.Clear()
+        Loading.Label2.Text = "Organizing vertices..."
+        Dim actorread1 As FileStream = New FileStream(LoadActorGFX.FileName, FileMode.Open)
+        If debugger.ListBox4.Items.Count = 0 Then
+            MsgBox("Actor couldn't be parsed. It has no vertex lists, which means it is not a 3D model.", MsgBoxStyle.Critical, "Error")
+            loaded = False
+            settozero()
+            debugger.TextBox2.Text += Environment.NewLine & Environment.NewLine & "No vertex arrays found, could not continue."
+            Loading.Close()
+            GC.Collect()
+            founderr = True
+            Exit Sub
+        Else
+            debugger.ListBox8.SetSelected(0, True)
+        End If
+        For lcnt = 0 To debugger.ListBox4.Items.Count - 1
+            If found1 = True Then
+                If debugger.ListBox8.SelectedIndex = debugger.ListBox8.Items.Count - 1 Then
+
+                Else
+                    debugger.ListBox8.SetSelected(debugger.ListBox8.SelectedIndex + 1, True)
+                End If
+            End If
+            If debugger.ListBox8.SelectedIndex = 0 Then
+                found1 = True
+            End If
+            endloop = False
+            actorread1.Position = Convert.ToUInt32(debugger.ListBox8.SelectedItem, 16)
+            vertgrp += 1
+            debugger.ListBox7.Items.Add("----" & vertgrp & "----")
+            Do Until endloop = True
+                polytest = actorread1.ReadByte
+                Dim commandfound As String = polytest.ToString("X2")
+                If entrypoint <> 0 Then
+                    If commandfound = G_ENDDL Then ' End display list
+                        SetToZero()
+                        endloop = True
+                        actorread1.Dispose()
+                        Exit Sub
+                    End If
+                    If commandfound = G_VTX Or commandfound = G_SETOTHERMODE_H Then
+                        endloop = True
+                    End If
+                End If
+                If commandfound = G_TRI2 Then '2 polygons, 7 bytes at a time
+                    vertno1(0) = actorread1.ReadByte
+                    vertno1(1) = actorread1.ReadByte
+                    vertno1(2) = actorread1.ReadByte
+                    vertno1(3) = actorread1.ReadByte
+                    vertno1(4) = actorread1.ReadByte
+                    vertno1(5) = actorread1.ReadByte
+                    vertno1(6) = actorread1.ReadByte
+
+                    debugger.ListBox7.Items.Add(Convert.ToUInt16(vertno1(0).ToString("X2"), 16) / 2)
+                    debugger.ListBox7.Items.Add(Convert.ToUInt16(vertno1(1).ToString("X2"), 16) / 2)
+                    debugger.ListBox7.Items.Add(Convert.ToUInt16(vertno1(2).ToString("X2"), 16) / 2)
+                    debugger.ListBox7.Items.Add(Convert.ToUInt16(vertno1(4).ToString("X2"), 16) / 2)
+                    debugger.ListBox7.Items.Add(Convert.ToUInt16(vertno1(5).ToString("X2"), 16) / 2)
+                    debugger.ListBox7.Items.Add(Convert.ToUInt16(vertno1(6).ToString("X2"), 16) / 2)
+
+                    endloop = False
+                ElseIf commandfound = G_TRI1 Then  ' one polygon, 3 bytes
+                    vertno1(0) = actorread1.ReadByte
+                    vertno1(1) = actorread1.ReadByte
+                    vertno1(2) = actorread1.ReadByte
+
+                    debugger.ListBox7.Items.Add(Convert.ToUInt16(vertno1(0).ToString("X2"), 16) / 2)
+                    debugger.ListBox7.Items.Add(Convert.ToUInt16(vertno1(1).ToString("X2"), 16) / 2)
+                    debugger.ListBox7.Items.Add(Convert.ToUInt16(vertno1(2).ToString("X2"), 16) / 2)
+
+                    endloop = False
+
+                    actorread1.Position += 4
+                ElseIf commandfound = G_ENDDL Or commandfound = G_RDPPIPESYNC Or commandfound = G_VTX Then
+                    endloop = True
+                End If
+            Loop
+        Next
+        Call SetToZero()
+        actorread1.Dispose()
+        GC.Collect()
+    End Sub
+    Sub gettexture()
+        If File.Exists(Application.StartupPath & "/gameplay_keep.zdata") = False Or File.Exists(Application.StartupPath & "/gameplay_dangeon_keep.zdata") = False Then
+            MsgBox("Please place gameplay_keep.zdata and gameplay_dangeon_keep.zdata in your Zelda64 Actor Viewer folder. These files are needed to grab frequently used textures from. Textures disabled.", MsgBoxStyle.Exclamation, "gameplay_keeps are needed")
+            Dim texlulz As String = textures.ToString
+            textures = False
+            Call BuildList()
+            If texlulz = "True" Then
+                textures = True
+            Else
+                textures = False
+            End If
+            Exit Sub
+        End If
+        Dim sceneused As Boolean = False
+        Dim gameplaykeep As FileStream = New FileStream("gameplay_keep.zdata", FileMode.Open)
+        Dim dangenkeep As FileStream = New FileStream("gameplay_dangeon_keep.zdata", FileMode.Open)
+        Dim scene As FileStream = Nothing
+        If LoadActorGFX.FileName.Contains(".zmap") Or LoadActorGFX.FileName.Contains(".room") Then
+            Dim openscene As String = OpenFileDialog1.ShowDialog()
+            OpenFileDialog1.Title = GetFileName(LoadActorGFX.FileName) & " needs scene file."
+            If openscene = Windows.Forms.DialogResult.Cancel Then
+                OpenFileDialog1.Dispose()
+            Else
+                scene = New FileStream(OpenFileDialog1.FileName, FileMode.Open)
+                sceneused = True
+            End If
+        End If
+        Dim texread As FileStream = New FileStream(LoadActorGFX.FileName, FileMode.Open)
+        Dim info(1) As Byte
+        Dim formattest(1) As Byte
+        Dim dimensiontest(1) As Byte
+        Dim banktest(1) As Byte
+        Dim wraptest(1) As Byte
+        Dim texloc(2) As Byte
+        Dim linesizetest(3) As Byte
+        Dim texoff As UInt32
+        Dim formatbyte As String = ""
+        Dim linesize As Integer = 0
+        Dim bppmth As Integer = 0
+        Dim imagesize As String = ""
+        Dim imageformat As String = ""
+        Dim colorcomponents As Integer = 0
+        Dim wrapfind As Byte
+        Dim dimensionfind As Byte
+        Dim formatfind As Byte
+        Dim texno As Integer = 0
+        Dim bankuse As String
+        Dim wrapuse As String
+        Dim imagetao(0) As Byte
+        Loading.Label2.Text = "Getting textures and info..."
+        Do While texread.Position < texread.Length - 10
+            info(0) = texread.ReadByte
+            info(1) = texread.ReadByte
+            If info(0).ToString("X2") & info(1).ToString("X2") = G_TEXTURE Then
+                Do Until banktest(0).ToString("X2") = "FD" Or banktest(0).ToString("X2") = G_ENDDL
+                    banktest(0) = texread.ReadByte
+                Loop
+                If banktest(0).ToString("X2") <> G_ENDDL Then
+                    texread.Position += 3
+                    banktest(0) = texread.ReadByte
+                    bankuse = banktest(0).ToString("X2")
+                    texloc(0) = texread.ReadByte
+                    texloc(1) = texread.ReadByte
+                    texloc(2) = texread.ReadByte
+                    texoff = Convert.ToUInt32(texloc(0).ToString("X2") & texloc(1).ToString("X2") & texloc(2).ToString("X2"), 16)
+                    wrapfind = Nothing
+                    Do Until wrapfind.ToString("X2") = "07"
+                        If texread.Position >= texread.Length Then
+                            Exit Do
+                        End If
+                        wrapfind = texread.ReadByte
+                    Loop
+                    If texread.Position >= texread.Length Then
+                        Exit Do
+                    End If
+                    wraptest(0) = texread.ReadByte
+                    wraptest(1) = texread.ReadByte
+                    wrapuse = Mid(wraptest(0).ToString("X2"), 2, 1)
+                    Gl.glTexParameterf(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_WRAP_S, Gl.GL_MIRRORED_REPEAT_ARB)
+                    Gl.glTexParameterf(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_WRAP_T, Gl.GL_MIRRORED_REPEAT_ARB)
+                    dimensionfind = Nothing
+                    Do Until dimensionfind.ToString("X2") = "07"
+                        dimensionfind = texread.ReadByte
+                        If texread.Position >= texread.Length Then
+                            Exit Do
+                        End If
+                    Loop
+                    If texread.Position >= texread.Length Then
+                        Exit Do
+                    End If
+                    dimensiontest(0) = texread.ReadByte
+                    dimensiontest(1) = texread.ReadByte
+                    texbytes = Convert.ToUInt32(Mid(dimensiontest(0).ToString("X2") & dimensiontest(1).ToString("X2"), 1, 3), 16)
+                    ReDim imagearray(texbytes)
+                    texread.Position -= 1
+                    linesizetest(0) = texread.ReadByte
+                    linesizetest(1) = texread.ReadByte
+                    linesize = Convert.ToUInt32(Mid(linesizetest(0).ToString("X2") & linesizetest(1).ToString("X2"), 2, 3), 16)
+                    If linesize = 0 Then
+                        texread.Position -= 3
+                        linesizetest(0) = texread.ReadByte
+                        linesizetest(1) = texread.ReadByte
+                        linesize = Convert.ToUInt32(Mid(linesizetest(0).ToString("X2") & linesizetest(1).ToString("X2"), 2, 3), 16)
+                    End If
+                    formatfind = Nothing
+                    Do Until formatfind.ToString("X2") = "F5"
+                        formatfind = texread.ReadByte
+                    Loop
+                    texread.Position -= 1
+                    formattest(0) = texread.ReadByte
+                    formattest(1) = texread.ReadByte
+                    formatbyte = formattest(0).ToString("X2") & formattest(1).ToString("X2")
+                    Select Case formatbyte
+                        Case "F590"
+                            bppmth = 16
+                            imageformat = "16-bit I"
+                            colorcomponents = 1
+                        Case "F588"
+                            bppmth = 8
+                            imageformat = "8-bit I"
+                            colorcomponents = 1
+                        Case "F510"
+                            bppmth = 16
+                            imageformat = "16-bit RGBA"
+                            colorcomponents = 4
+                        Case "F580"
+                            bppmth = 4
+                            imageformat = "4-bit I"
+                            colorcomponents = 1
+                        Case "F540"
+                            bppmth = 4
+                            imageformat = "4-bit CI"
+                            colorcomponents = 4
+                        Case "F560"
+                            bppmth = 4
+                            imageformat = "4-bit IA"
+                            colorcomponents = 2
+                        Case "F550"
+                            bppmth = 16
+                            imageformat = "16-bit CI"
+                            colorcomponents = 4
+                        Case "F570"
+                            bppmth = 16
+                            imageformat = "16-bit IA"
+                            colorcomponents = 2
+                        Case "F500"
+                            bppmth = 4
+                            imageformat = "4-bit RGBA"
+                            colorcomponents = 4
+                        Case "F520"
+                            bppmth = 4
+                            imageformat = "4-bit YUV"
+                            colorcomponents = 3
+                        Case "F508"
+                            bppmth = 8
+                            imageformat = "8-bit RGBA"
+                            colorcomponents = 4
+                        Case "F5FF"
+                            bppmth = 8
+                            imageformat = "8-bit I"
+                            colorcomponents = 1
+                        Case "F548"
+                            bppmth = 8
+                            imageformat = "8-bit CI"
+                            colorcomponents = 4
+                        Case "F568"
+                            bppmth = 8
+                            imageformat = "8-bit IA"
+                            colorcomponents = 2
+                        Case Else
+                            bppmth = 8
+                            colorcomponents = 4
+                            imageformat = "Unknown (" & formatbyte & "). Assumed 8-bit RGBA "
+                    End Select
+                    texwidth = (32 / bppmth) * 4096 / linesize
+                    texheight = ((texbytes * 16) / bppmth) / texwidth
+                    debugger.TextBox2.Text += Environment.NewLine & Environment.NewLine & "Found a " & texwidth & "x" & texheight & " " & imageformat & " (bank " & bankuse & ") texture at offset 0x" & Hex(texoff)
+                    Select Case bankuse
+                        Case findval 'Bank 06/03/01, the object, map, nintendo_rogo files respectively. IE, not seperate
+                            texread.Position = texoff
+                            texread.Read(imagearray, 0, texbytes)
+                        Case "04" 'Bank 04, "gameplay_keep"
+                            gameplaykeep.Position = texoff
+                            gameplaykeep.Read(imagearray, 0, texbytes)
+                        Case "08" 'Bank 08, "gameplay_dangeon_keep"
+                            dangenkeep.Position = texoff
+                            dangenkeep.Read(imagearray, 0, texbytes)
+                        Case "02" 'Bank 02, map scene files
+                            scene.Position = texoff
+                            scene.Read(imagearray, 0, texbytes)
+                    End Select
+                    If dump = True Then
+                        dumpto = iniwrite.GetString("settings", "dumpdir", Nothing)
+                        File.WriteAllBytes(dumpto & "/" & GetFileName(LoadActorGFX.FileName) & "_" & "0x" & Hex(texoff) & "_" & texwidth & "x" & texheight & ".raw", imagearray)
+                    End If
+                    Gl.glTexParameterf(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_MAG_FILTER, Gl.GL_LINEAR)
+                    Gl.glTexParameterf(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_MIN_FILTER, Gl.GL_LINEAR)
+                    Gl.glTexImage2D(Gl.GL_TEXTURE_2D, 0, colorcomponents, texwidth / 4, texheight / 4, 0, Gl.GL_RGBA, Gl.GL_UNSIGNED_BYTE, imagearray)
+                End If
+            End If
+        Loop
+        If sceneused = True Then
+            scene.Dispose()
+        End If
+        dangenkeep.Dispose()
+        gameplaykeep.Dispose()
+        texread.Dispose()
+        GC.Collect()
+    End Sub
+    Sub GetEntryPoints()
+        Epdialog.ComboBox1.Items.Clear()
+        Dim epfinder(3) As Byte
+        Dim epopen As FileStream = New FileStream(LoadActorGFX.FileName, FileMode.Open)
+        epopen.Position = 0
+        Do While epopen.Position < epopen.Length
+            epfinder(0) = epopen.ReadByte
+            epfinder(1) = epopen.ReadByte
+            epfinder(2) = epopen.ReadByte
+            epfinder(3) = epopen.ReadByte
+            If epfinder(0).ToString("X2") & epfinder(1).ToString("X2") & epfinder(2).ToString("X2") & epfinder(3).ToString("X2") = "E7000000" Then
+                Epdialog.ComboBox1.Items.Add(Hex(epopen.Position - 4))
+            End If
+        Loop
+        If Epdialog.ComboBox1.Items.Count = 0 Then
+            founderr = True
+            epopen.Dispose()
+            GC.Collect()
+            Exit Sub
+        End If
+        Epdialog.Label3.Text = Epdialog.ComboBox1.Items.Count
+        Epdialog.ComboBox1.SelectedIndex = 0
+        epopen.Dispose()
+        GC.Collect()
+    End Sub
+    Sub ParseActor()
+
+        Dim test2(1) As Byte
+        Dim finalpos As String
+        Dim finalbytes As String
+        Dim istrue As Boolean = False
+        Dim filename1 As String = GetFileName(LoadActorGFX.FileName)
+        Dim bytestoread(1) As Byte
+        Dim pointer2(2) As Byte
+        Dim FirstPoly(2) As Byte
+        Dim polyhint As String
+        Dim zmapfound As Boolean = False
+        Dim zmapgoto(1) As Byte
+        Dim verify As String = ""
+        Dim parseread As FileStream = New FileStream(LoadActorGFX.FileName, FileMode.Open)
+        debugger.ListBox8.Items.Clear()
+        debugger.ListBox4.Items.Clear()
+        debugger.TextBox2.Text = ""
+        debugger.TextBox2.Text += filename1 & " Loaded!" & Environment.NewLine
+        debugger.TextBox2.Text += Environment.NewLine & " --- BEGIN PARSING DATA ---"
+        Loading.Show()
+        Loading.Label2.Text = "Parsing data..."
+        Loading.Refresh()
+        ActorDisplayList = Nothing
+        parseread.Position = entrypoint
+        Do While parseread.Position < parseread.Length - 10
+            istrue = False
+            FirstPoly(0) = parseread.ReadByte
+            FirstPoly(1) = parseread.ReadByte
+            polyhint = FirstPoly(0).ToString("X2") & FirstPoly(1).ToString("X2")
+            If polyhint = findval & "00" Or polyhint = findval & "01" Then
+                parseread.Position -= 6
+                test2(0) = parseread.ReadByte
+                test2(1) = parseread.ReadByte
+                verify = test2(0).ToString("X2") & test2(1).ToString("X2")
+                Select Case verify
+                    Case "0100", "0101", "0102"
+                        istrue = True
+                    Case Else
+                        istrue = False
+                        parseread.Position += 6
+                End Select
+                If istrue = False Then
+                    debugger.TextBox2.Text += Environment.NewLine & "Found possible array load command at " & Hex(parseread.Position - 4) & ". Valid? " & "No!"
+                ElseIf istrue = True Then
+                    debugger.TextBox2.Text += Environment.NewLine & "Found possible array load command at " & Hex(parseread.Position + 3) & ". Valid? " & "Yes!"
+                End If
+                If istrue = True Then
+                    parseread.Position -= 1
+                    bytestoread(0) = parseread.ReadByte
+                    bytestoread(1) = parseread.ReadByte
+                    finalbytes = bytestoread(0).ToString("X2") & bytestoread(1).ToString("X2")
+                    parseread.Position += 2
+                    pointer2(0) = parseread.ReadByte
+                    pointer2(1) = parseread.ReadByte
+                    pointer2(2) = parseread.ReadByte
+                    parseread.Position += 2
+                    finalpos = pointer2(0).ToString("X2") & pointer2(1).ToString("X2") & pointer2(2).ToString("X2")
+                    debugger.ListBox4.Items.Add(zerofill2(finalpos) & " : " & finalbytes)
+                    debugger.ListBox8.Items.Add(Hex(parseread.Position - 2))
+                Else
+                    parseread.Position += 4
+                End If
+            End If
+        Loop
+        parseread.Dispose()
+        GC.Collect()
+    End Sub
+    Sub ClearArrayLists()
+        vert_x.Clear()
+        vert_y.Clear()
+        vert_z.Clear()
+        vert_u.Clear()
+        vert_v.Clear()
+        vert_r.Clear()
+        vert_g.Clear()
+        vert_b.Clear()
+        vert_a.Clear()
+    End Sub
+    Sub loadactorgfxs()
+        Try
+            ClearArrayLists()
+            If founderr = True Then
+                founderr = False
+                loaded = False
+                debugger.Text = "N64 Zelda Actor Viewer Debugger"
+                Me.Text = "N64 Zelda Actor Viewer"
+                GC.Collect()
+                Exit Sub
+            End If
+            debugger.Show()
+            debugger.Hide()
+            Call ParseActor()
+            Call GetPolyOrder()
+            Dim X(1) As Byte 'x vert
+            Dim Y(1) As Byte 'y vert
+            Dim Z(1) As Byte 'z vert
+            Dim U(1) As Byte 'tex u coord
+            Dim V(1) As Byte 'tex v coord
+            Dim R As Byte 'vert r color
+            Dim G As Byte 'vert g color
+            Dim B As Byte 'vert b color
+            Dim A As Byte 'vert alpha value
+            Dim i As Integer = 0
+            Dim i0 As Integer = 0
+            Dim done As Boolean = False
+            Dim found As Boolean = False
+            Dim baseoffset As Integer
+            Dim actorread As FileStream = New FileStream(LoadActorGFX.FileName, FileMode.Open)
+            Loading.Show()
+            Loading.Refresh()
+            Loading.Label2.Text = "Reading vertex arrays..."
+            If debugger.ListBox4.Items.Count = 0 Or debugger.ListBox4.Items.Count = 0 Then
+                MsgBox("Actor couldn't be parsed. It has no vertex lists, which means it is not a 3D model.", MsgBoxStyle.Critical, "Error")
+                debugger.ListBox4.Items.Clear()
+                debugger.ListBox7.Items.Clear()
+                debugger.ListBox8.Items.Clear()
+                debugger.TextBox2.Text += Environment.NewLine & Environment.NewLine & "No vertex arrays found, could not continue."
+                Loading.Close()
+                GC.Collect()
+                End
+            Else
+                If debugger.ListBox4.SelectedIndex <> 0 Then
+                    debugger.ListBox4.SetSelected(0, True)
+                End If
+            End If
+
+            Do Until done = True
+                For i0 = 0 To debugger.ListBox4.Items.Count
+                    If found = True Then
+                        If debugger.ListBox7.SelectedIndex = debugger.ListBox7.Items.Count - 1 Then
+
+                        Else
+                            debugger.ListBox7.SetSelected(debugger.ListBox7.SelectedIndex + 1, True)
+                        End If
+                    Else
+                        debugger.ListBox7.SetSelected(debugger.ListBox7.SelectedIndex + 1, True)
+                        found = True
+                    End If
+                    If IsNumeric(debugger.ListBox7.SelectedItem.ToString) = False Then
+                        Do Until IsNumeric(debugger.ListBox7.SelectedItem.ToString) = True
+                            debugger.ListBox4.SetSelected(debugger.ListBox4.SelectedIndex + 1, True)
+                            debugger.ListBox7.SetSelected(debugger.ListBox7.SelectedIndex + 1, True)
+                        Loop
+                    End If
+                    baseoffset = Convert.ToUInt32(Mid(debugger.ListBox4.SelectedItem, 1, 8), 16) + (debugger.ListBox7.SelectedItem) * 16
+                    If baseoffset > actorread.Length Then
+                        MsgBox("A pointer tried to point outside of the file's bounds! Can not continue with the operation.", MsgBoxStyle.Critical, "Error")
+                        Loading.Close()
+                        loaded = False
+                        founderr = True
+                        SetToZero()
+                        GC.Collect()
+                        Exit Sub
+                    Else
+                        actorread.Position = baseoffset
+                    End If
+
+                    'Cartesian Coords. X, Y, and Z
+
+                    X(0) = actorread.ReadByte
+                    X(1) = actorread.ReadByte
+
+                    Y(0) = actorread.ReadByte
+                    Y(1) = actorread.ReadByte
+
+                    Z(0) = actorread.ReadByte
+                    Z(1) = actorread.ReadByte
+
+                    'Skip 0000
+
+                    actorread.Position += 2
+
+                    'Texture coordinates
+
+                    U(0) = actorread.ReadByte
+                    U(1) = actorread.ReadByte
+
+                    V(0) = actorread.ReadByte
+                    V(1) = actorread.ReadByte
+
+                    'Vertex colors
+
+                    R = actorread.ReadByte
+                    G = actorread.ReadByte
+                    B = actorread.ReadByte
+                    A = actorread.ReadByte
+
+                    vert_x.Add(Convert.ToInt16(X(0).ToString("X2") & X(1).ToString("X2"), 16))
+                    vert_y.Add(Convert.ToInt16(Y(0).ToString("X2") & Y(1).ToString("X2"), 16))
+                    vert_z.Add(Convert.ToInt16(Z(0).ToString("X2") & Z(1).ToString("X2"), 16))
+                    vert_u.Add(Convert.ToInt16(U(0).ToString("X2") & U(1).ToString("X2"), 16))
+                    vert_v.Add(Convert.ToInt16(V(0).ToString("X2") & V(1).ToString("X2"), 16))
+
+                    vert_r.Add(R)
+                    vert_g.Add(G)
+                    vert_b.Add(B)
+                    vert_a.Add(A)
+
+                    If debugger.ListBox7.SelectedIndex >= debugger.ListBox7.Items.Count - 1 Then
+                        done = True
+                    End If
+                Next
+            Loop
+            actorread.Dispose()
+            found = False
+            Call ResetView()
+            If textures = True Then
+                Gl.glEnable(Gl.GL_TEXTURE_2D)
+                Call gettexture()
+            ElseIf textures = False Then
+                Gl.glDisable(Gl.GL_TEXTURE_2D)
+            End If
+            Call BuildList()
+            ClearArrayLists()
+            Loading.Close()
+            GC.Collect()
+        Catch err As Exception
+            loaded = False
+            ClearArrayLists()
+            debugger.Text = "N64 Zelda Actor Viewer Debugger"
+            Me.Text = "N64 Zelda Actor Viewer"
+            MsgBox("An error has occured: " & err.Message & " Can not continue!", MsgBoxStyle.Critical, "Error!")
+            Gl.glFlush()
+            Loading.Close()
+            GC.Collect()
+            Exit Sub
+        End Try
+    End Sub
+    Private Sub AboutToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AboutToolStripMenuItem.Click
+        AboutBox.Show()
+        AboutBox.Focus()
+    End Sub
+    Private Sub SimpleOpenGlControl1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SimpleOpenGlControl1.Click
+        Me.Refresh()
+    End Sub
+    Private Sub ShowDebuggerToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ShowDebuggerToolStripMenuItem.Click
+        debugger.Show()
+        debugger.Focus()
+    End Sub
+    Private Sub HideDebuggerToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        debugger.Hide()
+    End Sub
+    Private Sub ConToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ConToolStripMenuItem.Click
+        MsgBox("Controls are as follows: I - rotate up, K - rotate down, J - rotate left, L - rotate right, W - move up, S - move down, A - move left, D - move right, E - Zoom in, Q - Zoom out, F1 - Toggle wireframe mode, F2 - Toggle primitive mode (points/triangles), R - Reset view", MsgBoxStyle.Information, "Controls info")
+    End Sub
+    Sub SetScale()
+        If LoadActorGFX.FileName.Contains(".zmap") Or LoadActorGFX.FileName.Contains(".room") Then
+            Epdialog.Hide()
+            dialog2load = False
+            findval = "03"
+        ElseIf LoadActorGFX.FileName.Contains(".zobj") Then
+            Epdialog.Show()
+            Epdialog.Focus()
+            dialog2load = True
+            findval = "06"
+        ElseIf LoadActorGFX.FileName.Contains(".zdata") Then
+            Epdialog.Show()
+            Epdialog.Focus()
+            dialog2load = True
+            findval = "01"
+        End If
+    End Sub
+    Private Sub LoadActorGFX_FileOk(ByVal sender As System.Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles LoadActorGFX.FileOk
+        Dim filename As String = GetFileName(LoadActorGFX.FileName)
+        debugger.Text = "N64 Zelda Actor Viewer Debugger - " & filename
+        Me.Text = "N64 Zelda Actor Viewer - " & filename
+        loaded = True
+        ActorDisplayList = Nothing
+        SetScale()
+        If dialog2load = False Then
+            loadactorgfxs()
+        Else
+            GetEntryPoints()
+        End If
+        GC.Collect()
+    End Sub
+    Private Sub BlackToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BlackToolStripMenuItem.Click
+        iniwrite.WriteString("Settings", "BGColor", "Black")
+        BlackToolStripMenuItem.Checked = True
+        BlueToolStripMenuItem.Checked = False
+        WhiteToolStripMenuItem.Checked = False
+        backr = 0
+        backg = 0
+        backb = 0
+    End Sub
+    Private Sub BlueToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BlueToolStripMenuItem.Click
+        iniwrite.WriteString("Settings", "BGColor", "Blue")
+        BlackToolStripMenuItem.Checked = False
+        BlueToolStripMenuItem.Checked = True
+        WhiteToolStripMenuItem.Checked = False
+        backr = 0.1
+        backg = 0.3
+        backb = 0.4
+
+    End Sub
+    Private Sub WhiteToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles WhiteToolStripMenuItem.Click
+        iniwrite.WriteString("Settings", "BGColor", "White")
+        BlackToolStripMenuItem.Checked = False
+        BlueToolStripMenuItem.Checked = False
+        WhiteToolStripMenuItem.Checked = True
+        backr = 1
+        backg = 1
+        backb = 1
+    End Sub
+    Sub ResizeScene()
+        Dim ratio As Double = 1 * Me.Height / Me.Width
+        Gl.glViewport(0, 0, SimpleOpenGlControl1.Width, SimpleOpenGlControl1.Height)
+        Gl.glMatrixMode(Gl.GL_PROJECTION)
+        Gl.glLoadIdentity()
+        Glu.gluPerspective(45.0F, ratio, 10, 999999)
+        Gl.glMatrixMode(Gl.GL_MODELVIEW)
+        Gl.glLoadIdentity()
+    End Sub
+    Private Sub Form1_Move(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Move
+        Epdialog.Focus()
+        Epdialog.Location = New Point(Me.Left - 194, Me.Top)
+    End Sub
+    Private Sub Form1_Enter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Enter
+        Me.Focus()
+    End Sub
+    Sub KeyCheck()
+        If key_w = True Then
+            key_w = False
+        End If
+        If key_d = True Then
+            key_d = False
+        End If
+        If key_s = True Then
+            key_s = False
+        End If
+        If key_a = True Then
+            key_a = False
+        End If
+        If key_q = True Then
+            key_q = False
+        End If
+        If key_e = True Then
+            key_e = False
+        End If
+        If key_i = True Then
+            key_i = False
+        End If
+        If key_j = True Then
+            key_j = False
+        End If
+        If key_k = True Then
+            key_k = False
+        End If
+        If key_l = True Then
+            key_l = False
+        End If
+    End Sub
+    Private Sub SimpleOpenGlControl1_KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles SimpleOpenGlControl1.KeyUp
+        Call KeyCheck()
+    End Sub
+    Private Sub Form1_Leave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Leave
+        Call KeyCheck()
+    End Sub
+    Private Sub SetupToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SetupToolStripMenuItem.Click
+        Setup.ShowDialog()
+    End Sub
+    Private Sub FiletypeDetectorToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles FiletypeDetectorToolStripMenuItem.Click
+        Filetype.ShowDialog()
+    End Sub
+End Class

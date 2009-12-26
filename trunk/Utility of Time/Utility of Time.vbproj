@@ -1,0 +1,442 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x64</Platform>
+    <GenerateResourceNeverLockTypeAssemblies>true</GenerateResourceNeverLockTypeAssemblies>
+    <PlatformTarget>x86</PlatformTarget>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{99CEE4F4-041C-4147-AE4F-5E11988AE392}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RemoveIntegerChecks>true</RemoveIntegerChecks>
+    <StartupObject>UoT.My.MyApplication</StartupObject>
+    <RootNamespace>UoT</RootNamespace>
+    <AssemblyName>Utility of Time</AssemblyName>
+    <MyType>WindowsForms</MyType>
+    <ApplicationIcon>Main window\uoticon64.ico</ApplicationIcon>
+    <OptionStrict>Off</OptionStrict>
+    <OptionExplicit>On</OptionExplicit>
+    <TargetZone>LocalIntranet</TargetZone>
+    <GenerateManifests>true</GenerateManifests>
+    <OptionCompare>Text</OptionCompare>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <OptionInfer>Off</OptionInfer>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <GenerateResourceNeverLockTypeAssemblies>true</GenerateResourceNeverLockTypeAssemblies>
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>None</DebugType>
+    <RemoveIntegerChecks>true</RemoveIntegerChecks>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>false</DefineTrace>
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>..\..\..\Compiled\Utility of Time\</OutputPath>
+    <DocumentationFile>
+    </DocumentationFile>
+    <NoWarn>41998,41999,42004,42016,42017,42018,42019,42020,42021,42022,42025,42026,42029,42031,42032,42036,42105,42106,42107</NoWarn>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
+    <WarningLevel>1</WarningLevel>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <GenerateResourceNeverLockTypeAssemblies>true</GenerateResourceNeverLockTypeAssemblies>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <RemoveIntegerChecks>true</RemoveIntegerChecks>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <IntegerChecks>false</IntegerChecks>
+    <OutputPath>..\..\..\Compiled\Utility of Time\</OutputPath>
+    <DocumentationFile>
+    </DocumentationFile>
+    <NoWarn>41998,41999,42004,42016,42017,42018,42019,42020,42021,42022,42025,42026,42029,42031,42032,42036,42105,42106,42107</NoWarn>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
+    <WarningLevel>1</WarningLevel>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+    <DebugSymbols>true</DebugSymbols>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <GenerateResourceNeverLockTypeAssemblies>true</GenerateResourceNeverLockTypeAssemblies>
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>..\..\..\Compiled\Utility of Time\</OutputPath>
+    <RemoveIntegerChecks>true</RemoveIntegerChecks>
+    <DocumentationFile>
+    </DocumentationFile>
+    <WarningLevel>1</WarningLevel>
+    <NoWarn>41998,41999,42004,42016,42017,42018,42019,42020,42021,42022,42025,42026,42029,42031,42032,42036,42105,42106,42107</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <GenerateResourceNeverLockTypeAssemblies>true</GenerateResourceNeverLockTypeAssemblies>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <RemoveIntegerChecks>true</RemoveIntegerChecks>
+    <DocumentationFile>
+    </DocumentationFile>
+    <Optimize>true</Optimize>
+    <WarningLevel>1</WarningLevel>
+    <NoWarn>41998,41999,42004,42016,42017,42018,42019,42020,42021,42022,42025,42026,42029,42031,42032,42036,42105,42106,42107</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>..\..\..\Compiled\Utility of Time\</OutputPath>
+    <RemoveIntegerChecks>true</RemoveIntegerChecks>
+    <DocumentationFile>
+    </DocumentationFile>
+    <WarningLevel>1</WarningLevel>
+    <NoWarn>41998,41999,42004,42016,42017,42018,42019,42020,42021,42022,42025,42026,42029,42031,42032,42036,42105,42106,42107</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>..\..\..\Compiled\Utility of Time\</OutputPath>
+    <RemoveIntegerChecks>true</RemoveIntegerChecks>
+    <DocumentationFile>
+    </DocumentationFile>
+    <Optimize>true</Optimize>
+    <WarningLevel>1</WarningLevel>
+    <NoWarn>41998,41999,42004,42016,42017,42018,42019,42020,42021,42022,42025,42026,42029,42031,42032,42036,42105,42106,42107</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.XML" />
+    <Reference Include="Tao.DevIl, Version=1.6.8.3, Culture=neutral, PublicKeyToken=7ec4053013524957, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Tao GL Libs\Tao.DevIl.dll</HintPath>
+    </Reference>
+    <Reference Include="Tao.FreeGlut, Version=2.4.0.2, Culture=neutral, PublicKeyToken=6e602a6ad6c0d06d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Tao GL Libs\Tao.FreeGlut.dll</HintPath>
+    </Reference>
+    <Reference Include="Tao.OpenGl, Version=2.1.0.12, Culture=neutral, PublicKeyToken=1ca010269a4501ef, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Tao GL Libs\Tao.OpenGl.dll</HintPath>
+    </Reference>
+    <Reference Include="Tao.Platform.Windows, Version=1.0.0.5, Culture=neutral, PublicKeyToken=701104b2da67a104, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Tao GL Libs\Tao.Platform.Windows.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Main window\AboutBoxDialog.Designer.vb">
+      <DependentUpon>AboutBoxDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Main window\AboutBoxDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main window\ApplicationEvents.vb" />
+    <Compile Include="Level Editing\ActorPresets.Designer.vb">
+      <DependentUpon>ActorPresets.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Level Editing\ActorPresets.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data Storage\GlobalVars.vb" />
+    <Compile Include="Main window\SetupDialog.Designer.vb">
+      <DependentUpon>SetupDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Main window\SetupDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main window\MainWin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main window\MainWin.Designer.vb">
+      <DependentUpon>MainWin.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Helpers\IniWriter.vb" />
+    <Compile Include="Helpers\Functions.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Main window\AboutBoxDialog.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>AboutBoxDialog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main window\SetupDialog.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SetupDialog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main window\MainWin.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MainWin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="bin\Debug\ext\kokirisword.cur" />
+    <EmbeddedResource Include="bin\Debug\ext\hook.cur" />
+    <Content Include="Main window\uoticon64.ico" />
+    <Compile Include="External Model Formats\3ds.vb" />
+    <Compile Include="DL Command Editors\CombinerEditor.Designer.vb">
+      <DependentUpon>CombinerEditor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DL Command Editors\CombinerEditor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Display List\F3DEX2_Defs.vb" />
+    <Compile Include="Display List\F3DEX_Defs.vb" />
+    <Compile Include="Display List\N64DlistAssembler.vb" />
+    <Compile Include="Display List\F3DEX2_Parser.vb" />
+    <Compile Include="Helpers\SLERP.vb" />
+    <Compile Include="MIPS r4300i\MIPS.vb" />
+    <Compile Include="External Model Formats\OBJData.vb" />
+    <Compile Include="Level Creator\LevelCreator.Designer.vb">
+      <DependentUpon>LevelCreator.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Level Creator\LevelCreator.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="External Model Formats\OBJParser.vb" />
+    <Compile Include="External Model Formats\ObjToF3DEX2.vb" />
+    <Compile Include="Display List\RDP_Defs.vb" />
+    <Compile Include="Data Storage\Structs.vb" />
+    <Compile Include="Display List\TextureConverter.vb" />
+    <None Include="Resources\mscursor.ico" />
+    <None Include="Resources\cursor1.bmp" />
+    <None Include="Resources\Pattern-triangle-squares-3.gif" />
+    <None Include="Resources\rzaj3504.gif" />
+    <None Include="Resources\rzaj3503.gif" />
+    <None Include="Resources\images.jpg" />
+    <None Include="Resources\up.gif" />
+    <None Include="Resources\right.gif" />
+    <None Include="Resources\down.gif" />
+    <None Include="Resources\left.gif" />
+    <None Include="Resources\ChestClosed1.gif" />
+    <None Include="Resources\ChestOpen1.gif" />
+    <None Include="Resources\Hammer.gif" />
+    <None Include="Resources\Crystals.gif" />
+    <None Include="Resources\BombosMedallion.gif" />
+    <None Include="Resources\Boomerang1%281%29.gif" />
+    <None Include="Resources\Boomerang12.gif" />
+    <None Include="Resources\Boomerang2.gif" />
+    <None Include="Resources\Boomerang11.gif" />
+    <None Include="Resources\Boomerang1.gif" />
+    <None Include="Resources\BadMole1.gif" />
+    <None Include="Resources\BadMoleDown1.gif" />
+    <None Include="Resources\BadMole.gif" />
+    <None Include="Resources\BadMoleDown.gif" />
+    <None Include="Resources\opengl-icon.gif" />
+    <None Include="Resources\iconMsdn.png" />
+    <None Include="Resources\moolipoode2.png" />
+    <None Include="Resources\moolipooxx3.png" />
+    <None Include="Resources\4f3e62e40701df3839fc6ee3a2a9118f1.png" />
+    <None Include="Resources\4f3e62e40701df3839fc6ee3a2a9118f.png" />
+    <None Include="Resources\logopartwipou5.jpg" />
+    <None Include="Resources\logopartwipou5.png" />
+    <None Include="Resources\zd3_ap1.gif" />
+    <None Include="Resources\zd3_ihm1.gif" />
+    <None Include="Resources\zd3_ihm.gif" />
+    <None Include="Resources\minus_icon1.gif" />
+    <None Include="Resources\N64 Cart.gif" />
+    <None Include="Resources\N64 Cart.bmp" />
+    <None Include="Resources\n64.gif" />
+    <None Include="Resources\pj64icons1.gif" />
+    <None Include="Resources\pj64icons.gif" />
+    <None Include="Resources\newst3.png" />
+    <None Include="Resources\pj.gif" />
+    <None Include="Resources\axis-y copy3.gif" />
+    <None Include="Resources\axis-y copy.gif" />
+    <None Include="Resources\axis-y.png" />
+    <None Include="Resources\Clipboard013.gif" />
+    <None Include="Resources\Clipboard012.gif" />
+    <None Include="Resources\Clipboard011.gif" />
+    <None Include="Resources\Clipboard01.gif" />
+    <None Include="Resources\Clipboard021.gif" />
+    <None Include="Resources\Clipboard02.gif" />
+    <None Include="Resources\Pouledroite.gif" />
+    <None Include="Resources\oiseauvoyageur.gif" />
+    <None Include="Resources\DungeonMapSprite.gif" />
+    <None Include="Resources\map1.gif" />
+    <None Include="Resources\map.gif" />
+    <None Include="Resources\linda_gis_reset.gif" />
+    <None Include="Resources\object copy1 copy1.jpg" />
+    <None Include="Resources\object copy1 copy.jpg" />
+    <None Include="Resources\object copy1.jpg" />
+    <None Include="Resources\points copy1.png" />
+    <None Include="Resources\object copy.png" />
+    <None Include="Resources\points copy.png" />
+    <None Include="Resources\Clipboard02.jpg" />
+    <None Include="Resources\points1.jpg" />
+    <None Include="Resources\object1.jpg" />
+    <None Include="Resources\points.jpg" />
+    <None Include="Resources\object.jpg" />
+    <None Include="Resources\camwidgets.jpg" />
+    <None Include="Resources\icon_Axes.jpg" />
+    <None Include="Resources\dot_udlr.gif" />
+    <None Include="Resources\Key.gif" />
+    <BaseApplicationManifest Include="My Project\app.manifest" />
+    <None Include="Resources\Octorokadoption.gif" />
+    <None Include="Resources\accessories_honda.gif" />
+    <None Include="Resources\Piston Power !.gif" />
+    <None Include="Resources\icon_min.gif" />
+    <None Include="Resources\icon_plus.gif" />
+    <None Include="Resources\plus_icon2.gif" />
+    <None Include="Resources\plus_icon1.gif" />
+    <None Include="Resources\minus_icon.gif" />
+    <None Include="Resources\plus_icon.gif" />
+    <None Include="Resources\paint-brush-icon1.gif" />
+    <None Include="Resources\paint-brush-icon.gif" />
+    <None Include="Resources\icon_DrawSolidOutline.jpg" />
+    <None Include="Resources\icon_Collision_Disabled.jpg" />
+    <None Include="Resources\dungeon_map01.gif" />
+    <None Include="Resources\honda.gif" />
+    <None Include="Resources\icon-colorpop.gif" />
+    <None Include="Resources\txt1.gif" />
+    <None Include="Resources\txt.gif" />
+    <None Include="Resources\screenshot_button.gif" />
+    <EmbeddedResource Include="Level Editing\ActorPresets.resx">
+      <DependentUpon>ActorPresets.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DL Command Editors\CombinerEditor.resx">
+      <DependentUpon>CombinerEditor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Level Creator\LevelCreator.resx">
+      <DependentUpon>LevelCreator.vb</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Resources\vrml.gif" />
+    <None Include="Resources\Hylian1.gif" />
+    <None Include="Resources\white.gif" />
+    <None Include="Resources\blue.gif" />
+    <None Include="Resources\black.gif" />
+    <None Include="Resources\FireRod1.gif" />
+    <None Include="Resources\IceRod1.gif" />
+    <None Include="Resources\BookOfMudora1.gif" />
+    <None Include="Resources\icon1.gif" />
+    <None Include="Resources\LinkSignpost.gif" />
+    <None Include="Resources\LinkRead.gif" />
+    <None Include="Resources\ChestClosed.gif" />
+    <None Include="Resources\ChestOpen.gif" />
+    <None Include="Resources\Octoballoon2.gif" />
+    <None Include="Main window\app.config" />
+    <None Include="Resources\gifs_zelda_avatar.gif" />
+    <None Include="Resources\Tao.jpg" />
+    <None Include="Resources\zso.jpg" />
+    <None Include="Resources\opengl_animated.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+</Project>

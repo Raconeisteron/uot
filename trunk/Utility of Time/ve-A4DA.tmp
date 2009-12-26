@@ -1,0 +1,8 @@
+Imports System.Windows.Forms
+
+Public Class Loading
+
+    Private Sub Dialog1_MouseClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles MyBase.MouseClick
+        Me.Refresh()
+    End Sub
+End Class

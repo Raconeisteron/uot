@@ -1,0 +1,73 @@
+bin\Debug\Utility of Time.exe.config
+obj\Debug\Utility of Time.exe
+obj\Debug\Utility of Time.xml
+obj\Debug\Utility of Time.pdb
+bin\Debug\Utility of Time.exe.manifest
+bin\Debug\Utility of Time.application
+bin\Debug\Utility of Time.exe
+bin\Debug\Utility of Time.pdb
+bin\Debug\Utility of Time.xml
+bin\Debug\Tao.DevIl.dll
+bin\Debug\Tao.FreeGlut.dll
+bin\Debug\Tao.OpenGl.dll
+bin\Debug\Tao.Platform.Windows.dll
+bin\Debug\Tao.Sdl.dll
+bin\Debug\Tao.Platform.Windows.xml
+bin\Debug\Tao.OpenGl.xml
+bin\Debug\Tao.DevIl.xml
+bin\Debug\Tao.FreeGlut.xml
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\UoT.MainWin.resources
+obj\Debug\UoT.Resources.resources
+obj\Debug\Zelda64 Actor Viewer.vbproj.GenerateResource.Cache
+obj\Debug\Utility of Time.TrustInfo.xml
+obj\Debug\Utility of Time.exe.manifest
+obj\Debug\Utility of Time.application
+obj\Release\ResolveAssemblyReference.cache
+obj\Release\UoT.MainWin.resources
+obj\Release\UoT.Resources.resources
+obj\Release\Zelda64 Actor Viewer.vbproj.GenerateResource.Cache
+obj\Release\Utility of Time.exe
+obj\Release\Utility of Time.xml
+obj\Release\Utility of Time.pdb
+C:\Documents and Settings\Administrator\Desktop\Actor Viewer\Utility of Time.exe.config
+C:\Documents and Settings\Administrator\Desktop\Actor Viewer\Utility of Time.exe.manifest
+C:\Documents and Settings\Administrator\Desktop\Actor Viewer\Utility of Time.application
+C:\Documents and Settings\Administrator\Desktop\Actor Viewer\Utility of Time.exe
+C:\Documents and Settings\Administrator\Desktop\Actor Viewer\Utility of Time.pdb
+C:\Documents and Settings\Administrator\Desktop\Actor Viewer\Utility of Time.xml
+obj\Release\Utility of Time.TrustInfo.xml
+obj\Release\Utility of Time.exe.manifest
+obj\Release\Utility of Time.application
+obj\Debug\UoT.kokirisword.cur
+obj\Debug\UoT.hook.cur
+obj\Release\UoT.kokirisword.cur
+obj\Release\UoT.hook.cur
+C:\Users\cooliscool\Desktop\UoT\Utility of Time.exe.config
+C:\Users\cooliscool\Desktop\UoT\Utility of Time.exe.manifest
+C:\Users\cooliscool\Desktop\UoT\Utility of Time.application
+C:\Users\cooliscool\Desktop\UoT\Utility of Time.exe
+C:\Users\cooliscool\Desktop\UoT\Utility of Time.pdb
+C:\Users\cooliscool\Desktop\UoT\Utility of Time.xml
+C:\Documents and Settings\Administrator\Desktop\uot\Utility of Time.exe.config
+C:\Documents and Settings\Administrator\Desktop\uot\Utility of Time.exe.manifest
+C:\Documents and Settings\Administrator\Desktop\uot\Utility of Time.application
+C:\Documents and Settings\Administrator\Desktop\uot\Utility of Time.exe
+C:\Documents and Settings\Administrator\Desktop\uot\Utility of Time.pdb
+C:\Documents and Settings\Administrator\Desktop\uot\Utility of Time.xml
+obj\Debug\UoT.AboutBoxDialog.resources
+obj\Debug\UoT.SetupDialog.resources
+obj\Debug\UoT.ZREProgressDialog.resources
+obj\Debug\UoT.ObjectSetDialog.resources
+obj\Debug\UoT.AddActorDialog.resources
+obj\Debug\UoT.SceneTableDialog.resources
+obj\Debug\UoT.ColPresetDialog.resources
+obj\Debug\UoT.ExitSelectDialog.resources
+obj\Release\UoT.AboutBoxDialog.resources
+obj\Release\UoT.SetupDialog.resources
+obj\Release\UoT.ZREProgressDialog.resources
+obj\Release\UoT.ObjectSetDialog.resources
+obj\Release\UoT.AddActorDialog.resources
+obj\Release\UoT.SceneTableDialog.resources
+obj\Release\UoT.ColPresetDialog.resources
+obj\Release\UoT.ExitSelectDialog.resources

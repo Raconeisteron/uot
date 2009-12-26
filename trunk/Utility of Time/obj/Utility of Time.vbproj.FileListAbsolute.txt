@@ -1,0 +1,92 @@
+C:\Documents and Settings\Administrator\Desktop\UoT Compile\Utility of Time.exe.config
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\Release\Utility of Time.exe
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\Release\Utility of Time.xml
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\Release\Utility of Time.pdb
+C:\Documents and Settings\Administrator\Desktop\UoT Compile\Utility of Time.exe.manifest
+C:\Documents and Settings\Administrator\Desktop\UoT Compile\Utility of Time.application
+C:\Documents and Settings\Administrator\Desktop\UoT Compile\Utility of Time.exe
+C:\Documents and Settings\Administrator\Desktop\UoT Compile\Utility of Time.pdb
+C:\Documents and Settings\Administrator\Desktop\UoT Compile\Utility of Time.xml
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\Release\ResolveAssemblyReference.cache
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\Release\UoT.kokirisword.cur
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\Release\UoT.hook.cur
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\Release\UoT.AboutBoxDialog.resources
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\Release\UoT.SetupDialog.resources
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\Release\UoT.MainWin.resources
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\Release\UoT.Resources.resources
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\Release\UoT.MusicModValues.resources
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\Release\UoT.InterfaceEditor.resources
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\Release\UoT.SplashScreen1.resources
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\Release\UoT.VertResetPrefs.resources
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\Release\UoT.ZREProgressDialog.resources
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\Release\UoT.ObjectSetDialog.resources
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\Release\UoT.AddActorDialog.resources
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\Release\UoT.ColPresetDialog.resources
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\Release\UoT.ExitSelectDialog.resources
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\Release\Utility of Time.vbproj.GenerateResource.Cache
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\Release\Utility of Time.TrustInfo.xml
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\Release\Utility of Time.exe.manifest
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\Release\Utility of Time.application
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\bin\x64\Release\Utility of Time.exe.config
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\x64\Release\Utility of Time.exe
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\x64\Release\Utility of Time.xml
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\x64\Release\Utility of Time.pdb
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\bin\x64\Release\Utility of Time.exe.manifest
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\bin\x64\Release\Utility of Time.application
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\bin\x64\Release\Utility of Time.exe
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\bin\x64\Release\Utility of Time.pdb
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\bin\x64\Release\Utility of Time.xml
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\bin\x64\Release\Tao.DevIl.dll
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\bin\x64\Release\Tao.FreeGlut.dll
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\bin\x64\Release\Tao.OpenGl.dll
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\bin\x64\Release\Tao.Platform.Windows.dll
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\bin\x64\Release\Tao.DevIl.xml
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\bin\x64\Release\Tao.Platform.Windows.xml
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\bin\x64\Release\Tao.OpenGl.xml
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\bin\x64\Release\Tao.FreeGlut.xml
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\x64\Release\ResolveAssemblyReference.cache
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\x64\Release\UoT.kokirisword.cur
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\x64\Release\UoT.hook.cur
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\x64\Release\UoT.AboutBoxDialog.resources
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\x64\Release\UoT.SetupDialog.resources
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\x64\Release\UoT.MainWin.resources
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\x64\Release\UoT.Resources.resources
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\x64\Release\UoT.ActorResetPrefs.resources
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\x64\Release\UoT.MusicModValues.resources
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\x64\Release\UoT.InterfaceEditor.resources
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\x64\Release\UoT.SplashScreen1.resources
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\x64\Release\UoT.VertResetPrefs.resources
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\x64\Release\UoT.ZREProgressDialog.resources
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\x64\Release\UoT.ObjectSetDialog.resources
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\x64\Release\UoT.AddActorDialog.resources
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\x64\Release\UoT.SceneTableDialog.resources
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\x64\Release\UoT.ColPresetDialog.resources
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\x64\Release\UoT.ExitSelectDialog.resources
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\x64\Release\Utility of Time.vbproj.GenerateResource.Cache
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\x64\Release\Utility of Time.TrustInfo.xml
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\x64\Release\Utility of Time.exe.manifest
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\x64\Release\Utility of Time.application
+E:\Actor Viewer SRC\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\Release\UoT.ControlsHelp.resources
+E:\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\Release\Utility of Time.exe
+E:\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\Release\Utility of Time.xml
+E:\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\Release\Utility of Time.pdb
+E:\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\Release\ResolveAssemblyReference.cache
+E:\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\Release\UoT.kokirisword.cur
+E:\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\Release\UoT.hook.cur
+E:\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\Release\UoT.AboutBoxDialog.resources
+E:\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\Release\UoT.SetupDialog.resources
+E:\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\Release\UoT.MainWin.resources
+E:\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\Release\UoT.Resources.resources
+E:\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\Release\UoT.ControlsHelp.resources
+E:\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\Release\UoT.MusicModValues.resources
+E:\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\Release\UoT.InterfaceEditor.resources
+E:\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\Release\UoT.VertResetPrefs.resources
+E:\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\Release\UoT.ZREProgressDialog.resources
+E:\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\Release\UoT.ObjectSetDialog.resources
+E:\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\Release\UoT.AddActorDialog.resources
+E:\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\Release\UoT.ColPresetDialog.resources
+E:\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\Release\UoT.ExitSelectDialog.resources
+E:\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\Release\Utility of Time.vbproj.GenerateResource.Cache
+E:\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\Release\Utility of Time.TrustInfo.xml
+E:\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\Release\Utility of Time.exe.manifest
+E:\Zelda64 Actor Viewer\Zelda64 Actor Viewer\obj\Release\Utility of Time.application
