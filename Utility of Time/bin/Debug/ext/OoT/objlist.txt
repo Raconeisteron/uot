@@ -1,11 +1,3 @@
-The Complete Ocarina of Time Object list
-
-Provided by: Zelda's Secret Ocarina
-
-Format:
-
-Group# : start offset - end offset : file name
-
 0000 : 00000000-00000000 : BLANK
 0001 : 00F5E000-00FB47B0 : gameplay_keep   
 0002 : 00FB5000-00FC2330 : gameplay_field_keep 
@@ -407,4 +399,4 @@ Group# : start offset - end offset : file name
 018E : 019D2000-019D3BE0 : object_door_killer  
 018F : 019D4000-019D4970 : object_ouke_haka    
 0190 : 019D5000-019D5B60 : object_timeblock    
-0191 : 019D6000-019F2E20 : object_zl4  
+0191 : 019D6000-019F2E20 : object_zl4
