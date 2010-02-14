@@ -1,0 +1,9 @@
+g	Link Interaction
+XX03	Exit	2
+0040	Ladder	1
+0080	Climbable	1
+0002	Hookshotable	3
+6001	Lava	2
+8002	Sand	2
+0020	Jumpable by Epona	1
+
