@@ -55,6 +55,7 @@
         Dim c0 As SByte
         Dim c1 As SByte
         Dim DisplayList As UInteger
+        Dim DisplayListLow As UInteger
     End Structure
     Public Structure AnimTrackIndex
         Dim XRot As UInteger
@@ -67,8 +68,7 @@
     End Structure
     Public Structure Animation
         Dim Angles() As Short
-        Dim Tracks() As AnimTrackIndex
-        Dim FinalTrack() As AnimTrack
+        Dim Tracks() As AnimTrack
         Dim XTrans As UInteger
         Dim YTrans As UInteger
         Dim ZTrans As UInteger
@@ -79,19 +79,20 @@
         Dim TrackCount As UInteger
         Dim ConstTrackCount As Integer
     End Structure
-    Public Structure FPS
+    Public Structure FrameAdvancer
         Dim Advancing As Boolean
-        Dim FrameNo As Integer
-        Dim CurrFrame As Integer
-        Dim Frames As Double
-        Dim CurrentTime As Double
-        Dim LastUpdateTime As Double
-        Dim ElapsedTime As Double
-        Dim DeltaTime As Double
-        Dim FramesAdvanced As Double
+        Dim FrameNo As UInteger
+        Dim CurrFrame As UInteger
+        Dim Frames As Single
+        Dim CurrentTime As Single
+        Dim LastUpdateTime As Single
+        Dim ElapsedSeconds As Single
+        Dim ElapsedMilliseconds As Single
+        Dim DeltaTime As Single
+        Dim FramesAdvanced As Single
         Dim FramesAdvancedInt As Integer
-        Dim FrameDelta As Double
-        Dim FPS As Double
+        Dim FrameDelta As Single
+        Dim FPS As Single
     End Structure
 #End Region
 
@@ -245,6 +246,14 @@
         Dim Objects() As ZObj
         Dim ActorCode() As ZCodeFiles
         Dim Others() As ZOtherData
+    End Structure
+    Public Structure ZSeg
+        Dim Offset As UInteger
+        Dim Bank As Byte
+        Public Function getSegment(ByVal data() As Byte, ByVal index As UInteger)
+            Bank = data(index)
+            Offset = ReadUInt24(data, index + 1)
+        End Function
     End Structure
     Public Structure ZMap
         Dim startoff As Integer
@@ -455,6 +464,16 @@
         Dim RoomActors() As PickableItems
         Dim SceneActors() As PickableItems
         Dim LinkActors() As PickableItems
+    End Structure
+    Structure ActorDB
+        Dim desc As String
+        Dim no As UInteger
+        Structure variable
+            Dim var As UInteger
+            Dim desc As String
+        End Structure
+        Dim var() As variable
+        Dim grp As UInteger
     End Structure
 #End Region
 

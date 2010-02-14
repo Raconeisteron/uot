@@ -63,7 +63,7 @@ Public Class F3DEX2_Parser
                     Select Case .CMDParams(0)
                         Case F3DZEX.POPMTX
 popmatrix:
-                            Gl.glPopMatrix()
+
                         Case RDP.G_SETENVCOLOR
 setenvironmentcolor:
                             ENVCOLOR(.CMDParams)
@@ -151,7 +151,7 @@ twotriangles:
 
                         Case F3DZEX.ENDDL
 enddisplaylist:
-                            Initialize()
+                            Reset()
                             Exit Sub
                     End Select
                 ElseIf ParseMode = Parse.GEOMETRY Then
@@ -240,7 +240,8 @@ enddisplaylist:
     Private Sub MTX(ByVal w0 As UInt32, ByVal w1 As UInt32)
         Dim MtxSegment As Byte = (w1 >> 24)
         Dim Address As UInteger = (w1 << 8 >> 8)
-        Dim Param As Byte = (w1 And &HFF) Or F3DZEX.MTX_PUSH
+        Dim Param As Byte = (w1 And &HFF) Xor F3DZEX.MTX_PUSH
+
 
         Dim TempRSPMatrix As New RSPMatrix
 
@@ -341,6 +342,8 @@ enddisplaylist:
                 Gl.glDisable(Gl.GL_LIGHTING)
             End If
         End If
+
+
     End Function
     Private Sub SETOTHERMODE_H(ByVal w0 As UInt32, ByVal w1 As UInt32)
         Dim MDSFT As Byte = (32 - (w0 << 4 >> 4) - 1)
@@ -372,7 +375,7 @@ enddisplaylist:
             Case 3 'rendermode
                 If ZMODE_DEC Then
                     Gl.glEnable(Gl.GL_POLYGON_OFFSET_FILL)
-                    Gl.glPolygonOffset(-6, -6)
+                    Gl.glPolygonOffset(-7, -7)
                 Else
                     Gl.glDisable(Gl.GL_POLYGON_OFFSET_FILL)
                 End If
@@ -393,48 +396,51 @@ enddisplaylist:
         End Select
     End Function
     Private Function FillVertexCache(ByVal Data() As Byte, ByRef Cache As N64Vertex, ByVal DataSource As Byte, ByVal Offset As Integer, ByVal n0 As Integer, ByVal v0 As Integer)
-        Select Case DataSource
-            Case CurrentBank
-                Dim x As Short
-                Dim y As Short
-                Dim z As Short
-                Dim u As Short
-                Dim v As Short
-                Dim r As Byte
-                Dim g As Byte
-                Dim b As Byte
-                Dim a As Byte
-                For i2 As Integer = v0 To (n0 + v0) - 1
-                    x = CShort(ReadInt16(Data, Offset))
-                    y = CShort(ReadInt16(Data, Offset + 2))
-                    z = CShort(ReadInt16(Data, Offset + 4))
-                    u = CShort(ReadInt16(Data, Offset + 8))
-                    v = CShort(ReadInt16(Data, Offset + 10))
-                    r = Data(Offset + 12)
-                    g = Data(Offset + 13)
-                    b = Data(Offset + 14)
-                    a = Data(Offset + 15)
-                    With Cache
-                        'Vertex x(l)-y(w)-z(d) coordinates
-                        .x(i2) = x
-                        .y(i2) = y
-                        .z(i2) = z
+        Try
+            Select Case DataSource
+                Case CurrentBank
+                    Dim x As Short
+                    Dim y As Short
+                    Dim z As Short
+                    Dim u As Short
+                    Dim v As Short
+                    Dim r As Byte
+                    Dim g As Byte
+                    Dim b As Byte
+                    Dim a As Byte
+                    For i2 As Integer = v0 To (n0 + v0) - 1
+                        x = CShort(ReadInt16(Data, Offset))
+                        y = CShort(ReadInt16(Data, Offset + 2))
+                        z = CShort(ReadInt16(Data, Offset + 4))
+                        u = CShort(ReadInt16(Data, Offset + 8))
+                        v = CShort(ReadInt16(Data, Offset + 10))
+                        r = Data(Offset + 12)
+                        g = Data(Offset + 13)
+                        b = Data(Offset + 14)
+                        a = Data(Offset + 15)
+                        With Cache
+                            'Vertex x(l)-y(w)-z(d) coordinates
+                            .x(i2) = x
+                            .y(i2) = y
+                            .z(i2) = z
 
-                        'Texture coordinates
-                        .u(i2) = u
-                        .v(i2) = v
+                            'Texture coordinates
+                            .u(i2) = u
+                            .v(i2) = v
 
-                        'Vertex colors
-                        .r(i2) = r
-                        .g(i2) = g
-                        .b(i2) = b
-                        .a(i2) = a
-                    End With
-                    Offset += 16
-                Next
-            Case Else
-                MsgBox("Trying to load vertices from bank 0x" & Hex(DataSource) & "?")
-        End Select
+                            'Vertex colors
+                            .r(i2) = r
+                            .g(i2) = g
+                            .b(i2) = b
+                            .a(i2) = a
+                        End With
+                        Offset += 16
+                    Next
+                Case Else
+                    MsgBox("Trying to load vertices from bank 0x" & Hex(DataSource) & "?")
+            End Select
+        Catch err As Exception
+        End Try
     End Function
     Private Function SearchTexCache(ByVal Texture As Texture) As Integer
         Dim texCachePos As Integer = -1
@@ -455,6 +461,7 @@ enddisplaylist:
         Select Case VertexSeg
             Case CurrentBank
                 FillVertexCache(ZFileBuffer, VertexCache, VertexSeg, VertBufferOff, n0, v0)
+
             Case 2
                 FillVertexCache(ZSceneBuffer, VertexCache, VertexSeg, VertBufferOff, n0, v0)
             Case 4
@@ -472,6 +479,8 @@ enddisplaylist:
                 Gl.glProgramEnvParameter4fARB(Gl.GL_FRAGMENT_PROGRAM_ARB, 2, PrimColorLOD, PrimColorLOD, PrimColorLOD, PrimColorLOD)
             Else
                 Gl.glDisable(Gl.GL_FRAGMENT_PROGRAM_ARB)
+                Gl.glEnable(Gl.GL_LIGHTING)
+                Gl.glEnable(Gl.GL_NORMALIZE)
                 MultiTexture = False
                 EnableLighting = True
             End If
@@ -853,8 +862,10 @@ enddisplaylist:
             Gl.glGenTextures(1, .Texture.ID)
             Gl.glBindTexture(Gl.GL_TEXTURE_2D, .Texture.ID)
         End With
+
         Gl.glTexImage2D(Gl.GL_TEXTURE_2D, 0, Gl.GL_RGBA, Textures(ID).RealWidth, Textures(ID).RealHeight, 0, Gl.GL_RGBA, Gl.GL_UNSIGNED_BYTE, OGLTexImg)
         Glu.gluBuild2DMipmaps(Gl.GL_TEXTURE_2D, Gl.GL_RGBA, Textures(ID).RealWidth, Textures(ID).RealHeight, Gl.GL_RGBA, Gl.GL_UNSIGNED_BYTE, OGLTexImg)
+
         Select Case Textures(ID).CMS
             Case RDP.G_TX_CLAMP, 3
                 Gl.glTexParameteri(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_WRAP_S, Gl.GL_CLAMP_TO_EDGE)
@@ -875,6 +886,7 @@ enddisplaylist:
             Case Else
                 Gl.glTexParameteri(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_WRAP_T, Gl.GL_REPEAT)
         End Select
+
         If RenderToggles.Anisotropic Then
             Gl.glTexParameterf(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_MAX_ANISOTROPY_EXT, GLExtensions.AnisotropicSamples(GLExtensions.AnisotropicSamples.Length - 1))
         Else
@@ -1119,6 +1131,7 @@ enddisplaylist:
                         ShaderLines += "MOV CCRegister_1.rgb, {0.0,0.0,0.0,0.0};" & Environment.NewLine
                 End Select
                 ShaderLines += "ADD CCRegister_0, CCRegister_0, CCRegister_1;" & Environment.NewLine & Environment.NewLine
+
                 Select Case .aA(i)
                     Case RDP.G_ACMUX_COMBINED
                         ShaderLines += "MOV ACRegister_0.a, ACReg;" & Environment.NewLine
@@ -1156,6 +1169,7 @@ enddisplaylist:
                         ShaderLines += "MOV ACRegister_1.a, {0.0,0.0,0.0,0.0};" & Environment.NewLine
                 End Select
                 ShaderLines += "SUB ACRegister_0.a, ACRegister_0.a, ACRegister_1.a;" & Environment.NewLine
+
                 Select Case .aC(i)
                     Case RDP.G_ACMUX_LOD_FRACTION
                         ShaderLines += "MOV ACRegister_1.a, {1.0,1.0,1.0,1.0};" & Environment.NewLine
@@ -1175,6 +1189,7 @@ enddisplaylist:
                         ShaderLines += "MOV ACRegister_1.a, {0.0,0.0,0.0,0.0};" & Environment.NewLine
                 End Select
                 ShaderLines += "MUL ACRegister_0.a, ACRegister_0.a, ACRegister_1.a;" & Environment.NewLine
+
                 Select Case .aD(i)
                     Case RDP.G_ACMUX_COMBINED
                         ShaderLines += "MOV ACRegister_1.a, ACReg.a;" & Environment.NewLine
@@ -1195,10 +1210,13 @@ enddisplaylist:
                 End Select
             End With
             ShaderLines += "ADD ACRegister_0, ACRegister_0, ACRegister_1;" & Environment.NewLine & Environment.NewLine
-            ShaderLines += "MOV ACReg, ACRegister_0;" & Environment.NewLine
-            ShaderLines += "MOV CCReg, CCRegister_0;" & Environment.NewLine
+
+            ShaderLines += "MOV CCReg.rgb, CCRegister_0;" & Environment.NewLine
+            ShaderLines += "MOV ACReg.a, ACRegister_0;" & Environment.NewLine
         Next
-        ShaderLines += "ADD FinalColor, CCReg, ACReg;" & Environment.NewLine
+
+        ShaderLines += "MOV CCReg.a, ACReg.a;"
+        ShaderLines += "MOV FinalColor, CCReg;" & Environment.NewLine
         ShaderLines += "END" & Environment.NewLine
 
         Gl.glGenProgramsARB(1, Cache(CacheEntry).FragShader)
@@ -1209,13 +1227,20 @@ enddisplaylist:
 #End Region
 
 #Region "STATE CHANGES"
+    Public Sub Initialize()
+        Reset()
+        KillTexCache()
+    End Sub
     Public Sub KillTexCache()
         For i As Integer = 0 To TextureCache.Length - 1
             Gl.glDeleteTextures(1, TextureCache(i).Texture.ID)
         Next
         ReDim TextureCache(-1)
     End Sub
-    Public Sub Initialize()
+    Public Sub Reset()
+
+        Gl.glFinish()
+
         ReDim Textures(1)
 
         Textures(0).S_Scale = 1.0F
@@ -1231,8 +1256,7 @@ enddisplaylist:
         PrimColor(3) = 0.5
         EnvironmentColor(3) = 0.5
 
-        Gl.glDisable(Gl.GL_LIGHTING)
-        Gl.glDisable(Gl.GL_NORMALIZE)
+
         Gl.glDisable(Gl.GL_FRAGMENT_PROGRAM_ARB)
         Gl.glDisable(Gl.GL_CULL_FACE)
         Gl.glDisable(Gl.GL_TEXTURE_2D)
@@ -1240,6 +1264,9 @@ enddisplaylist:
         Gl.glDisable(Gl.GL_ALPHA_TEST)
         Gl.glBlendFunc(Gl.GL_ONE, Gl.GL_ZERO)
         Gl.glAlphaFunc(Gl.GL_GREATER, 0.0)
+
+        Gl.glDisable(Gl.GL_LIGHTING)
+        Gl.glDisable(Gl.GL_NORMALIZE)
 
         EnableCombiner = False
         EnableLighting = True

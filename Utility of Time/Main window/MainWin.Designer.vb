@@ -83,7 +83,6 @@ Partial Class MainWin
     Friend WithEvents ActorsTab As System.Windows.Forms.TabPage
     Friend WithEvents SceneActorCombobox As System.Windows.Forms.ComboBox
     Friend WithEvents Button2 As System.Windows.Forms.Button
-    Friend WithEvents ActorGroupCombobox As System.Windows.Forms.ComboBox
     Friend WithEvents ActorVarText As System.Windows.Forms.TextBox
     Friend WithEvents ActorNumberText As System.Windows.Forms.TextBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
@@ -102,7 +101,6 @@ Partial Class MainWin
     Friend WithEvents Label15 As System.Windows.Forms.Label
     Friend WithEvents TextBox12 As System.Windows.Forms.TextBox
     Friend WithEvents GroupBox5 As System.Windows.Forms.GroupBox
-    Friend WithEvents Button23 As System.Windows.Forms.Button
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents ActorGroupText As System.Windows.Forms.TextBox
     Friend WithEvents Label22 As System.Windows.Forms.Label
@@ -121,7 +119,6 @@ Partial Class MainWin
     Friend WithEvents SelectAllGraphicsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SelectAllCollisionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripStatusLabel5 As System.Windows.Forms.ToolStripStatusLabel
-    Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents ToolStatusLabel As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents ActorContextMenu As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents EditToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
@@ -162,7 +159,6 @@ Partial Class MainWin
     Friend WithEvents XToolStripMenuItem3 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents YToolStripMenuItem3 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ZToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents Button6 As System.Windows.Forms.Button
     Friend WithEvents BackupMenuStrip As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents RestorToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CollisionPresetButton As System.Windows.Forms.Button
@@ -305,6 +301,14 @@ Partial Class MainWin
     Friend WithEvents AnimationElapse As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents CurrentFrame As System.Windows.Forms.TrackBar
-    Friend WithEvents Label20 As System.Windows.Forms.Label
     Friend WithEvents animationbank As System.Windows.Forms.ComboBox
+    Friend WithEvents Label27 As System.Windows.Forms.Label
+    Friend WithEvents AnimationFPS As System.Windows.Forms.NumericUpDown
+    Friend WithEvents AnimationSetGroup As System.Windows.Forms.GroupBox
+    Friend WithEvents PlaybackGroup As System.Windows.Forms.GroupBox
+    Friend WithEvents Label20 As System.Windows.Forms.Label
+    Friend WithEvents VarContextMenu As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents NumContextMenu As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents GrpContextMenu As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents Button6 As System.Windows.Forms.Button
 End Class

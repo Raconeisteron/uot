@@ -166,12 +166,9 @@ Public Class MainWin
         Me.Label15 = New System.Windows.Forms.Label
         Me.TextBox12 = New System.Windows.Forms.TextBox
         Me.GroupBox5 = New System.Windows.Forms.GroupBox
-        Me.SceneActorCombobox = New System.Windows.Forms.ComboBox
-        Me.ActorGroupCombobox = New System.Windows.Forms.ComboBox
         Me.Button6 = New System.Windows.Forms.Button
+        Me.SceneActorCombobox = New System.Windows.Forms.ComboBox
         Me.ActorNumberText = New System.Windows.Forms.TextBox
-        Me.Label11 = New System.Windows.Forms.Label
-        Me.Button23 = New System.Windows.Forms.Button
         Me.Label7 = New System.Windows.Forms.Label
         Me.ActorVarText = New System.Windows.Forms.TextBox
         Me.Label8 = New System.Windows.Forms.Label
@@ -182,17 +179,21 @@ Public Class MainWin
         Me.Label24 = New System.Windows.Forms.Label
         Me.EditingTabs = New System.Windows.Forms.TabControl
         Me.AnimationsTab = New System.Windows.Forms.TabPage
-        Me.Label20 = New System.Windows.Forms.Label
-        Me.animationbank = New System.Windows.Forms.ComboBox
-        Me.FrameNo = New System.Windows.Forms.Label
-        Me.AnimationElapse = New System.Windows.Forms.Label
         Me.Label5 = New System.Windows.Forms.Label
         Me.CurrentFrame = New System.Windows.Forms.TrackBar
+        Me.AnimationSetGroup = New System.Windows.Forms.GroupBox
+        Me.Label20 = New System.Windows.Forms.Label
         Me.CheckBox2 = New System.Windows.Forms.CheckBox
+        Me.AnimationList = New System.Windows.Forms.ListBox
+        Me.animationbank = New System.Windows.Forms.ComboBox
+        Me.PlaybackGroup = New System.Windows.Forms.GroupBox
+        Me.AnimationFPS = New System.Windows.Forms.NumericUpDown
+        Me.Label27 = New System.Windows.Forms.Label
+        Me.FrameNo = New System.Windows.Forms.Label
+        Me.AnimationElapse = New System.Windows.Forms.Label
         Me.CheckBox1 = New System.Windows.Forms.CheckBox
         Me.Button5 = New System.Windows.Forms.Button
         Me.Button3 = New System.Windows.Forms.Button
-        Me.AnimationList = New System.Windows.Forms.ListBox
         Me.DLTab = New System.Windows.Forms.TabPage
         Me.RadioButton2 = New System.Windows.Forms.RadioButton
         Me.GroupBox7 = New System.Windows.Forms.GroupBox
@@ -345,6 +346,9 @@ Public Class MainWin
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog
         Me.RipDL = New System.Windows.Forms.SaveFileDialog
         Me.SaveROMAs = New System.Windows.Forms.SaveFileDialog
+        Me.VarContextMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.NumContextMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.GrpContextMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.UoTStatus.SuspendLayout()
         CType(Me.TrackBar4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.CollisionTab.SuspendLayout()
@@ -362,6 +366,9 @@ Public Class MainWin
         Me.EditingTabs.SuspendLayout()
         Me.AnimationsTab.SuspendLayout()
         CType(Me.CurrentFrame, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.AnimationSetGroup.SuspendLayout()
+        Me.PlaybackGroup.SuspendLayout()
+        CType(Me.AnimationFPS, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.DLTab.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
         Me.DLEditorContextMenu.SuspendLayout()
@@ -1365,7 +1372,7 @@ Public Class MainWin
         'Button2
         '
         Me.Button2.BackColor = System.Drawing.SystemColors.Control
-        Me.Button2.Location = New System.Drawing.Point(126, 516)
+        Me.Button2.Location = New System.Drawing.Point(129, 378)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(85, 23)
         Me.Button2.TabIndex = 14
@@ -1386,7 +1393,7 @@ Public Class MainWin
         Me.GroupBox4.Controls.Add(Me.TextBox11)
         Me.GroupBox4.Controls.Add(Me.Label15)
         Me.GroupBox4.Controls.Add(Me.TextBox12)
-        Me.GroupBox4.Location = New System.Drawing.Point(3, 360)
+        Me.GroupBox4.Location = New System.Drawing.Point(3, 230)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(218, 142)
         Me.GroupBox4.TabIndex = 72
@@ -1497,12 +1504,9 @@ Public Class MainWin
         '
         'GroupBox5
         '
-        Me.GroupBox5.Controls.Add(Me.SceneActorCombobox)
-        Me.GroupBox5.Controls.Add(Me.ActorGroupCombobox)
         Me.GroupBox5.Controls.Add(Me.Button6)
+        Me.GroupBox5.Controls.Add(Me.SceneActorCombobox)
         Me.GroupBox5.Controls.Add(Me.ActorNumberText)
-        Me.GroupBox5.Controls.Add(Me.Label11)
-        Me.GroupBox5.Controls.Add(Me.Button23)
         Me.GroupBox5.Controls.Add(Me.Label7)
         Me.GroupBox5.Controls.Add(Me.ActorVarText)
         Me.GroupBox5.Controls.Add(Me.Label8)
@@ -1513,10 +1517,20 @@ Public Class MainWin
         Me.GroupBox5.Controls.Add(Me.Label24)
         Me.GroupBox5.Location = New System.Drawing.Point(3, 9)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(218, 345)
+        Me.GroupBox5.Size = New System.Drawing.Size(218, 215)
         Me.GroupBox5.TabIndex = 73
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Actors"
+        '
+        'Button6
+        '
+        Me.Button6.BackColor = System.Drawing.SystemColors.Control
+        Me.Button6.Location = New System.Drawing.Point(123, 178)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(75, 23)
+        Me.Button6.TabIndex = 54
+        Me.Button6.Text = "Database"
+        Me.Button6.UseVisualStyleBackColor = False
         '
         'SceneActorCombobox
         '
@@ -1527,25 +1541,6 @@ Public Class MainWin
         Me.SceneActorCombobox.Size = New System.Drawing.Size(180, 24)
         Me.SceneActorCombobox.TabIndex = 1
         '
-        'ActorGroupCombobox
-        '
-        Me.ActorGroupCombobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ActorGroupCombobox.FormattingEnabled = True
-        Me.ActorGroupCombobox.Location = New System.Drawing.Point(20, 180)
-        Me.ActorGroupCombobox.Name = "ActorGroupCombobox"
-        Me.ActorGroupCombobox.Size = New System.Drawing.Size(174, 24)
-        Me.ActorGroupCombobox.TabIndex = 4
-        '
-        'Button6
-        '
-        Me.Button6.BackColor = System.Drawing.SystemColors.Control
-        Me.Button6.Location = New System.Drawing.Point(18, 270)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(181, 23)
-        Me.Button6.TabIndex = 105
-        Me.Button6.Text = "Insert new actor"
-        Me.Button6.UseVisualStyleBackColor = False
-        '
         'ActorNumberText
         '
         Me.ActorNumberText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -1553,27 +1548,8 @@ Public Class MainWin
         Me.ActorNumberText.Location = New System.Drawing.Point(20, 128)
         Me.ActorNumberText.MaxLength = 4
         Me.ActorNumberText.Name = "ActorNumberText"
-        Me.ActorNumberText.Size = New System.Drawing.Size(85, 20)
+        Me.ActorNumberText.Size = New System.Drawing.Size(83, 20)
         Me.ActorNumberText.TabIndex = 2
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(17, 212)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(27, 16)
-        Me.Label11.TabIndex = 55
-        Me.Label11.Text = "Hex"
-        '
-        'Button23
-        '
-        Me.Button23.BackColor = System.Drawing.SystemColors.Control
-        Me.Button23.Location = New System.Drawing.Point(19, 307)
-        Me.Button23.Name = "Button23"
-        Me.Button23.Size = New System.Drawing.Size(180, 23)
-        Me.Button23.TabIndex = 54
-        Me.Button23.Text = "Preset database"
-        Me.Button23.UseVisualStyleBackColor = False
         '
         'Label7
         '
@@ -1588,10 +1564,10 @@ Public Class MainWin
         '
         Me.ActorVarText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.ActorVarText.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.ActorVarText.Location = New System.Drawing.Point(108, 128)
+        Me.ActorVarText.Location = New System.Drawing.Point(113, 128)
         Me.ActorVarText.MaxLength = 4
         Me.ActorVarText.Name = "ActorVarText"
-        Me.ActorVarText.Size = New System.Drawing.Size(87, 20)
+        Me.ActorVarText.Size = New System.Drawing.Size(85, 20)
         Me.ActorVarText.TabIndex = 3
         '
         'Label8
@@ -1606,7 +1582,7 @@ Public Class MainWin
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(105, 110)
+        Me.Label6.Location = New System.Drawing.Point(111, 111)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(49, 16)
         Me.Label6.TabIndex = 34
@@ -1616,10 +1592,10 @@ Public Class MainWin
         '
         Me.ActorGroupText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.ActorGroupText.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.ActorGroupText.Location = New System.Drawing.Point(20, 230)
+        Me.ActorGroupText.Location = New System.Drawing.Point(20, 179)
         Me.ActorGroupText.MaxLength = 4
         Me.ActorGroupText.Name = "ActorGroupText"
-        Me.ActorGroupText.Size = New System.Drawing.Size(70, 20)
+        Me.ActorGroupText.Size = New System.Drawing.Size(83, 20)
         Me.ActorGroupText.TabIndex = 5
         Me.ActorGroupText.Text = "0001"
         '
@@ -1673,17 +1649,10 @@ Public Class MainWin
         '
         'AnimationsTab
         '
-        Me.AnimationsTab.Controls.Add(Me.Label20)
-        Me.AnimationsTab.Controls.Add(Me.animationbank)
-        Me.AnimationsTab.Controls.Add(Me.FrameNo)
-        Me.AnimationsTab.Controls.Add(Me.AnimationElapse)
         Me.AnimationsTab.Controls.Add(Me.Label5)
         Me.AnimationsTab.Controls.Add(Me.CurrentFrame)
-        Me.AnimationsTab.Controls.Add(Me.CheckBox2)
-        Me.AnimationsTab.Controls.Add(Me.CheckBox1)
-        Me.AnimationsTab.Controls.Add(Me.Button5)
-        Me.AnimationsTab.Controls.Add(Me.Button3)
-        Me.AnimationsTab.Controls.Add(Me.AnimationList)
+        Me.AnimationsTab.Controls.Add(Me.AnimationSetGroup)
+        Me.AnimationsTab.Controls.Add(Me.PlaybackGroup)
         Me.AnimationsTab.Location = New System.Drawing.Point(4, 55)
         Me.AnimationsTab.Name = "AnimationsTab"
         Me.AnimationsTab.Size = New System.Drawing.Size(224, 528)
@@ -1691,48 +1660,11 @@ Public Class MainWin
         Me.AnimationsTab.Text = "Animations"
         Me.AnimationsTab.UseVisualStyleBackColor = True
         '
-        'Label20
-        '
-        Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(3, 13)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(76, 16)
-        Me.Label20.TabIndex = 10
-        Me.Label20.Text = "Common Bank"
-        '
-        'animationbank
-        '
-        Me.animationbank.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.animationbank.FormattingEnabled = True
-        Me.animationbank.Items.AddRange(New Object() {"Inline with object", "Object_o_anime", "Object_oe_anime"})
-        Me.animationbank.Location = New System.Drawing.Point(81, 9)
-        Me.animationbank.Name = "animationbank"
-        Me.animationbank.Size = New System.Drawing.Size(140, 24)
-        Me.animationbank.TabIndex = 9
-        '
-        'FrameNo
-        '
-        Me.FrameNo.AutoSize = True
-        Me.FrameNo.Location = New System.Drawing.Point(161, 367)
-        Me.FrameNo.Name = "FrameNo"
-        Me.FrameNo.Size = New System.Drawing.Size(50, 16)
-        Me.FrameNo.TabIndex = 8
-        Me.FrameNo.Text = "TrackNo"
-        '
-        'AnimationElapse
-        '
-        Me.AnimationElapse.AutoSize = True
-        Me.AnimationElapse.Location = New System.Drawing.Point(78, 420)
-        Me.AnimationElapse.Name = "AnimationElapse"
-        Me.AnimationElapse.Size = New System.Drawing.Size(68, 16)
-        Me.AnimationElapse.TabIndex = 7
-        Me.AnimationElapse.Text = "TimeElapsed"
-        Me.AnimationElapse.Visible = False
-        '
         'Label5
         '
+        Me.Label5.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(12, 367)
+        Me.Label5.Location = New System.Drawing.Point(19, 319)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(42, 16)
         Me.Label5.TabIndex = 6
@@ -1740,59 +1672,168 @@ Public Class MainWin
         '
         'CurrentFrame
         '
+        Me.CurrentFrame.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.CurrentFrame.AutoSize = False
         Me.CurrentFrame.LargeChange = 2
-        Me.CurrentFrame.Location = New System.Drawing.Point(6, 385)
+        Me.CurrentFrame.Location = New System.Drawing.Point(15, 337)
+        Me.CurrentFrame.Minimum = 1
         Me.CurrentFrame.Name = "CurrentFrame"
-        Me.CurrentFrame.Size = New System.Drawing.Size(208, 30)
+        Me.CurrentFrame.Size = New System.Drawing.Size(197, 30)
         Me.CurrentFrame.TabIndex = 5
+        Me.CurrentFrame.Value = 1
+        '
+        'AnimationSetGroup
+        '
+        Me.AnimationSetGroup.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.AnimationSetGroup.Controls.Add(Me.Label20)
+        Me.AnimationSetGroup.Controls.Add(Me.CheckBox2)
+        Me.AnimationSetGroup.Controls.Add(Me.AnimationList)
+        Me.AnimationSetGroup.Controls.Add(Me.animationbank)
+        Me.AnimationSetGroup.Location = New System.Drawing.Point(10, 4)
+        Me.AnimationSetGroup.Name = "AnimationSetGroup"
+        Me.AnimationSetGroup.Size = New System.Drawing.Size(206, 276)
+        Me.AnimationSetGroup.TabIndex = 13
+        Me.AnimationSetGroup.TabStop = False
+        Me.AnimationSetGroup.Text = "Animation Sets"
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Location = New System.Drawing.Point(3, 29)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(32, 16)
+        Me.Label20.TabIndex = 10
+        Me.Label20.Text = "Bank"
         '
         'CheckBox2
         '
+        Me.CheckBox2.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Location = New System.Drawing.Point(71, 499)
+        Me.CheckBox2.Location = New System.Drawing.Point(6, 248)
         Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.Size = New System.Drawing.Size(84, 20)
+        Me.CheckBox2.Size = New System.Drawing.Size(56, 20)
         Me.CheckBox2.TabIndex = 4
-        Me.CheckBox2.Text = "Show bones"
+        Me.CheckBox2.Text = "Bones"
         Me.CheckBox2.UseVisualStyleBackColor = True
+        '
+        'AnimationList
+        '
+        Me.AnimationList.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.AnimationList.FormattingEnabled = True
+        Me.AnimationList.ItemHeight = 16
+        Me.AnimationList.Location = New System.Drawing.Point(6, 58)
+        Me.AnimationList.Name = "AnimationList"
+        Me.AnimationList.Size = New System.Drawing.Size(192, 180)
+        Me.AnimationList.TabIndex = 0
+        '
+        'animationbank
+        '
+        Me.animationbank.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.animationbank.FormattingEnabled = True
+        Me.animationbank.Items.AddRange(New Object() {"Inline with object"})
+        Me.animationbank.Location = New System.Drawing.Point(47, 25)
+        Me.animationbank.Name = "animationbank"
+        Me.animationbank.Size = New System.Drawing.Size(151, 24)
+        Me.animationbank.TabIndex = 9
+        '
+        'PlaybackGroup
+        '
+        Me.PlaybackGroup.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.PlaybackGroup.Controls.Add(Me.AnimationFPS)
+        Me.PlaybackGroup.Controls.Add(Me.Label27)
+        Me.PlaybackGroup.Controls.Add(Me.FrameNo)
+        Me.PlaybackGroup.Controls.Add(Me.AnimationElapse)
+        Me.PlaybackGroup.Controls.Add(Me.CheckBox1)
+        Me.PlaybackGroup.Controls.Add(Me.Button5)
+        Me.PlaybackGroup.Controls.Add(Me.Button3)
+        Me.PlaybackGroup.Location = New System.Drawing.Point(10, 286)
+        Me.PlaybackGroup.Name = "PlaybackGroup"
+        Me.PlaybackGroup.Size = New System.Drawing.Size(206, 232)
+        Me.PlaybackGroup.TabIndex = 14
+        Me.PlaybackGroup.TabStop = False
+        Me.PlaybackGroup.Text = "Playback"
+        '
+        'AnimationFPS
+        '
+        Me.AnimationFPS.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.AnimationFPS.Font = New System.Drawing.Font("Trebuchet MS", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AnimationFPS.Location = New System.Drawing.Point(128, 131)
+        Me.AnimationFPS.Maximum = New Decimal(New Integer() {60, 0, 0, 0})
+        Me.AnimationFPS.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.AnimationFPS.Name = "AnimationFPS"
+        Me.AnimationFPS.Size = New System.Drawing.Size(40, 20)
+        Me.AnimationFPS.TabIndex = 11
+        Me.AnimationFPS.Value = New Decimal(New Integer() {30, 0, 0, 0})
+        '
+        'Label27
+        '
+        Me.Label27.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.Label27.AutoSize = True
+        Me.Label27.Location = New System.Drawing.Point(173, 133)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(25, 16)
+        Me.Label27.TabIndex = 12
+        Me.Label27.Text = "FPS"
+        '
+        'FrameNo
+        '
+        Me.FrameNo.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.FrameNo.AutoSize = True
+        Me.FrameNo.Location = New System.Drawing.Point(160, 90)
+        Me.FrameNo.Name = "FrameNo"
+        Me.FrameNo.Size = New System.Drawing.Size(38, 16)
+        Me.FrameNo.TabIndex = 8
+        Me.FrameNo.Text = "00/00"
+        '
+        'AnimationElapse
+        '
+        Me.AnimationElapse.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.AnimationElapse.AutoSize = True
+        Me.AnimationElapse.Location = New System.Drawing.Point(9, 90)
+        Me.AnimationElapse.Name = "AnimationElapse"
+        Me.AnimationElapse.Size = New System.Drawing.Size(41, 16)
+        Me.AnimationElapse.TabIndex = 7
+        Me.AnimationElapse.Text = "00:00s"
         '
         'CheckBox1
         '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(86, 473)
+        Me.CheckBox1.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.CheckBox1.Image = Global.UoT.My.Resources.Resources.Button_Refresh_icon
+        Me.CheckBox1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.CheckBox1.Location = New System.Drawing.Point(126, 31)
         Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(51, 20)
+        Me.CheckBox1.Size = New System.Drawing.Size(69, 20)
         Me.CheckBox1.TabIndex = 3
         Me.CheckBox1.Text = "Loop"
         Me.CheckBox1.UseVisualStyleBackColor = True
         '
         'Button5
         '
-        Me.Button5.Location = New System.Drawing.Point(113, 444)
+        Me.Button5.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.Button5.Image = Global.UoT.My.Resources.Resources.Button_Stop_icon
+        Me.Button5.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button5.Location = New System.Drawing.Point(69, 123)
         Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(75, 23)
+        Me.Button5.Size = New System.Drawing.Size(53, 36)
         Me.Button5.TabIndex = 2
         Me.Button5.Text = "Stop"
+        Me.Button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button5.UseVisualStyleBackColor = True
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(32, 444)
+        Me.Button3.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.Button3.Image = Global.UoT.My.Resources.Resources.Button_Play_icon
+        Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button3.Location = New System.Drawing.Point(12, 123)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(75, 23)
+        Me.Button3.Size = New System.Drawing.Size(51, 36)
         Me.Button3.TabIndex = 1
         Me.Button3.Text = "Play"
+        Me.Button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button3.UseVisualStyleBackColor = True
-        '
-        'AnimationList
-        '
-        Me.AnimationList.FormattingEnabled = True
-        Me.AnimationList.ItemHeight = 16
-        Me.AnimationList.Location = New System.Drawing.Point(3, 46)
-        Me.AnimationList.Name = "AnimationList"
-        Me.AnimationList.Size = New System.Drawing.Size(218, 308)
-        Me.AnimationList.TabIndex = 0
         '
         'DLTab
         '
@@ -2031,7 +2072,7 @@ Public Class MainWin
         Me.GroupBox3.Size = New System.Drawing.Size(206, 166)
         Me.GroupBox3.TabIndex = 68
         Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "DLists"
+        Me.GroupBox3.Text = "Display Lists"
         '
         'Button12
         '
@@ -2949,6 +2990,21 @@ Public Class MainWin
         '
         Me.SaveROMAs.Filter = "N64 ROMs|*.z64;*.n64;*.v64;*.rom"
         '
+        'VarContextMenu
+        '
+        Me.VarContextMenu.Name = "VarContextMenu"
+        Me.VarContextMenu.Size = New System.Drawing.Size(61, 4)
+        '
+        'NumContextMenu
+        '
+        Me.NumContextMenu.Name = "NumContextMenu"
+        Me.NumContextMenu.Size = New System.Drawing.Size(61, 4)
+        '
+        'GrpContextMenu
+        '
+        Me.GrpContextMenu.Name = "GrpContextMenu"
+        Me.GrpContextMenu.Size = New System.Drawing.Size(61, 4)
+        '
         'MainWin
         '
         Me.AllowDrop = True
@@ -3000,6 +3056,11 @@ Public Class MainWin
         Me.AnimationsTab.ResumeLayout(False)
         Me.AnimationsTab.PerformLayout()
         CType(Me.CurrentFrame, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.AnimationSetGroup.ResumeLayout(False)
+        Me.AnimationSetGroup.PerformLayout()
+        Me.PlaybackGroup.ResumeLayout(False)
+        Me.PlaybackGroup.PerformLayout()
+        CType(Me.AnimationFPS, System.ComponentModel.ISupportInitialize).EndInit()
         Me.DLTab.ResumeLayout(False)
         Me.DLTab.PerformLayout()
         Me.GroupBox7.ResumeLayout(False)
@@ -3053,7 +3114,7 @@ Public Class MainWin
     Private ActorN64DLists() As N64DisplayList
     Private ActorOGLDLists() As OGLDisplayList
     Private CurrSelNode(1) As Integer
-    Private ExtraDataPrefix As String = "\ext\"
+
 #End Region
 
 #Region "ACTOR RELATED"
@@ -3064,10 +3125,8 @@ Public Class MainWin
     Private rmActorCount As Integer = 0
     Private scActorCount As Integer = 0
     Private CopyActor() As Integer = {-1, -1, -1, -1, -1, -1, -1, -1} 'x pos, y pos, z pos, x rot, y rot, z rot, number, variable
-    Private CopyVertex() As Integer = {-1, -1, -1, -1, -1, -1, -1, -1} 'x pos, y pos, z pos, r, g, b, a
     Private ActorPointer() As UInteger = {0, 0, 0} 'header pos, count, pointer
     Private RelocateActorPtr As Boolean = False
-    Private ActorDataBase As New ArrayList
     Private ActorScale As Single = 16.0F
     Private ActorScaleP As Single = 45.0F
     Private ActorScaleW As Single = 2.05F
@@ -3080,15 +3139,14 @@ Public Class MainWin
     Private ActorDBDesc As New ArrayList
     Private UsedGroupIndex() As Integer
     Private UsedSceneGroupIndex() As Integer
-    Private ActorDescription As String = ""
 #End Region
 
 #Region "ANIMATION & HEIRARCHY"
     Private AnimationEntries(-1) As Animation
     Private LimbEntries(-1) As Limb
     Private CurrLimb As Integer = 0
+    Private BoneColorFactor As New Color3UByte
     Private CurrParent As Integer = 0
-    Private drawn As New ArrayList
     Private AnimTick As UInteger = 0
     Private CurrFrame As Double = 0
     Private CurrAnimation As Integer = 0
@@ -3150,8 +3208,9 @@ Public Class MainWin
         Dim Cmd As Byte
         Dim CmdLow As UInteger
         Dim CmdHigh As UInteger
-
     End Structure
+    Private CursorPosOld As Point
+    Private HoldCursor As Boolean = False
     Private ToolModes As Tools
     Private AxisStrings() As String = {"(X + Y)", "(X)", "(Y)", "(Z)"}
     Private ToolStrings() As String = {"Camera only", "Actor selector", "Vertex selector", "Edge selector", "Face selector", "Collision triangle selector", "Display List selector"}
@@ -3299,6 +3358,7 @@ Public Class MainWin
             Gl.glClear(Gl.GL_DEPTH_BUFFER_BIT Or Gl.GL_COLOR_BUFFER_BIT)
 
             LocalMouse = UoTRender.PointToClient(Windows.Forms.Cursor.Position)
+
             NewMouseX = LocalMouse.X
             NewMouseY = LocalMouse.Y
 
@@ -3311,217 +3371,231 @@ Public Class MainWin
                 MouseChanged = True
             End If
             If NewMouseY <> OldMouseY Then
-                Dy = (OldMouseY - NewMouseY) * ToolSensitivity
+                Dy = (NewMouseY - OldMouseY) * ToolSensitivity
                 MouseChanged = True
             End If
-            If MouseChanged And MouseLeft Then
-                If OldMouseX < NewMouseX Then
-                    '(MOUSE MOVE RIGHT)
-                    If ToolModes.SelectedItemType = ToolID.NONE Then
-                        CamYRot += (NewMouseX - OldMouseX) * 0.5
-                        If CamYRot > 360 Then
-                            CamYRot = 0
+            If MouseChanged Then
+                If MouseLeft Then
+                    If OldMouseX < NewMouseX Then
+                        '(MOUSE MOVE RIGHT)
+                        If ToolModes.SelectedItemType = ToolID.NONE Then
+                            CamYRot += (NewMouseX - OldMouseX) * 0.5
+                            If CamYRot > 360 Then
+                                CamYRot = 0
+                            End If
+                        End If
+                        If (ToolModes.Axis = ToolID.NOLOCK Or ToolModes.Axis = ToolID.LOCKTOX) And (Not ToolModes.Axis = ToolID.NOMOVE) Then
+                            If ToolModes.SelectedItemType = ToolID.ACTOR Then
+                                If OnSceneActor Then
+                                    For i As Integer = 0 To SelectedSceneActors.Count - 1
+                                        i1 = SelectedSceneActors(i)
+                                        SceneActors(i1).x += Cos(CamYRotd) * Dx
+                                        SceneActors(i1).z += Sin(CamYRotd) * Dx
+                                    Next
+                                Else
+                                    For i As Integer = 0 To SelectedRoomActors.Count - 1
+                                        i1 = SelectedRoomActors(i)
+                                        RoomActors(i1).x += Cos(CamYRotd) * Dx
+                                        RoomActors(i1).z += Sin(CamYRotd) * Dx
+                                    Next
+                                End If
+                                CamXPos += -Cos(CamYRotd) * Dx
+                                CamZPos += -Sin(CamYRotd) * Dx
+                                UpdateActorPos()
+                            ElseIf ToolModes.SelectedItemType = ToolID.VERTEX Then
+                                If RenderGraphics Then
+
+                                End If
+                                If RenderCollision Then
+                                    For i2 = 0 To SelectedCollisionVert.Count - 1
+                                        CollisionVerts.x(SelectedCollisionVert(i2)) += Cos(CamYRotd) * Dx
+                                        CollisionVerts.z(SelectedCollisionVert(i2)) += Sin(CamYRotd) * Dx
+                                    Next
+                                End If
+                                CamXPos += -Cos(CamYRotd) * Dx
+                                CamZPos += -Sin(CamYRotd) * Dx
+                            End If
                         End If
                     End If
-                    If (ToolModes.Axis = ToolID.NOLOCK Or ToolModes.Axis = ToolID.LOCKTOX) And (Not ToolModes.Axis = ToolID.NOMOVE) Then
-                        If ToolModes.SelectedItemType = ToolID.ACTOR Then
+                    If OldMouseX > NewMouseX Then
+                        '(MOUSE MOVE LEFT) 
+                        If ToolModes.SelectedItemType = ToolID.NONE Then
+                            CamYRot -= (OldMouseX - NewMouseX) * 0.5
+                            If CamYRot < -360 Then
+                                CamYRot = 0
+                            End If
+                        End If
+                        If (ToolModes.Axis = ToolID.NOLOCK Or ToolModes.Axis = ToolID.LOCKTOX) And Not ToolModes.Axis = ToolID.NOMOVE Then
+                            If ToolModes.SelectedItemType = ToolID.ACTOR Then
+                                If OnSceneActor Then
+                                    For i As Integer = 0 To SelectedSceneActors.Count - 1
+                                        i1 = SelectedSceneActors(i)
+                                        SceneActors(i1).x += Cos(CamYRotd) * Dx
+                                        SceneActors(i1).z += Sin(CamYRotd) * Dx
+                                    Next
+                                Else
+                                    For i As Integer = 0 To SelectedRoomActors.Count - 1
+                                        i1 = SelectedRoomActors(i)
+                                        RoomActors(i1).x += Cos(CamYRotd) * Dx
+                                        RoomActors(i1).z += Sin(CamYRotd) * Dx
+                                    Next
+                                End If
+                                CamXPos -= Cos(CamYRotd) * Dx
+                                CamZPos -= Sin(CamYRotd) * Dx
+                                UpdateActorPos()
+                            ElseIf ToolModes.SelectedItemType = ToolID.VERTEX Then
+                                If RenderGraphics Then
+
+                                End If
+                                If RenderCollision Then
+                                    For i2 = 0 To SelectedCollisionVert.Count - 1
+                                        CollisionVerts.x(SelectedCollisionVert(i2)) += Cos(CamYRotd) * Dx
+                                        CollisionVerts.z(SelectedCollisionVert(i2)) += Sin(CamYRotd) * Dx
+                                    Next
+                                End If
+                                CamXPos -= Cos(CamYRotd) * Dx
+                                CamZPos -= Sin(CamYRotd) * Dx
+                            End If
+                        End If
+                    End If
+                    If OldMouseY > NewMouseY Then
+                        '(MOUSE MOVE UP) 
+                        If ToolModes.SelectedItemType = ToolID.NONE Then
+                            If CamXRot <= -90 Then
+                                CamXRot = -90
+                            Else
+                                CamXRot += (Dy \ ToolSensitivity) * 0.5
+                            End If
+                        End If
+                        If (ToolModes.Axis = ToolID.NOLOCK Or ToolModes.Axis = ToolID.LOCKTOY) And Not ToolModes.Axis = ToolID.NOMOVE Then
+                            If ToolModes.SelectedItemType = ToolID.ACTOR Then
+                                If OnSceneActor Then
+                                    For i As Integer = 0 To SelectedSceneActors.Count - 1
+                                        SceneActors(SelectedSceneActors(i)).y -= Dy
+                                    Next
+                                Else
+                                    For i As Integer = 0 To SelectedRoomActors.Count - 1
+                                        RoomActors(SelectedRoomActors(i)).y -= Dy
+                                    Next
+                                End If
+                                CamYPos += Dy
+                                UpdateActorPos()
+                            ElseIf ToolModes.SelectedItemType = ToolID.VERTEX Then
+                                If RenderGraphics Then
+
+                                End If
+                                If RenderCollision Then
+                                    For i2 = 0 To SelectedCollisionVert.Count - 1
+                                        CollisionVerts.y(SelectedCollisionVert(i2)) -= Dy
+                                    Next
+                                End If
+                                CamYPos += Dy
+                            End If
+                        End If
+                    End If
+                    If OldMouseY < NewMouseY Then
+                        '(MOUSE MOVE DOWN) 
+                        If ToolModes.SelectedItemType = ToolID.NONE Then
+                            If CamXRot >= 90 Then
+                                CamXRot = 90
+                            Else
+                                CamXRot += (Dy \ ToolSensitivity) * 0.5
+                            End If
+                        End If
+                        If (ToolModes.Axis = ToolID.NOLOCK Or ToolModes.Axis = ToolID.LOCKTOY) And Not ToolModes.Axis = ToolID.NOMOVE Then
+                            If ToolModes.SelectedItemType = ToolID.ACTOR Then
+                                If OnSceneActor Then
+                                    For i As Integer = 0 To SelectedSceneActors.Count - 1
+                                        SceneActors(SelectedSceneActors(i)).y -= Dy
+                                    Next
+                                Else
+                                    For i As Integer = 0 To SelectedRoomActors.Count - 1
+                                        RoomActors(SelectedRoomActors(i)).y -= Dy
+                                    Next
+                                End If
+                                CamYPos += Dy
+                                UpdateActorPos()
+                            ElseIf ToolModes.SelectedItemType = ToolID.VERTEX Then
+                                If RenderGraphics Then
+
+                                End If
+                                If RenderCollision Then
+                                    For i2 = 0 To SelectedCollisionVert.Count - 1
+                                        CollisionVerts.y(SelectedCollisionVert(i2)) -= Dy
+                                    Next
+                                End If
+                                CamYPos += Dy
+                            End If
+                        End If
+                    End If
+                ElseIf MouseMiddle Then
+                    If OldMouseY < NewMouseY Then
+                        '(MOUSE MOVE DOWN) 
+                        If ToolModes.SelectedItemType = ToolID.NONE Then
+                            CamYPos += (OldMouseY - NewMouseY) * (CameraCoef / 8)
+                        ElseIf ToolModes.SelectedItemType = ToolID.ACTOR Then
                             If OnSceneActor Then
                                 For i As Integer = 0 To SelectedSceneActors.Count - 1
                                     i1 = SelectedSceneActors(i)
-                                    SceneActors(i1).x += Cos(CamYRotd) * Dx
-                                    SceneActors(i1).z += Sin(CamYRotd) * Dx
+                                    SceneActors(i1).x += Sin(CamYRotd) * Dy
+                                    SceneActors(i1).z -= Cos(CamYRotd) * Dy
                                 Next
                             Else
                                 For i As Integer = 0 To SelectedRoomActors.Count - 1
                                     i1 = SelectedRoomActors(i)
-                                    RoomActors(i1).x += Cos(CamYRotd) * Dx
-                                    RoomActors(i1).z += Sin(CamYRotd) * Dx
+                                    RoomActors(i1).x += Sin(CamYRotd) * Dy
+                                    RoomActors(i1).z -= Cos(CamYRotd) * Dy
                                 Next
                             End If
-                            CamXPos += -Cos(CamYRotd) * Dx
-                            CamZPos += -Sin(CamYRotd) * Dx
+                            CamXPos -= Sin(CamYRotd) * Dy
+                            CamZPos += Cos(CamYRotd) * Dy
                             UpdateActorPos()
-                        ElseIf ToolModes.SelectedItemType = ToolID.VERTEX Then
-                            If RenderGraphics Then
-                                'Vertices(selmesh(i2)).x(selvert(i2)) += Cos(CamYRotd) * Dx
-                                'Vertices(selmesh(i2)).z(selvert(i2)) += Sin(CamYRotd) * Dx
-                            End If
-                            If RenderCollision Then
-                                For i2 = 0 To SelectedCollisionVert.Count - 1
-                                    CollisionVerts.x(SelectedCollisionVert(i2)) += Cos(CamYRotd) * Dx
-                                    CollisionVerts.z(SelectedCollisionVert(i2)) += Sin(CamYRotd) * Dx
-                                Next
-                            End If
-                            CamXPos += -Cos(CamYRotd) * Dx
-                            CamZPos += -Sin(CamYRotd) * Dx
                         End If
                     End If
-                End If
-                If OldMouseX > NewMouseX Then
-                    '(MOUSE MOVE LEFT) 
-
-                    If ToolModes.SelectedItemType = ToolID.NONE Then
-                        CamYRot -= (OldMouseX - NewMouseX) * 0.5
-                        If CamYRot < -360 Then
-                            CamYRot = 0
-                        End If
-                    End If
-                    If (ToolModes.Axis = ToolID.NOLOCK Or ToolModes.Axis = ToolID.LOCKTOX) And Not ToolModes.Axis = ToolID.NOMOVE Then
-                        If ToolModes.SelectedItemType = ToolID.ACTOR Then
+                    If OldMouseY > NewMouseY Then
+                        '(MOUSE MOVE DOWN) 
+                        If ToolModes.SelectedItemType = ToolID.NONE Then
+                            CamYPos -= (NewMouseY - OldMouseY) * (CameraCoef / 8)
+                        ElseIf ToolModes.SelectedItemType = ToolID.ACTOR Then
                             If OnSceneActor Then
                                 For i As Integer = 0 To SelectedSceneActors.Count - 1
                                     i1 = SelectedSceneActors(i)
-                                    SceneActors(i1).x -= Cos(CamYRotd) * Dx
-                                    SceneActors(i1).z -= Sin(CamYRotd) * Dx
+                                    SceneActors(i1).x += Sin(CamYRotd) * Dy
+                                    SceneActors(i1).z -= Cos(CamYRotd) * Dy
                                 Next
                             Else
                                 For i As Integer = 0 To SelectedRoomActors.Count - 1
                                     i1 = SelectedRoomActors(i)
-                                    RoomActors(i1).x -= Cos(CamYRotd) * Dx
-                                    RoomActors(i1).z -= Sin(CamYRotd) * Dx
+                                    RoomActors(i1).x += Sin(CamYRotd) * Dy
+                                    RoomActors(i1).z -= Cos(CamYRotd) * Dy
                                 Next
                             End If
-                            CamXPos -= -Cos(CamYRotd) * Dx
-                            CamZPos -= -Sin(CamYRotd) * Dx
+                            CamXPos -= Sin(CamYRotd) * Dy
+                            CamZPos += Cos(CamYRotd) * Dy
                             UpdateActorPos()
-                        ElseIf ToolModes.SelectedItemType = ToolID.VERTEX Then
-                            If RenderGraphics Then
-                                'Vertices(selmesh(i2)).x(selvert(i2)) -= Cos(CamYRotd) * Dx1
-                                'Vertices(selmesh(i2)).z(selvert(i2)) -= Sin(CamYRotd) * Dx1
-                            End If
-                            If RenderCollision Then
-                                For i2 = 0 To SelectedCollisionVert.Count - 1
-                                    CollisionVerts.x(SelectedCollisionVert(i2)) -= Cos(CamYRotd) * Dx
-                                    CollisionVerts.z(SelectedCollisionVert(i2)) -= Sin(CamYRotd) * Dx
-                                Next
-                            End If
-                            CamXPos -= -Cos(CamYRotd) * Dx
-                            CamZPos -= -Sin(CamYRotd) * Dx
                         End If
-                    End If
-                End If
-                If OldMouseY > NewMouseY Then
-
-                    '(MOUSE MOVE UP) 
-                    If ToolModes.SelectedItemType = ToolID.NONE Then
-                        If CamXRot <= -90 Then
-                            CamXRot = -90
-                        Else
-                            CamXRot -= (OldMouseY - NewMouseY) * 0.5
-                        End If
-                    End If
-                    If (ToolModes.Axis = ToolID.NOLOCK Or ToolModes.Axis = ToolID.LOCKTOY) And Not ToolModes.Axis = ToolID.NOMOVE Then
-                        If ToolModes.SelectedItemType = ToolID.ACTOR Then
-                            If OnSceneActor Then
-                                For i As Integer = 0 To SelectedSceneActors.Count - 1
-                                    SceneActors(SelectedSceneActors(i)).y += Dy
-                                Next
-                            Else
-                                For i As Integer = 0 To SelectedRoomActors.Count - 1
-                                    RoomActors(SelectedRoomActors(i)).y += Dy
-                                Next
-                            End If
-                            CamYPos -= Dy
-                            UpdateActorPos()
-                        ElseIf ToolModes.SelectedItemType = ToolID.VERTEX Then
-                            If RenderGraphics Then
-                                'Vertices(selmesh(i2)).y(selvert(i2)) += Dy
-                            End If
-                            If RenderCollision Then
-                                For i2 = 0 To SelectedCollisionVert.Count - 1
-                                    CollisionVerts.y(SelectedCollisionVert(i2)) += Dy
-                                Next
-                            End If
-                            CamYPos += Dy
-                        End If
-                    End If
-                End If
-                If OldMouseY < NewMouseY Then
-
-                    '(MOUSE MOVE DOWN) 
-                    If ToolModes.SelectedItemType = ToolID.NONE Then
-                        If CamXRot >= 90 Then
-                            CamXRot = 90
-                        Else
-                            CamXRot += (NewMouseY - OldMouseY) * 0.5
-                        End If
-                    End If
-                    If (ToolModes.Axis = ToolID.NOLOCK Or ToolModes.Axis = ToolID.LOCKTOY) And Not ToolModes.Axis = ToolID.NOMOVE Then
-                        If ToolModes.SelectedItemType = ToolID.ACTOR Then
-                            If OnSceneActor Then
-                                For i As Integer = 0 To SelectedSceneActors.Count - 1
-                                    SceneActors(SelectedSceneActors(i)).y -= Dy
-                                Next
-                            Else
-                                For i As Integer = 0 To SelectedRoomActors.Count - 1
-                                    RoomActors(SelectedRoomActors(i)).y -= Dy
-                                Next
-                            End If
-                            CamYPos += Dy
-                            UpdateActorPos()
-                        ElseIf ToolModes.SelectedItemType = ToolID.VERTEX Then
-                            If RenderGraphics Then
-                                'Vertices(selmesh(i2)).y(selvert(i2)) -= Dy1
-                            End If
-                            If RenderCollision Then
-                                For i2 = 0 To SelectedCollisionVert.Count - 1
-                                    CollisionVerts.y(SelectedCollisionVert(i2)) -= Dy
-                                Next
-                            End If
-                            CamYPos += Dy
-                        End If
-                    End If
-                End If
-            ElseIf MouseMiddle Then
-                If OldMouseY > NewMouseY Then
-                    '(MOUSE MOVE UP) 
-                    If ToolModes.SelectedItemType = ToolID.NONE Then
-                        CamYPos += (OldMouseY - NewMouseY) * (CameraCoef)
-                    ElseIf ToolModes.SelectedItemType = ToolID.ACTOR Then
-                        If OnSceneActor Then
-                            For i As Integer = 0 To SelectedSceneActors.Count - 1
-                                i1 = SelectedSceneActors(i)
-                                SceneActors(i1).x -= Sin(CamYRotd) * Dy
-                                SceneActors(i1).z += Cos(CamYRotd) * Dy
-                            Next
-                        Else
-                            For i As Integer = 0 To SelectedRoomActors.Count - 1
-                                i1 = SelectedRoomActors(i)
-                                RoomActors(i1).x -= Sin(CamYRotd) * Dy
-                                RoomActors(i1).z += Cos(CamYRotd) * Dy
-                            Next
-                        End If
-                        CamXPos += Sin(CamYRotd) * Dy
-                        CamZPos -= Cos(CamYRotd) * Dy
-                        UpdateActorPos()
-                    End If
-                End If
-                If OldMouseY < NewMouseY Then
-                    '(MOUSE MOVE DOWN) 
-                    If ToolModes.SelectedItemType = ToolID.NONE Then
-                        CamYPos -= (NewMouseY - OldMouseY) * (CameraCoef)
-                    ElseIf ToolModes.SelectedItemType = ToolID.ACTOR Then
-                        If OnSceneActor Then
-                            For i As Integer = 0 To SelectedSceneActors.Count - 1
-                                i1 = SelectedSceneActors(i)
-                                SceneActors(i1).x += Sin(CamYRotd) * Dy
-                                SceneActors(i1).z -= Cos(CamYRotd) * Dy
-                            Next
-                        Else
-                            For i As Integer = 0 To SelectedRoomActors.Count - 1
-                                i1 = SelectedRoomActors(i)
-                                RoomActors(i1).x += Sin(CamYRotd) * Dy
-                                RoomActors(i1).z -= Cos(CamYRotd) * Dy
-                            Next
-                        End If
-                        CamXPos -= Sin(CamYRotd) * Dy
-                        CamZPos += Cos(CamYRotd) * Dy
-                        UpdateActorPos()
                     End If
                 End If
             End If
-            OldMouseX = oldLocalMouse.X
-            OldMouseY = oldLocalMouse.Y
+
+            If HoldCursor Then
+                Cursor.Position = CursorPosOld
+                Dim curColor As Color = Color.White
+                Select Case ToolModes.SelectedItemType
+                    Case ToolID.ACTOR
+                        curColor = Color.Aquamarine
+                    Case ToolID.VERTEX
+                        curColor = Color.Tomato
+                    Case ToolID.DLIST
+                        curColor = Color.Blue
+                End Select
+                GLPrint2D("+", UoTRender.PointToClient(Cursor.Position), curColor, Glut.GLUT_BITMAP_TIMES_ROMAN_24, -10, -15, True)
+            End If
+            If PrintTool Then
+                Gl.glDisable(Gl.GL_TEXTURE_2D)
+                Gl.glDisable(Gl.GL_FRAGMENT_PROGRAM_ARB)
+                GLPrint2D(PrintToolStr, UoTRender.PointToClient(Cursor.Position), Color.White, Glut.GLUT_BITMAP_HELVETICA_18, 0, 0, True)
+            End If
             If key_w Then
                 If CamXRot >= 90 Or CamXRot <= -90 Then
                     CamYPos += Sin(CamXRotd) * CameraCoef
@@ -3558,29 +3632,27 @@ Public Class MainWin
             Gl.glRotatef(CamZRot, 0.0F, 0.0F, 1.0F)
             Gl.glTranslated(CamXPos, CamYPos, CamZPos)
 
-            If PrintTool Then
-                Gl.glDisable(Gl.GL_TEXTURE_2D)
-                Gl.glDisable(Gl.GL_FRAGMENT_PROGRAM_ARB)
-                GLPrint2D(PrintToolStr, NewMouseX, NewMouseY, True)
-            End If
+
 
             If LoadedDataType = FileTypes.MAP Then DrawActorBoxes(False)
-            If RenderGraphics Then DrawDLArray(N64DList, False)
+            If RenderGraphics Then DrawDLArray(N64DList, ToolID.NONE)
             If RenderCollision Then DrawCollision(CollisionPolies, CollisionVerts, False)
             Gl.glPopMatrix()
 
             UoTRender.SwapBuffers()
 
-            If MouseChanged Then
+            If MouseChanged And Not HoldCursor Then
                 MouseOver = True
                 If ToolModes.CurrentTool < ToolID.DLIST Then
                     PickItem(ToolModes.CurrentTool, Nothing)
                 End If
             End If
         Catch err As Exception
-            MsgBox("Fatal error in main loop! Sorry, unrecoverable the program will now exit." & Environment.NewLine & Environment.NewLine & "Details: " & err.Message, MsgBoxStyle.Critical, "Bug")
-            AppExit = True
+            GenericCatch(err)
         End Try
+    End Sub
+    Private Sub GenericCatch(ByVal err As Exception)
+        MsgBox("Error!" & Environment.NewLine & Environment.NewLine & "From routine: " & err.TargetSite.Name & "()" & Environment.NewLine & Environment.NewLine & "Details: " & err.Message, MsgBoxStyle.Critical, "Bug")
     End Sub
     Private Sub UpdateCamLabels()
         CamXLabel.Text = "Cam X: " & CStr(CamXPos)
@@ -3658,14 +3730,12 @@ Public Class MainWin
         End If
     End Sub
 
-    Private Sub DrawDLArray(ByVal DLists() As N64DisplayList, ByVal SelectionMode As Boolean)
+    Private Sub DrawDLArray(ByVal DLists() As N64DisplayList, ByVal SelectionMode As Integer)
         If SelectionMode Then
             DLParser.ParseMode = DLParser.Parse.GEOMETRY
         Else
             DLParser.ParseMode = DLParser.Parse.EVERYTHING
         End If
-
-        drawn.Clear()
         If Not HasLimbs Then
             For i As Integer = 0 To DLists.Length - 1
                 DrawDL(i, SelectionMode)
@@ -3679,30 +3749,39 @@ Public Class MainWin
                 End With
             End If
             For CurrLimb = 0 To LimbEntries.Length - 1
-                DrawJoint(LimbEntries, CurrLimb)
+                With BoneColorFactor
+                    .r = 0
+                    .g = 0
+                    .b = 0
+                End With
+                DrawJoint(CurrLimb)
             Next
             Gl.glPopMatrix()
         End If
     End Sub
 
-    Private Sub DrawJoint(ByVal Limbs() As Limb, ByVal id As Integer)
-        With Limbs(id)
-            If id + 1 < Limbs.Length - 1 Then
+    Private Sub DrawJoint(ByVal id As Integer)
+        With LimbEntries(id)
+            If id + 1 < LimbEntries.Length - 1 Then
                 CurrLimb = id + 1
             Else
                 CurrLimb = id
             End If
 
-            Dim dlIndex As Integer = SearchDLCache(N64DList, .DisplayList) 'index of limb's requested DL, -1 if none found
+            Dim dlIndex As Integer = -1
+            If .DisplayList > Nothing Then
+                dlIndex = SearchDLCache(N64DList, .DisplayList) 'index of limb's requested DL, -1 if none found
+            End If
 
             If ShowBones Then 'draw bones
                 Gl.glDepthRange(0, 0)
                 Gl.glLineWidth(9)
                 Gl.glBegin(Gl.GL_LINES)
-                Gl.glColor3f(.r, .g, .b)
+                Gl.glColor3f(1, 1, 1)
                 Gl.glVertex3f(0, 0, 0)
                 Gl.glVertex3f(.x, .y, .z)
                 Gl.glEnd()
+                Gl.glDepthRange(0, -0.5)
                 Gl.glPointSize(11)
                 Gl.glBegin(Gl.GL_POINTS)
                 Gl.glColor3f(0, 0, 0)
@@ -3710,7 +3789,7 @@ Public Class MainWin
                 Gl.glEnd()
                 Gl.glPointSize(8)
                 Gl.glBegin(Gl.GL_POINTS)
-                Gl.glColor3f(1, 0, 0)
+                Gl.glColor3ub(BoneColorFactor.r, BoneColorFactor.g, BoneColorFactor.b)
                 Gl.glVertex3f(.x, .y, .z)
                 Gl.glEnd()
                 Gl.glPointSize(1)
@@ -3722,7 +3801,10 @@ Public Class MainWin
 
             Gl.glTranslatef(.x, .y, .z) 'translate to given coordinates
 
-            If ZAnimationCounter.Advancing Then AnimParser.Animate(AnimationEntries, CurrAnimation, LoopAnimation, CurrentFrame)
+            If ZAnimationCounter.Advancing Then
+                AnimParser.Animate(AnimationEntries, CurrAnimation, LoopAnimation, CurrentFrame)
+                UpdateAnimationTab()
+            End If
 
             If AnimationEntries IsNot Nothing Then
                 With AnimParser
@@ -3737,21 +3819,37 @@ Public Class MainWin
             End If
 
             If .c0 > -1 Then
-                DrawJoint(LimbEntries, .c0)
+                BoneColorFactor.r = 255
+                BoneColorFactor.g = 0
+                BoneColorFactor.b = 0
+                DrawJoint(.c0)
+            Else
+                BoneColorFactor.r = 255
+                BoneColorFactor.g = 255
+                BoneColorFactor.b = 255
             End If
 
             Gl.glPopMatrix()
 
             If .c1 > -1 Then
-                DrawJoint(LimbEntries, .c1)
+                BoneColorFactor.r = 0
+                BoneColorFactor.g = 0
+                BoneColorFactor.b = 255
+                DrawJoint(.c1)
+            Else
+                BoneColorFactor.r = 255
+                BoneColorFactor.g = 255
+                BoneColorFactor.b = 255
             End If
         End With
     End Sub
-
-
-    Private Sub DrawDL(ByVal index As Integer, ByVal SelectionMode As Boolean)
+    Private Sub UpdateAnimationTab()
+        FrameNo.Text = (ZAnimationCounter.CurrFrame).ToString & "/" & CurrentFrame.Maximum
+        AnimationElapse.Text = CInt(ZAnimationCounter.ElapsedSeconds.ToString) & ":" & CInt(ZAnimationCounter.ElapsedMilliseconds.ToString) & "s"
+    End Sub
+    Private Sub DrawDL(ByVal index As Integer, ByVal SelectionMode As Integer)
         If Not N64DList(index).Skip Then
-            If Not SelectionMode Then
+            If SelectionMode = ToolID.NONE Then
                 DLParser.ParseDL(N64DList(index))
                 If N64DList(index).Highlight Then
                     DLParser.ParseMode = DLParser.Parse.GEOMETRY
@@ -3762,20 +3860,21 @@ Public Class MainWin
                     DLParser.ParseDL(N64DList(index))
                     DLParser.ParseMode = DLParser.Parse.EVERYTHING
                 End If
-            Else
+            ElseIf SelectionMode = ToolID.DLIST Then
                 Gl.glColor3ub(N64DList(index).PickCol.r, N64DList(index).PickCol.g, N64DList(index).PickCol.b)
                 DLParser.ParseDL(N64DList(index))
                 ReadPixel = MousePixelRead(NewMouseX, NewMouseY)
                 If ReadPixel(0) = N64DList(index).PickCol.r And ReadPixel(1) = N64DList(index).PickCol.g And ReadPixel(2) = N64DList(index).PickCol.b Then
                     DListSelection.SelectedIndex = index + 1
                     EditingTabs.SelectedTab = EditingTabs.TabPages("DLTab")
+                    ToolModes.SelectedItemType = ToolID.DLIST
                     Exit Sub
                 End If
+                ToolModes.SelectedItemType = ToolID.NONE
             End If
         End If
     End Sub
-
-    Sub DrawCollision(ByVal Polygons() As PolygonCollision, ByVal Vertices As CollisionVertex, ByVal SelectionMode As Boolean)
+    Private Sub DrawCollision(ByVal Polygons() As PolygonCollision, ByVal Vertices As CollisionVertex, ByVal SelectionMode As Boolean)
         Gl.glDisable(Gl.GL_TEXTURE_2D)
         Gl.glDisable(Gl.GL_FRAGMENT_PROGRAM_ARB)
         Gl.glDisable(Gl.GL_CULL_FACE)
@@ -3786,7 +3885,7 @@ Public Class MainWin
             Gl.glEnable(Gl.GL_POLYGON_OFFSET_LINE)
             Gl.glPolygonMode(Gl.GL_FRONT_AND_BACK, Gl.GL_LINE)
 
-            Gl.glPolygonOffset(-12.0, -12.0)
+            Gl.glPolygonOffset(-5.0, -5.0)
 
             Gl.glBegin(Gl.GL_TRIANGLES)
             Gl.glColor3f(0, 0, 0)
@@ -3826,18 +3925,17 @@ Public Class MainWin
             Gl.glEnd()
             Select Case ToolModes.CurrentTool
                 Case ToolID.VERTEX
-                    Gl.glPointSize(12)
+                    Gl.glPointSize(14)
                     Gl.glBegin(Gl.GL_POINTS)
                     For i As Integer = 0 To Vertices.x.Count - 1
                         If SelectedCollisionVert.Contains(i) Then Gl.glColor3f(1, 0, 0) Else Gl.glColor3f(1, 1, 1)
                         Gl.glVertex3i(Vertices.x(i), Vertices.y(i), Vertices.z(i))
                     Next
                     Gl.glEnd()
-
-                    Gl.glPointSize(10)
-                    Gl.glColor3f(0, 0, 0)
+                    Gl.glPointSize(11)
                     Gl.glBegin(Gl.GL_POINTS)
                     For i As Integer = 0 To Vertices.x.Count - 1
+                        If SelectedCollisionVert.Contains(i) Then Gl.glColor3f(0, 0, 1) Else Gl.glColor3f(0, 0, 0)
                         Gl.glVertex3i(Vertices.x(i), Vertices.y(i), Vertices.z(i))
                     Next
                     Gl.glEnd()
@@ -3849,22 +3947,17 @@ Public Class MainWin
                 Case ToolID.VERTEX
                     Gl.glDisable(Gl.GL_BLEND)
                     Gl.glPointSize(23)
-                    Gl.glPolygonOffset(-5, -5)
-                    Gl.glEnable(Gl.GL_POLYGON_OFFSET_POINT)
-                    Gl.glPolygonMode(Gl.GL_FRONT_AND_BACK, Gl.GL_POINT)
-                    Gl.glBegin(Gl.GL_TRIANGLES)
+                    Gl.glBegin(Gl.GL_POINTS)
                     For i As Integer = 0 To Vertices.x.Count - 1
                         Gl.glColor3ub(Vertices.VertR(i), Vertices.VertG(i), Vertices.VertB(i))
                         Gl.glVertex3i(Vertices.x(i), Vertices.y(i), Vertices.z(i))
                     Next
                     Gl.glEnd()
-                    Gl.glDisable(Gl.GL_POLYGON_OFFSET_POINT)
-                    Gl.glPolygonMode(Gl.GL_FRONT_AND_BACK, Gl.GL_FILL)
                 Case ToolID.EDGE
                     Dim curedge As Integer = 0
                     Gl.glEnable(Gl.GL_POLYGON_OFFSET_LINE)
                     Gl.glPolygonMode(Gl.GL_FRONT_AND_BACK, Gl.GL_LINE)
-                    Gl.glPolygonOffset(-7.0, -7.0)
+                    Gl.glPolygonOffset(-8.0, -8.0)
                     Gl.glLineWidth(10)
                     Gl.glBegin(Gl.GL_TRIANGLES)
                     For i As Integer = 0 To Vertices.EdgeR.Count - 1
@@ -3879,7 +3972,7 @@ Public Class MainWin
                     Gl.glDisable(Gl.GL_POLYGON_OFFSET_LINE)
                     Gl.glPolygonMode(Gl.GL_FRONT_AND_BACK, Gl.GL_FILL)
                 Case ToolID.COLTRI
-                    Gl.glPolygonOffset(-9, -9)
+                    Gl.glPolygonOffset(-8, -8)
                     Gl.glEnable(Gl.GL_POLYGON_OFFSET_FILL)
                     Gl.glBegin(Gl.GL_TRIANGLES)
                     For i As Integer = 0 To Polygons.Length - 1
@@ -4113,6 +4206,8 @@ Public Class MainWin
             Gl.glBindTexture(Gl.GL_TEXTURE_2D, 2)
             Gl.glTexImage2D(Gl.GL_TEXTURE_2D, 0, Gl.GL_RGBA, 1, 1, 0, Gl.GL_RGBA, Gl.GL_UNSIGNED_BYTE, blank_tex)
 
+            AnimationFPS.Value = 30
+
             With CollisionVerts
                 .x = New ArrayList
                 .y = New ArrayList
@@ -4235,8 +4330,85 @@ Public Class MainWin
         CamYPos = 0.0
         CamZPos = 0.0
     End Sub
-    Private Sub SwitchGame(ByVal game As Integer)
+    Private Function ReadActorDBHuman(ByVal fn As String) As ActorDB()
+        If File.Exists(fn) Then
+            Dim tDB() As ActorDB
+            Dim tReader As StreamReader = New StreamReader(fn)
+            Dim Tokens() As String
+            Dim nextTokens() As String
+            Dim actorCnt As Integer = 0
+            Dim varCnt As Integer = 0
+            ReDim tDB(-1)
+readMain:   While tReader.Peek <> -1
+                Tokens = tReader.ReadLine.Split(" ")
+                If Tokens.Length > 1 Then
+                    Dim testOne As String = Tokens(0)
+                    Dim intTest As Integer = 0
+                    If Int32.TryParse(testOne, intTest) Then
+                        GoTo readActor
+                    Else
+                        GoTo readmain
+                    End If
 
+readActor:          ReDim Preserve tDB(actorCnt)
+                    With tDB(actorCnt)
+                        .no = Int32.Parse(Tokens(0), Globalization.NumberStyles.HexNumber)
+
+                        If Int32.TryParse(Tokens(1), intTest) Then
+                            If Tokens(1).Contains("+") Then
+                                .grp = Int32.Parse(Mid(Tokens(1), 1, 4), Globalization.NumberStyles.HexNumber)
+                            Else
+                                .grp = Int32.Parse(Tokens(1), Globalization.NumberStyles.HexNumber)
+                            End If
+                            .desc = ""
+                            If Tokens.Length > 2 Then
+                                For i As Integer = 2 To Tokens.Length - 1
+                                    .desc += Tokens(i) & " "
+                                Next
+                            End If
+                        End If
+                    End With
+                    nextTokens = tReader.ReadLine.Split(" ")
+                    If nextTokens.Length > 1 Then
+readVars:               While nextTokens(0) = "" And nextTokens(1) = "-"
+
+                            ReDim Preserve tDB(actorCnt).var(varCnt)
+                            With tDB(actorCnt).var(varCnt)
+
+                                Int32.TryParse(nextTokens(2), .var)
+
+                                .desc = ""
+                                If .var > -1 And nextTokens(3) = "=" Then
+                                    For I As Integer = 4 To nextTokens.Length - 1
+                                        .desc += nextTokens(I) & " "
+                                    Next
+                                End If
+                            End With
+                            varCnt += 1
+                            nextTokens = tReader.ReadLine.Split(" ")
+                            If nextTokens.Length <= 1 Then
+                                Exit While
+                            End If
+                        End While
+                    End If
+                    varCnt = 0
+                Else
+                    GoTo readmain
+                End If
+                actorCnt += 1
+            End While
+            Return tDB
+        End If
+    End Function
+    Private Sub PopulateNumContext(ByVal DB() As ActorDB)
+
+    End Sub
+    Private Sub PopulateVarContext(ByVal DB() As ActorDB, ByVal Actor As Integer)
+        For I As Integer = 0 To DB(Actor).var.Length - 1
+            VarContextMenu.Items.Add(DB(Actor).var(I).desc)
+        Next
+    End Sub
+    Private Sub SwitchGame(ByVal game As Integer)
         Dim curline As String = ""
 
         Select Case game
@@ -4246,33 +4418,16 @@ Public Class MainWin
                 ExtraDataPrefix = "\ext\MM"
         End Select
 
-        ActorDataBase.Clear()
-        If File.Exists(AppDirectory & ExtraDataPrefix & "\actor_db.txt") Then
-            Dim actordb As StreamReader = New StreamReader(AppDirectory & ExtraDataPrefix & "\actor_db.txt")
-            While actordb.Peek <> -1
-                ActorDataBase.Add(actordb.ReadLine)
-            End While
-            actordb.Dispose()
+        If File.Exists(AppDirectory & ExtraDataPrefix & "\oot_actors_human.txt") Then
+            ActorDataBase = ReadActorDBHuman(AppDirectory & ExtraDataPrefix & "\oot_actors_human.txt")
+        Else
+            ReDim ActorDataBase(-1)
         End If
 
         ActorDBGroups.Clear()
         ActorDBNumber.Clear()
         ActorDBVars.Clear()
         ActorDBDesc.Clear()
-        If File.Exists(AppDirectory & ExtraDataPrefix & "\actor_db.txt") Then
-            Dim acpres As StreamReader = New StreamReader(AppDirectory & ExtraDataPrefix & "\actor_db.txt")
-
-            While acpres.Peek <> -1
-                curline = acpres.ReadLine
-                If curline <> "" And Not ActorDBDesc.Contains(Mid(curline, 16)) Then
-                    ActorDBGroups.Add(Mid(curline, 6, 4))
-                    ActorDBNumber.Add(Mid(curline, 1, 4))
-                    ActorDBVars.Add(Mid(curline, 11, 4))
-                    ActorDBDesc.Add(Mid(curline, 16))
-                End If
-            End While
-            acpres.Dispose()
-        End If
 
         Objects.Clear()
         ObjectsDesc.Clear()
@@ -4429,7 +4584,7 @@ Public Class MainWin
                                 End With
                                 i1 += 16
 
-                                SceneActorCombobox.Items.Add((i).ToString & " - " & IdentifyActor(1, i))
+                                RoomActorCombobox.Items.Add("Scene Actor #" & i.ToString & " - " & IdentifyActor(0, i))
                             Next
                             scenePos = mscenePos + 8
                         Case 4
@@ -4589,25 +4744,25 @@ Public Class MainWin
             ReDim LimbEntries(-1)
             AnimParser.ResetAnimation(AnimationStopWatch, ZAnimationCounter)
             AnimParser.StopAnimation(AnimationStopWatch, ZAnimationCounter)
-            CurrentFrame.Value = 0
+            CurrentFrame.Value = 1
             DListSelection.Items.Clear()
+            AnimationList.Items.Clear()
             Select Case LoadedDataType
                 Case FileTypes.MAP
                     FindAllDLs(ZFileBuffer, N64DList)
                     HasLimbs = False
                 Case FileTypes.ACTORMODEL
                     animationbank.SelectedIndex = 0
-                    HasLimbs = True
-                    LimbEntries = AnimParser.GetHierarchy(ZFileBuffer, 6)
+                    LimbEntries = AnimParser.GetHierarchies(ZFileBuffer, 6)
                     If LimbEntries IsNot Nothing Then
+                        HasLimbs = True
                         AnimationEntries = AnimParser.GetAnimations(ZFileBuffer, LimbEntries.Length - 1, 6)
                         If AnimationEntries IsNot Nothing Then
                             AnimationList.SelectedIndex = 0
                         End If
-                    End If
-                    If LimbEntries Is Nothing Then
-                        FindAllDLs(ZFileBuffer, N64DList)
+                    Else
                         HasLimbs = False
+                        FindAllDLs(ZFileBuffer, N64DList)
                     End If
             End Select
         Catch err As System.Exception
@@ -4673,25 +4828,25 @@ Public Class MainWin
         AboutBoxDialog.Focus()
     End Sub
 
-    Private Function IdentifyActor(ByVal ActorType As UInteger, ByVal Actor As UInteger) As String
-        'Dim ActorIdent As String = "?"
-        'For i3 As Integer = 0 To ActorDataBase.Count - 1
-        '    ActorDescription = ActorDataBase(i3).ToString
-        '    If Mid(ActorDescription, 6, 4) = "0001" Or Mid(ActorDescription, 6, 4) = "0000" Then
-        '        If Mid(ActorDescription, 1, 4) = RoomActors(Actor).no.ToString("X4") And Mid(ActorDescription, 11, 4) = RoomActors(Actor).var.ToString("X4") Then
-        '            ActorIdent = Mid(ActorDescription, 16)
-        '            Exit For
-        '        End If
-        '    Else
-        '        For i2 = 0 To groupcnt - 1
-        '            If Mid(ActorDescription, 1, 9) = RoomActors(Actor).no.ToString("X4") & ":" & ActorGroups(i2).ToString("X4") And Mid(ActorDescription, 11, 4) = RoomActors(Actor).var.ToString("X4") Then
-        '                ActorIdent = Mid(ActorDescription, 16)
-        '                UsedGroupIndex(Actor) = i2
-        '                Exit For
-        '            End If
-        '        Next
-        '    End If
-        'Next
+    Private Function IdentifyActor(ByVal ActorType As UInteger, ByVal Actor As Integer) As String
+        If ActorType = 0 Then
+            For I As Integer = 0 To ActorDataBase.Length - 1
+                With ActorDataBase(I)
+                    If .no = RoomActors(Actor).no Then
+                        Return ActorDataBase(I).desc
+                    End If
+                End With
+            Next
+        Else
+            For I As Integer = 0 To ActorDataBase.Length - 1
+                With ActorDataBase(I)
+                    If .no = SceneActors(Actor).no And _
+                       (.grp = 1 Or .grp = 0) Then
+                        Return ActorDataBase(I).desc
+                    End If
+                End With
+            Next
+        End If
         Return "?"
     End Function
     Private Sub ProcessMapHeader()
@@ -4710,18 +4865,12 @@ Public Class MainWin
 
             ComboBox6.SelectedIndex = 0
             rmActorCount = 0
-            groupcnt = 0
             ActorVarText.Text = ""
             ActorVarText.Enabled = False
             ActorGroupText.Text = "0001"
             ActorGroupText.Enabled = False
             ActorNumberText.Text = ""
             ActorNumberText.Enabled = False
-
-            ActorGroupCombobox.Items.Clear()
-            ActorGroupCombobox.Items.Add("Default")
-            ActorGroupCombobox.SelectedIndex = 0
-            ActorGroupCombobox.Enabled = False
 
             RoomActorCombobox.Items.Clear()
             RoomActorCombobox.Items.Add("None selected")
@@ -4765,19 +4914,18 @@ Public Class MainWin
 
                                 End With
                                 i1 += 16
-                                RoomActorCombobox.Items.Add(IdentifyActor(0, i))
+                                RoomActorCombobox.Items.Add("Room Actor #" & i.ToString & " - " & IdentifyActor(0, i))
                             Next
                         End If
                     Case &HB
-                        ActorGroupCombobox.Enabled = True
                         ActorGroupText.Enabled = True
-                        groupcnt = ZFileBuffer(HDPos + 1)
-                        ActorGroupOffset = (ZFileBuffer(HDPos + 5) * &H10000) + (ZFileBuffer(HDPos + 6) * &H100) + (ZFileBuffer(HDPos + 7))
+                        Dim Cnt As UInteger = ZFileBuffer(HDPos + 1)
+                        ActorGroupOffset = ReadUInt24(ZFileBuffer, HDPos + 5)
                         CurGr = ActorGroupOffset
                         Dim gr As UInteger = 0
                         Dim desc As String = "?"
                         Dim objind As Integer = 0
-                        For i As Integer = 0 To groupcnt - 1
+                        For i As Integer = 0 To Cnt - 1
                             gr = ReadInt16(ZFileBuffer, CurGr)
                             ActorGroups.Add(gr)
                             objind = Objects.IndexOf(gr.ToString("X4"))
@@ -4785,7 +4933,7 @@ Public Class MainWin
                             If objind > -1 Then
                                 desc = ObjectsDesc(objind)
                             End If
-                            ActorGroupCombobox.Items.Add((i + 1).ToString & " - " & desc)
+                            'Group.Items.Add((i + 1).ToString & " - " & desc)
                             CurGr += 2
                         Next
                     Case &H12
@@ -4818,6 +4966,7 @@ Public Class MainWin
                 End Select
                 HDPos += 8
             End While
+
         Catch err As Exception
             rmActorCount = 0
             MsgBox("Error in grabbing actors: " & Environment.NewLine & Environment.NewLine & "Debug Info: " & err.Message)
@@ -4984,20 +5133,20 @@ Public Class MainWin
                     .Bank5.Banks(1).EndOffset = ROMFiles.Others(i).endoff
                 End If
             Next
+            Dim animBankCnt As Integer = 0
+            animationbank.Items.Clear()
+            animationbank.Items.Add("Inline with model")
             For i As Integer = 0 To ROMFiles.Objects.Length - 1
                 fileSize = ROMFiles.Objects(i).endoff - ROMFiles.Objects(i).startoff
-                If ROMFiles.Objects(i).filename = "object_oE_anime" Then
-                    ReDim .Anims.Banks(0).Data(fileSize - 1)
+                If (ROMFiles.Objects(i).filename.ToLower.Contains("object_") And ROMFiles.Objects(i).filename.ToLower.Contains("_anime")) Then
+                    animationbank.Items.Add(ROMFiles.Objects(i).filename)
+                    ReDim Preserve .Anims.Banks(animBankCnt)
+                    ReDim .Anims.Banks(animBankCnt).Data(fileSize - 1)
                     romFS.Position = ROMFiles.Objects(i).startoff
-                    romFS.Read(.Anims.Banks(0).Data, 0, fileSize)
-                    .Anims.Banks(0).StartOffset = ROMFiles.Objects(i).startoff
-                    .Anims.Banks(0).EndOffset = ROMFiles.Objects(i).endoff
-                ElseIf ROMFiles.Objects(i).filename = "object_o_anime" Then
-                    ReDim .Anims.Banks(1).Data(fileSize - 1)
-                    romFS.Position = ROMFiles.Objects(i).startoff
-                    romFS.Read(.Anims.Banks(1).Data, 0, fileSize)
-                    .Anims.Banks(1).StartOffset = ROMFiles.Objects(i).startoff
-                    .Anims.Banks(1).EndOffset = ROMFiles.Objects(i).endoff
+                    romFS.Read(.Anims.Banks(animBankCnt).Data, 0, fileSize)
+                    .Anims.Banks(animBankCnt).StartOffset = ROMFiles.Objects(i).startoff
+                    .Anims.Banks(animBankCnt).EndOffset = ROMFiles.Objects(i).endoff
+                    animBankCnt += 1
                 End If
             Next
         End With
@@ -5156,77 +5305,79 @@ Public Class MainWin
         Gl.glTranslatef(CamXPos, CamYPos, CamZPos)
         Select Case CurrentTool
             Case ToolID.ACTOR
-                DrawActorBoxes(True)
-                ReadPixel = MousePixelRead(NewMouseX, NewMouseY)
-                For g As Integer = 0 To RoomActors.Length - 1
-                    If ReadPixel(0) = RoomActors(g).pickR And ReadPixel(1) = RoomActors(g).pickG And ReadPixel(2) = RoomActors(g).pickB Then
-                        If Not MouseOver Then
-                            If Button = Windows.Forms.MouseButtons.Right And SelectedRoomActors.Count > 0 Then
-                                ActorContextMenu.Show(MousePosition.X, MousePosition.Y)
+                If LoadedDataType = FileTypes.MAP Then
+                    DrawActorBoxes(True)
+                    ReadPixel = MousePixelRead(NewMouseX, NewMouseY)
+                    For g As Integer = 0 To RoomActors.Length - 1
+                        If ReadPixel(0) = RoomActors(g).pickR And ReadPixel(1) = RoomActors(g).pickG And ReadPixel(2) = RoomActors(g).pickB Then
+                            If Not MouseOver Then
+                                If Button = Windows.Forms.MouseButtons.Right And SelectedRoomActors.Count > 0 Then
+                                    ActorContextMenu.Show(MousePosition.X, MousePosition.Y)
+                                Else
+                                    SceneActorCombobox.SelectedIndex = 0
+                                    SelectedSceneActors.Clear()
+                                    If Not key_ctrl Then
+                                        SelectedRoomActors.Clear()
+                                        SelectedRoomActors.Add(g)
+                                        'SyncCameraToActor(0, g)
+                                        RoomActorCombobox.SelectedIndex = g + 1
+                                    Else
+                                        MPick = True
+                                        If Not SelectedRoomActors.Contains(g) Then
+                                            SelectedRoomActors.Add(g)
+                                        End If
+                                        RoomActorCombobox.SelectedIndex = 0
+                                    End If
+                                    ToolModes.SelectedItemType = ToolID.ACTOR
+                                    UpdateActorPos()
+                                End If
+                                EditingTabs.SelectedTab = EditingTabs.TabPages("ActorsTab")
                             Else
-                                SceneActorCombobox.SelectedIndex = 0
-                                SelectedSceneActors.Clear()
-                                If Not key_ctrl Then
-                                    SelectedRoomActors.Clear()
-                                    SelectedRoomActors.Add(g)
-                                    'SyncCameraToActor(0, g)
-                                    RoomActorCombobox.SelectedIndex = g + 1
+                                PrintTool = True
+                                PrintToolStr = RoomActorCombobox.Items(g + 1).ToString
+                            End If
+                            Exit Select
+                        End If
+                    Next
+                    For g As Integer = 0 To SceneActors.Length - 1
+                        If ReadPixel(0) = SceneActors(g).pickR And ReadPixel(1) = SceneActors(g).pickG And ReadPixel(2) = SceneActors(g).pickB Then
+                            If Not MouseOver Then
+                                If Button = Windows.Forms.MouseButtons.Right And SelectedSceneActors.Count > 0 Then
+                                    ActorContextMenu.Show(MousePosition.X, MousePosition.Y)
                                 Else
                                     MPick = True
-                                    If Not SelectedRoomActors.Contains(g) Then
-                                        SelectedRoomActors.Add(g)
-                                    End If
                                     RoomActorCombobox.SelectedIndex = 0
-                                End If
-                                ToolModes.SelectedItemType = ToolID.ACTOR
-                                UpdateActorPos()
-                            End If
-                            EditingTabs.SelectedTab = EditingTabs.TabPages("ActorsTab")
-                        Else
-                            PrintTool = True
-                            PrintToolStr = RoomActorCombobox.Items(g + 1).ToString
-                        End If
-                        Exit Select
-                    End If
-                Next
-                For g As Integer = 0 To SceneActors.Length - 1
-                    If ReadPixel(0) = SceneActors(g).pickR And ReadPixel(1) = SceneActors(g).pickG And ReadPixel(2) = SceneActors(g).pickB Then
-                        If Not MouseOver Then
-                            If Button = Windows.Forms.MouseButtons.Right And SelectedSceneActors.Count > 0 Then
-                                ActorContextMenu.Show(MousePosition.X, MousePosition.Y)
-                            Else
-                                MPick = True
-                                RoomActorCombobox.SelectedIndex = 0
-                                SelectedRoomActors.Clear()
+                                    SelectedRoomActors.Clear()
 
-                                If Not key_ctrl Then
-                                    SelectedSceneActors.Clear()
-                                    SelectedSceneActors.Add(g)
-                                    'SyncCameraToActor(1, g)
-                                    SceneActorCombobox.SelectedIndex = g + 1
-                                Else
-                                    If Not SelectedSceneActors.Contains(g) Then
+                                    If Not key_ctrl Then
+                                        SelectedSceneActors.Clear()
                                         SelectedSceneActors.Add(g)
+                                        'SyncCameraToActor(1, g)
+                                        SceneActorCombobox.SelectedIndex = g + 1
+                                    Else
+                                        If Not SelectedSceneActors.Contains(g) Then
+                                            SelectedSceneActors.Add(g)
+                                        End If
+                                        SceneActorCombobox.SelectedIndex = 0
                                     End If
-                                    SceneActorCombobox.SelectedIndex = 0
+                                    ToolModes.SelectedItemType = ToolID.ACTOR
+                                    UpdateActorPos()
                                 End If
-                                ToolModes.SelectedItemType = ToolID.ACTOR
-                                UpdateActorPos()
+                                EditingTabs.SelectedTab = EditingTabs.TabPages("ActorsTab")
+                            Else
+                                PrintTool = True
+                                PrintToolStr = SceneActorCombobox.Items(g + 1).ToString
                             End If
-                            EditingTabs.SelectedTab = EditingTabs.TabPages("ActorsTab")
-                        Else
-                            PrintTool = True
-                            PrintToolStr = SceneActorCombobox.Items(g + 1).ToString
+                            Exit Select
                         End If
-                        Exit Select
-                    End If
-                Next
+                    Next
+                End If
                 PrintTool = False
             Case ToolID.VERTEX
                 Gl.glEnable(Gl.GL_POLYGON_OFFSET_POINT)
                 Gl.glPolygonOffset(-6, -6)
                 If RenderGraphics Then
-                    DrawDLArray(N64DList, True)
+                    DrawDLArray(N64DList, ToolID.VERTEX)
                 End If
                 If RenderCollision Then
                     DrawCollision(CollisionPolies, CollisionVerts, True)
@@ -5241,11 +5392,10 @@ Public Class MainWin
                     EdgeSelect()
                 End If
             Case ToolID.DLIST
-
                 Gl.glEnable(Gl.GL_POLYGON_OFFSET_FILL)
                 Gl.glPolygonOffset(-7, -7)
                 If RenderGraphics Then
-                    DrawDLArray(N64DList, True)
+                    DrawDLArray(N64DList, ToolID.DLIST)
                 End If
                 Gl.glDisable(Gl.GL_POLYGON_OFFSET_FILL)
             Case ToolID.COLTRI
@@ -5322,24 +5472,38 @@ Public Class MainWin
         End If
     End Sub
     Private Sub SimpleOpenGlControl1_MouseDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles UoTRender.MouseDown
+        UoTRender.Cursor.Hide()
         MouseDown1(sender, e)
     End Sub
     Private Sub SimpleOpenGlControl1_MouseUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles UoTRender.MouseUp
+        UoTRender.Cursor.Show()
         MouseUp1(sender, e)
     End Sub
     Private Sub MouseDown1(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs)
-        MouseOver = False
-        If ToolModes.CurrentTool <> ToolID.NONE Then PickItem(ToolModes.CurrentTool, e.Button)
-        Select Case e.Button
-            Case MouseButtons.Left
-                MouseLeft = True
-            Case MouseButtons.Right
-                MouseRight = True
-            Case MouseButtons.Middle
-                MouseMiddle = True
-        End Select
+        If Not HoldCursor Then
+            HoldCursor = True
+            CursorPosOld = New Point(MousePosition.X, MousePosition.Y)
+            oldLocalMouse = UoTRender.PointToClient(CursorPosOld)
+            OldMouseX = oldLocalMouse.X
+            OldMouseY = oldLocalMouse.Y
+            MouseOver = False
+            If ToolModes.CurrentTool <> ToolID.NONE Then PickItem(ToolModes.CurrentTool, e.Button)
+            Select Case e.Button
+                Case MouseButtons.Left
+                    MouseLeft = True
+                Case MouseButtons.Right
+                    MouseRight = True
+                Case MouseButtons.Middle
+                    MouseMiddle = True
+            End Select
+        Else
+            MouseLeft = False
+            MouseRight = False
+            MouseMiddle = False
+        End If
     End Sub
     Private Sub MouseUp1(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs)
+        HoldCursor = False
         ToolModes.SelectedItemType = ToolID.NONE
         Select Case e.Button
             Case MouseButtons.Left
@@ -5392,14 +5556,6 @@ Public Class MainWin
         SetupDialog.Focus()
     End Sub
 
-
-
-    Private Sub ComboBox4_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ActorGroupCombobox.SelectedIndexChanged, ActorGroupCombobox.SelectedIndexChanged
-        If ActorGroups.Count > 0 And ActorGroupCombobox.SelectedIndex > 0 Then
-            ActorGroupText.Text = Convert.ToUInt32(ActorGroups(ActorGroupCombobox.SelectedIndex)).ToString("X4")
-        End If
-    End Sub
-
     Private Sub RoomActorCombobox_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RoomActorCombobox.SelectedIndexChanged, RoomActorCombobox.SelectedIndexChanged
         Try
             comb7 = RoomActorCombobox.SelectedIndex - 1
@@ -5414,6 +5570,7 @@ Public Class MainWin
                 TextBox11.Text = ""
                 TextBox12.Text = ""
                 ToolModes.SelectedItemType = ToolID.NONE
+                VarContextMenu.Items.Clear()
                 If Not MPick Then
                     SelectedRoomActors.Clear()
                 End If
@@ -5425,8 +5582,16 @@ Public Class MainWin
                 ActorVarText.Enabled = True
                 ActorVarText.Text = RoomActors(comb7).var.ToString("X4")
                 ActorNumberText.Text = RoomActors(comb7).no.ToString("X4")
+                VarContextMenu.Items.Clear()
+                For I As Integer = 0 To ActorDataBase.Length - 1
+                    With ActorDataBase(I)
+                        If .no = RoomActors(comb7).no And ActorGroups.Contains(.grp) Then
+                            PopulateVarContext(ActorDataBase, I)
+                            Exit For
+                        End If
+                    End With
+                Next
                 UpdateActorPos()
-                ActorGroupCombobox.SelectedIndex = UsedGroupIndex(comb7)
                 If Not MPick Then
                     SelectedRoomActors.Clear()
                     SelectedRoomActors.Add(comb7)
@@ -5472,7 +5637,7 @@ Public Class MainWin
                 ActorVarText.Text = SceneActors(SceneActorCombobox.SelectedIndex - 1).var.ToString("X4")
                 ActorNumberText.Enabled = True
                 ActorVarText.Enabled = True
-                ActorGroupCombobox.SelectedIndex = 0
+
                 SelectedRoomActors.Clear()
                 If Not MPick Then
                     SelectedSceneActors.Clear()
@@ -5494,10 +5659,10 @@ Public Class MainWin
                 For i As Integer = 0 To SelectedSceneActors.Count - 1
                     i1 = SelectedSceneActors(i)
                     If ActorNumberText.Text.Length = 4 Then
-                        doorno1(i1) = Convert.ToUInt16(ActorNumberText.Text, 16)
+                        SceneActors(i1).no = Convert.ToUInt16(ActorNumberText.Text, 16)
                     End If
                     If ActorVarText.Text.Length = 4 Then
-                        doorvar(i1) = Convert.ToUInt16(ActorVarText.Text, 16)
+                        SceneActors(i1).var = Convert.ToUInt16(ActorVarText.Text, 16)
                     End If
                     If IsNumeric(TextBox7.Text) And ChangePosition(0) Then SceneActors(i1).x = CShort(TextBox7.Text)
                     If IsNumeric(TextBox8.Text) And ChangePosition(1) Then SceneActors(i1).y = CShort(TextBox8.Text)
@@ -5531,9 +5696,6 @@ Public Class MainWin
                         RoomActors(i1).var = Convert.ToUInt16(ActorVarText.Text, 16)
                     End If
                 Next
-            End If
-            If ActorGroupCombobox.SelectedIndex > 0 Then
-                ActorGroups(ActorGroupCombobox.SelectedIndex - 1) = Convert.ToUInt16(ActorGroupText.Text, 16)
             End If
         Catch err As Exception
         End Try
@@ -5976,7 +6138,7 @@ Public Class MainWin
         End If
     End Sub
 
-    Private Sub Button23_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button23.Click
+    Private Sub Button23_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs)
         ActorPresets.Show()
         ActorPresets.Focus()
     End Sub
@@ -6070,47 +6232,6 @@ Public Class MainWin
             Next
         End If
     End Sub
-    Public Sub DelimitActors()
-        Dim curline As String = ""
-        Dim gp As String = ""
-        Dim np As String = ""
-        Dim ap As String = ""
-        Dim desc As String = ""
-        actorgp.Clear()
-        actornp.Clear()
-        actorvp.Clear()
-        actorgpu.Clear()
-        actornpu.Clear()
-        actorvpu.Clear()
-        ActorPresets.AvailableActors.Items.Clear()
-        ActorPresets.UnavailableActors.Items.Clear()
-        For i As Integer = 0 To ActorDBGroups.Count - 1
-            gp = CStr(ActorDBGroups(i))
-            np = CStr(ActorDBNumber(i))
-            ap = CStr(ActorDBVars(i))
-            desc = CStr(ActorDBDesc(i))
-            If ActorGroups.Contains(gp) Or gp = "0001" Then
-                ActorPresets.AvailableActors.Items.Add(desc)
-                'ActorContextMenu.Items(0).
-                actorgp.Add(gp)
-                actornp.Add(np)
-                actorvp.Add(ap)
-            Else
-                ActorPresets.UnavailableActors.Items.Add(desc)
-                actorgpu.Add(gp)
-                actornpu.Add(np)
-                actorvpu.Add(ap)
-            End If
-        Next
-    End Sub
-
-    Private Sub AvailableToolStripMenuItem_DropDownItemClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.ToolStripItemClickedEventArgs)
-
-    End Sub
-
-    Private Sub NeedGroupsToolStripMenuItem_DropDownItemClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.ToolStripItemClickedEventArgs)
-
-    End Sub
 
     Private Sub EditDatabaseToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Process.Start(Application.StartupPath & ExtraDataPrefix & "\actor_db.txt")
@@ -6154,7 +6275,7 @@ Public Class MainWin
             MPick = True
             SelectedRoomActors.Clear()
             SelectedSceneActors.Clear()
-            For i As Integer = 0 To scenedoorcnt - 1
+            For i As Integer = 0 To SceneActors.Length - 1
                 SelectedSceneActors.Add(i)
             Next
             SceneActorCombobox.SelectedIndex = 0
@@ -6204,11 +6325,10 @@ Public Class MainWin
     End Sub
 
     Private Sub SetVariables(ByVal ftype As Integer)
-        DLParser.KillTexCache()
         DLParser.Initialize()
         Select Case ftype
             Case 0
-                CurrentBank = 3
+                CurrentBank = &H3
                 RenderGraphics = True
                 RenderCollision = True
                 LoadedDataType = FileTypes.MAP
@@ -6225,14 +6345,13 @@ Public Class MainWin
                 ProcessSceneHeader()
                 GetEntryPoints()
             Case 1
-                CurrentBank = 6
+                CurrentBank = &H6
                 RenderGraphics = True
                 RenderCollision = False
                 SwitchTool(ToolID.CAMERA)
                 LoadedDataType = FileTypes.ACTORMODEL
                 EditingTabs.TabPages.Remove(ActorsTab)
                 EditingTabs.TabPages.Remove(LevelFlagsTab)
-                LimbEntries = AnimParser.GetHierarchy(ZFileBuffer, 6)
                 GetEntryPoints()
         End Select
     End Sub
@@ -6608,12 +6727,16 @@ Public Class MainWin
                 CurrentFrame.Maximum = AnimationEntries(CurrAnimation).FrameCount - 1
                 AnimParser.ResetAnimation(AnimationStopWatch, ZAnimationCounter)
                 AnimParser.StopAnimation(AnimationStopWatch, ZAnimationCounter)
-                CurrentFrame.Value = 0
+                CurrentFrame.Value = 1
+                AnimationElapse.Text = "00:00s"
+                FrameNo.Text = "0/" & CurrentFrame.Maximum.ToString
             End If
         End If
     End Sub
     Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
-        AnimParser.StartAnimation(AnimationStopWatch, ZAnimationCounter)
+        If AnimationEntries IsNot Nothing And AnimationList.SelectedIndex > -1 Then
+            AnimParser.StartAnimation(AnimationStopWatch, ZAnimationCounter)
+        End If
     End Sub
 
     Private Sub CheckBox1_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBox1.CheckedChanged
@@ -6681,7 +6804,7 @@ Public Class MainWin
     Private Sub MapsCombobox_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MapsCombobox.SelectedIndexChanged
         Dim Files() As String = Directory.GetFiles(GetFileName(LoadIndividual.FileName, True))
         For i As Integer = 0 To Files.Length - 1
-            If Files(i).Contains(".zmap") Then
+            If Files(i).Contains(MapsCombobox.SelectedItem.ToString) Then
                 IndMapFileName = Files(i)
                 ZFileBuffer = File.ReadAllBytes(IndMapFileName)
                 Start(True)
@@ -6694,42 +6817,42 @@ Public Class MainWin
         Select Case Actor_Type
             Case 0
                 For i1 As Integer = 0 To SelectedSceneActors.Count - 1
-                    If x Then SceneActors(SelectedSceneActors(i1)).x = CopyVertex(0)
-                    If y Then SceneActors(SelectedSceneActors(i1)).y = CopyVertex(1)
-                    If z Then SceneActors(SelectedSceneActors(i1)).z = CopyVertex(2)
-                    If yr Then SceneActors(SelectedSceneActors(i1)).yr = CopyVertex(4)
-                    If no Then SceneActors(SelectedSceneActors(i1)).no = CopyVertex(6)
-                    If var Then SceneActors(SelectedSceneActors(i1)).var = CopyVertex(7)
+                    If x Then SceneActors(SelectedSceneActors(i1)).x = CopyActor(0)
+                    If y Then SceneActors(SelectedSceneActors(i1)).y = CopyActor(1)
+                    If z Then SceneActors(SelectedSceneActors(i1)).z = CopyActor(2)
+                    If yr Then SceneActors(SelectedSceneActors(i1)).yr = CopyActor(4)
+                    If no Then SceneActors(SelectedSceneActors(i1)).no = CopyActor(6)
+                    If var Then SceneActors(SelectedSceneActors(i1)).var = CopyActor(7)
                 Next
             Case 1
                 For i1 As Integer = 0 To SelectedRoomActors.Count - 1
-                    If x Then RoomActors(SelectedRoomActors(i1)).x = CopyVertex(0)
-                    If y Then RoomActors(SelectedRoomActors(i1)).y = CopyVertex(1)
-                    If z Then RoomActors(SelectedRoomActors(i1)).z = CopyVertex(2)
-                    If xr Then RoomActors(SelectedRoomActors(i1)).xr = CopyVertex(3)
-                    If yr Then RoomActors(SelectedRoomActors(i1)).yr = CopyVertex(4)
-                    If zr Then RoomActors(SelectedRoomActors(i1)).zr = CopyVertex(5)
-                    If no Then RoomActors(SelectedRoomActors(i1)).no = CopyVertex(6)
-                    If var Then RoomActors(SelectedRoomActors(i1)).var = CopyVertex(7)
+                    If x Then RoomActors(SelectedRoomActors(i1)).x = CopyActor(0)
+                    If y Then RoomActors(SelectedRoomActors(i1)).y = CopyActor(1)
+                    If z Then RoomActors(SelectedRoomActors(i1)).z = CopyActor(2)
+                    If xr Then RoomActors(SelectedRoomActors(i1)).xr = CopyActor(3)
+                    If yr Then RoomActors(SelectedRoomActors(i1)).yr = CopyActor(4)
+                    If zr Then RoomActors(SelectedRoomActors(i1)).zr = CopyActor(5)
+                    If no Then RoomActors(SelectedRoomActors(i1)).no = CopyActor(6)
+                    If var Then RoomActors(SelectedRoomActors(i1)).var = CopyActor(7)
                 Next
         End Select
         UpdateActorPos()
         If no Or var Then
-            ActorNumberText.Text = CopyVertex(6).ToString("X4")
-            ActorVarText.Text = CopyVertex(7).ToString("X4")
+            ActorNumberText.Text = CopyActor(6).ToString("X4")
+            ActorVarText.Text = CopyActor(7).ToString("X4")
             UpdateActorIdents()
         End If
     End Sub
 
     Private Sub CopyToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CopyToolStripMenuItem.Click
-        CopyVertex(0) = RoomActors(SelectedRoomActors(0)).x
-        CopyVertex(1) = RoomActors(SelectedRoomActors(0)).y
-        CopyVertex(2) = RoomActors(SelectedRoomActors(0)).z
-        CopyVertex(3) = RoomActors(SelectedRoomActors(0)).xr
-        CopyVertex(4) = RoomActors(SelectedRoomActors(0)).yr
-        CopyVertex(5) = RoomActors(SelectedRoomActors(0)).zr
-        CopyVertex(6) = RoomActors(SelectedRoomActors(0)).no
-        CopyVertex(7) = RoomActors(SelectedRoomActors(0)).var
+        CopyActor(0) = RoomActors(SelectedRoomActors(0)).x
+        CopyActor(1) = RoomActors(SelectedRoomActors(0)).y
+        CopyActor(2) = RoomActors(SelectedRoomActors(0)).z
+        CopyActor(3) = RoomActors(SelectedRoomActors(0)).xr
+        CopyActor(4) = RoomActors(SelectedRoomActors(0)).yr
+        CopyActor(5) = RoomActors(SelectedRoomActors(0)).zr
+        CopyActor(6) = RoomActors(SelectedRoomActors(0)).no
+        CopyActor(7) = RoomActors(SelectedRoomActors(0)).var
         PasteToolStripMenuItem.Enabled = True
         PasteToolStripMenuItem.Text = "Paste attributes from actor " & SelectedRoomActors(0).ToString
         ClearClipboardToolStripMenuItem.Enabled = True
@@ -6779,7 +6902,7 @@ Public Class MainWin
         PasteToolStripMenuItem.Enabled = False
         PasteToolStripMenuItem.Text = "Paste attributes"
         For i As Integer = 0 To 7
-            CopyVertex(i) = -1
+            CopyActor(i) = -1
         Next
         ClearClipboardToolStripMenuItem.Enabled = False
     End Sub
@@ -6837,7 +6960,7 @@ Public Class MainWin
         ReDim Preserve ZFileBuffer(ZFileBuffer.Length - 1 + (rmActorCount * &H16))
         rmActorCount += 1
     End Sub
-    Private Sub Button6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button6.Click
+    Private Sub Button6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         If Not RelocateActorPtr Then
             If MsgBox("Relocate actors to end of file?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
                 ActorPointer(2) = ZFileBuffer.Length - 1
@@ -7012,14 +7135,14 @@ Public Class MainWin
 
     End Sub
     Private Sub ToolStripMenuItem20_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripMenuItem20.Click
-        CopyVertex(0) = CollisionVerts.x(SelectedCollisionVert(0))
-        CopyVertex(1) = CollisionVerts.y(SelectedCollisionVert(0))
-        CopyVertex(2) = CollisionVerts.z(SelectedCollisionVert(0))
-        CopyVertex(3) = -1
-        CopyVertex(4) = -1
-        CopyVertex(5) = -1
-        CopyVertex(6) = -1
-        CopyVertex(7) = 1
+        CopyActor(0) = CollisionVerts.x(SelectedCollisionVert(0))
+        CopyActor(1) = CollisionVerts.y(SelectedCollisionVert(0))
+        CopyActor(2) = CollisionVerts.z(SelectedCollisionVert(0))
+        CopyActor(3) = -1
+        CopyActor(4) = -1
+        CopyActor(5) = -1
+        CopyActor(6) = -1
+        CopyActor(7) = 1
 
         PasteToolStripMenuItem.Enabled = True
         PasteToolStripMenuItem.Text = "Paste attributes from actor " & SelectedRoomActors(0).ToString
@@ -7227,7 +7350,6 @@ Public Class MainWin
 
         End If
     End Sub
-#End Region
     Private Sub WholeCommandTxt_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles WholeCommandTxt.TextChanged
     End Sub
 
@@ -7280,5 +7402,31 @@ Public Class MainWin
 
     Private Sub TrackBar4_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TrackBar4.ValueChanged
         ToolSensitivity = TrackBar4.Value
+    End Sub
+
+    Private Sub NumericUpDown1_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AnimationFPS.ValueChanged, AnimationFPS.ValueChanged
+        ZAnimationCounter.FPS = AnimationFPS.Value
+    End Sub
+
+    Private Sub CurrentFrame_Scroll(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CurrentFrame.Scroll
+        ZAnimationCounter.CurrFrame = CurrentFrame.Value - 1
+        UpdateAnimationTab()
+    End Sub
+
+    Private Sub VarPresetButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        VarContextMenu.Show(MousePosition.X, MousePosition.Y)
+    End Sub
+
+    Private Sub NumButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        NumContextMenu.Show(MousePosition.X, MousePosition.Y)
+    End Sub
+
+    Private Sub GrpPresetButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        GrpContextMenu.Show(MousePosition.X, MousePosition.Y)
+    End Sub
+#End Region
+
+    Private Sub Button6_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button6.Click
+        ActorPresets.ShowDialog()
     End Sub
 End Class
