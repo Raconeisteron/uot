@@ -4,14 +4,14 @@
   <description asmv2:publisher="Microsoft" asmv2:product="Utility of Time" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <deployment install="true" mapFileExtensions="true" />
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="Utility of Time.exe.manifest" size="5991">
+    <dependentAssembly dependencyType="install" codebase="Utility of Time.exe.manifest" size="5118">
       <assemblyIdentity name="Utility of Time.exe" version="1.0.0.0" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="x86" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>JUBJkhLXsAz7qv36p5iH+xHy5Rw=</dsig:DigestValue>
+        <dsig:DigestValue>pGVgMEfMh3CcXOPShuwFTILCEZo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

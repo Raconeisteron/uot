@@ -76,7 +76,7 @@ Module Functions
                             + Buffer(Offset + 2)
     End Function
     Public Function ReadInt16(ByVal Buffer() As Byte, ByVal Offset As UInteger) As Integer
-        If Offset > Buffer.Length - 1 Then
+        If Offset >= Buffer.Length - 1 Then
             ReadInt16 = 0
             Exit Function
         End If
@@ -234,7 +234,7 @@ Module Functions
             Return False
         End If
     End Function
-    Public Function GLPrint2D(ByVal Text As String, ByVal XPos As Integer, ByVal YPos As Integer, ByVal Shadow As Boolean)
+    Public Function GLPrint2D(ByVal Text As String, ByVal Position As Point, ByVal TextColor As Color, ByVal GLUTFONT As IntPtr, ByVal XOffset As Integer, ByVal YOffset As Integer, ByVal Shadow As Boolean)
         Gl.glMatrixMode(Gl.GL_PROJECTION)
         Gl.glPushMatrix()
         Gl.glLoadIdentity()
@@ -243,21 +243,22 @@ Module Functions
         Gl.glMatrixMode(Gl.GL_MODELVIEW)
         Gl.glPushMatrix()
         Gl.glLoadIdentity()
-
+        Dim XPos As Integer = Position.X
+        Dim YPos As Integer = Position.Y
         If Shadow Then
             'shadow (black - 0r, 0g, 0b)
             Gl.glColor3f(0, 0, 0)
-            Gl.glRasterPos2f(XPos + 1, winh - YPos - 1)
+            Gl.glRasterPos2f(XPos + XOffset + 1, (winh - YPos) + YOffset - 1)
             For a As Integer = 0 To Text.Length - 1
-                Glut.glutBitmapCharacter(Glut.GLUT_BITMAP_HELVETICA_18, Asc(Text(a)))
+                Glut.glutBitmapCharacter(GLUTFONT, Asc(Text(a)))
             Next
         End If
 
         'main text (white - 1r, 1g, 1b)
-        Gl.glColor3f(1, 1, 1)
-        Gl.glRasterPos2f(XPos, winh - YPos)
+        Gl.glColor3ub(TextColor.R, TextColor.G, TextColor.B)
+        Gl.glRasterPos2f(XPos + XOffset, (winh - YPos) + YOffset)
         For a As Integer = 0 To Text.Length - 1
-            Glut.glutBitmapCharacter(Glut.GLUT_BITMAP_HELVETICA_18, Asc(Text(a)))
+            Glut.glutBitmapCharacter(GLUTFONT, Asc(Text(a)))
         Next
 
         Gl.glMatrixMode(Gl.GL_PROJECTION)

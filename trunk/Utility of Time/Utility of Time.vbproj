@@ -25,7 +25,7 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>2.0</OldToolsVersion>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <OptionInfer>Off</OptionInfer>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
@@ -42,6 +42,8 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkSubset>
+    </TargetFrameworkSubset>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <GenerateResourceNeverLockTypeAssemblies>true</GenerateResourceNeverLockTypeAssemblies>
@@ -148,9 +150,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Core">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.XML" />
@@ -178,7 +177,6 @@
     <Import Include="System.Collections.Generic" />
     <Import Include="System.Diagnostics" />
     <Import Include="System.Drawing" />
-    <Import Include="System.Linq" />
     <Import Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
@@ -262,7 +260,13 @@
     <EmbeddedResource Include="bin\Debug\ext\kokirisword.cur" />
     <EmbeddedResource Include="bin\Debug\ext\hook.cur" />
     <Content Include="Main window\uoticon64.ico" />
+    <None Include="Resources\icon_txt.gif" />
+    <None Include="Resources\Button-Refresh-icon.png" />
+    <None Include="Resources\Button-Stop-icon.png" />
+    <None Include="Resources\Button-Play-icon.png" />
     <Compile Include="Animation\ZAnimation.vb" />
+    <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="Databases\PresetReader.vb" />
     <Compile Include="Display List\MatrixManipulation.vb" />
     <Compile Include="External Model Formats\3ds.vb" />
     <Compile Include="DL Command Editors\CombinerEditor.Designer.vb">
@@ -276,6 +280,12 @@
     <Compile Include="Display List\N64DlistAssembler.vb" />
     <Compile Include="Display List\F3DEX2_Parser.vb" />
     <Compile Include="Helpers\SLERP.vb" />
+    <Compile Include="Hex Editor\HexEditor.Designer.vb">
+      <DependentUpon>HexEditor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Hex Editor\HexEditor.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Main window\BankSetup.Designer.vb">
       <DependentUpon>BankSetup.vb</DependentUpon>
     </Compile>
@@ -296,6 +306,9 @@
     <Compile Include="Data Storage\Structs.vb" />
     <Compile Include="Display List\TextureConverter.vb" />
     <BaseApplicationManifest Include="My Project\app.manifest" />
+    <EmbeddedResource Include="Hex Editor\HexEditor.resx">
+      <DependentUpon>HexEditor.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main window\BankSetup.resx">
       <DependentUpon>BankSetup.vb</DependentUpon>
     </EmbeddedResource>
@@ -309,6 +322,7 @@
     <EmbeddedResource Include="Level Creator\LevelCreator.resx">
       <DependentUpon>LevelCreator.vb</DependentUpon>
     </EmbeddedResource>
+    <None Include="app.config" />
     <None Include="Main window\app.config" />
   </ItemGroup>
   <ItemGroup>

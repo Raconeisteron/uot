@@ -1,12 +1,15 @@
 Imports System.IO
 Module GlobalVars
-
+#Region "lazy"
     Const m_Pi = 3.1415926535897931
     Enum ZResTypes
         Animation = 0
         DList = 1
         Texture = 2
     End Enum
+    Public ExtraDataPrefix As String = "\ext\"
+    Public ActorDataBase() As ActorDB
+#End Region
 #Region "Application Variables"
     Public winh As Integer = 0
     Public winw As Integer = 0
@@ -29,10 +32,8 @@ Module GlobalVars
     Public sceneused As Boolean = False
     Public envboxoff As Integer = 0
     Public HotKeys() As Keys
-
 #End Region
 #Region "Scene Actor Variables"
-
     Public SelectedRoomActors As New ArrayList
     Public SelectedSceneActors As New ArrayList
     Public actornp As New ArrayList
@@ -41,23 +42,17 @@ Module GlobalVars
     Public actornpu As New ArrayList
     Public actorvpu As New ArrayList
     Public actorgpu As New ArrayList
-    Public groupcntoff As Integer = 0
-    Public groupcnt As Integer = 0
-    Public sceneobjset As Int32 = 0
-    Public doorxoff As New ArrayList
-    Public doorvar As New ArrayList
-    Public doorno1 As New ArrayList
-    Public scenedoorcnt As Integer = 0
-
+    Public sceneobjset As UInteger = 0
 #End Region
 #Region "Map Actor Variables"
     Public ActorGroups As New ArrayList
     Public ActorGroupOffset
 #End Region
-#Region "key data handlers"
+#Region "Key data handlers"
     Public PickedEntities As New PickedItems
     Public CurrentBank As Integer = 0
     Public ZFileBuffer As Byte()
+    Public ExternalHierarchy As Byte()
     Public ExternalAnimBank As Byte()
     Public ZSceneBuffer As Byte()
     Public CommonBanks As New ObjectExchange
@@ -71,10 +66,11 @@ Module GlobalVars
     Public CompileDL As New N64DlistAssembler
     Public ParseOBJ As New OBJParser
     Public LinkedCommands As New DLEdit
-    Public ZAnimationCounter As New FPS
+    Public ZAnimationCounter As New FrameAdvancer
     Public Rand As New Random
     Public Interpolate As New SLERP
     Public AnimationStopWatch As New Stopwatch
+    Public AllVertices As New N64Vertex
 #End Region
 #Region "Texture Converter Class Instances"
     Public RGBA As New TextureUpscaler.RGBA
